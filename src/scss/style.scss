@@ -1,0 +1,11 @@
+.test {
+  display: block;
+
+  &-h1 {
+    color: rgb(173, 69, 69);
+  }
+
+  &-button {
+    color: red;
+  }
+}
