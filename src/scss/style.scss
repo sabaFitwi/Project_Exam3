@@ -1,11 +1,57 @@
-.test {
-  display: block;
+@import"../../node_modules/bootstrap/scss/bootstrap.scss";
 
-  &-h1 {
-    color: rgb(173, 69, 69);
-  }
+:root {
+  --lg-font: "Georama", arial, sans-serif;
+  --sm-font: "Tajawal", arial, sans-serif;
+  --pink: #e5345b;
+}
 
-  &-button {
-    color: red;
-  }
+body {
+  font-family: var(--sm-font);
+}
+
+
+.large-font {
+  font-family: var(--lg-font);
+}
+
+.navbar-brand img {
+  width: 30px;
+}
+
+.navbar-brand span {
+  letter-spacing: 2px;
+  font-family: var(--lg-font);
+}
+
+.nav-link:hover {
+  color: var(--pink) !important;
+}
+
+.nav-item {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+}
+
+#header {
+  background: url(/assets/images/banner.jpg) top/cover no-repeat;
+  padding-top: 104px;
+}
+
+.header-height {
+  height: 80vh;
+}
+
+
+.btn:not(.nav-btns button) {
+  background-color: #fff;
+  color: rgb(85, 85, 85);
+  padding: 10px 28px;
+  border-radius: 25px;
+  border: 1px solid rgb(85, 85, 85);
+}
+
+.btn:not(.nav-btns button):hover {
+  background-color: var(--pink);
+  color: #fff;
+  border-color: var(--pink);
 }
