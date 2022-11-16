@@ -4,6 +4,7 @@
   --lg-font: "Georama", arial, sans-serif;
   --sm-font: "Tajawal", arial, sans-serif;
   --pink: #e5345b;
+  --white: #fff;
 }
 
 body {
@@ -43,7 +44,7 @@ body {
 
 
 .btn:not(.nav-btns button) {
-  background-color: #fff;
+  background-color: var(--white);
   color: rgb(85, 85, 85);
   padding: 10px 28px;
   border-radius: 25px;
@@ -52,6 +53,6 @@ body {
 
 .btn:not(.nav-btns button):hover {
   background-color: var(--pink);
-  color: #fff;
+  color: var(--white);
   border-color: var(--pink);
 }
