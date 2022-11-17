@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="description"
     content="Complete and the most affordable auction solution, post your bid  and visit our website" />
-  <link rel="stylesheet" href="/dist/css/style.css" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,7 +17,22 @@
     rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj =
+        h.hj ||
+        function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+      h._hjSettings = { hjid: 2856179, hjsv: 6 };
+      a = o.getElementsByTagName("head")[0];
+      r = o.createElement("script");
+      r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+  </script>
+  <link rel="stylesheet" href="/dist/css/style.css" />
   <title>Auction/Home</title>
 
 </head>
@@ -46,22 +61,24 @@
       <div class="collapse navbar-collapse order-lg-1" id="navMenu">
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font" href="#header">home</a>
+            <a class="nav-link text-uppercase text-dark large-font active active-color" aria-current="page"
+              href="/">home</a>
           </li>
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font" href="#collection">collection</a>
+            <a class="nav-link text-uppercase text-dark large-font" href="/listing">collection</a>
           </li>
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font" href="#special">Buy</a>
+            <a class="nav-link text-uppercase text-dark large-font" href="/buy">Buy</a>
           </li>
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font" href="#blogs">sell</a>
+            <a class="nav-link text-uppercase text-dark large-font" href="/sell">sell</a>
           </li>
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font" href="#about">log in</a>
+            <a class="nav-link text-uppercase text-dark large-font" href="/login">log in</a>
           </li>
           <li class="nav-item px-2 py-2 border-0">
-            <button class="nav-link text-uppercase text-dark large-font" href="#popular">register</button>
+            <a class="nav-link text-uppercase text-dark large-font" href="/register"><button
+                class="btn btn-primary ">register</button> </a>
           </li>
         </ul>
       </div>
@@ -103,7 +120,7 @@
 
       <div class="row g-0">
         <div class="d-flex flex-wrap justify-content-center mt-5 filter-button-group">
-          <button type="button" class="btn m-2 text-dark active-filter-btn" data-filter="*">All</button>
+          <button type="button" class="btn m-2 text-dark active-filter-btn btn-radius" data-filter="*">All</button>
           <button type="button" class="btn m-2 text-dark" data-filter=".best">Best Sellers</button>
           <button type="button" class="btn m-2 text-dark" data-filter=".feat">Featured</button>
           <button type="button" class="btn m-2 text-dark" data-filter=".new">New Arrival</button>
@@ -112,18 +129,12 @@
         <div class="collection-list mt-4 row gx-0 gy-3">
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
             <div class="collection-img position-relative">
-              <img src="images/c_formal_gray_shirt.png" class="w-100">
+              <img src="assets/images/8.jpg" class="w-100">
               <span
                 class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
             </div>
             <div class="text-center">
-              <div class="rating mt-3">
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-              </div>
+
               <p class="text-capitalize my-1">gray shirt</p>
               <span class="fw-bold">$ 45.50</span>
             </div>
@@ -131,18 +142,12 @@
 
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
             <div class="collection-img position-relative">
-              <img src="images/c_pant_girl.png" class="w-100">
+              <img src="assets/images/8.jpg" class="w-100">
               <span
                 class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
             </div>
             <div class="text-center">
-              <div class="rating mt-3">
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-              </div>
+
               <p class="text-capitalize my-1">gray shirt</p>
               <span class="fw-bold">$ 45.50</span>
             </div>
@@ -150,18 +155,12 @@
 
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
             <div class="collection-img position-relative">
-              <img src="images/c_polo-shirt.png" class="w-100">
+              <img src="assets/images/8.jpg" class="w-100">
               <span
                 class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
             </div>
             <div class="text-center">
-              <div class="rating mt-3">
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-              </div>
+
               <p class="text-capitalize my-1">gray shirt</p>
               <span class="fw-bold">$ 45.50</span>
             </div>
@@ -169,18 +168,12 @@
 
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
             <div class="collection-img position-relative">
-              <img src="images/c_shirt-girl.png" class="w-100">
+              <img src="assets/images/8.jpg" class="w-100">
               <span
                 class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
             </div>
             <div class="text-center">
-              <div class="rating mt-3">
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-              </div>
+
               <p class="text-capitalize my-1">gray shirt</p>
               <span class="fw-bold">$ 45.50</span>
             </div>
@@ -188,18 +181,12 @@
 
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
             <div class="collection-img position-relative">
-              <img src="images/c_t-shirt_men.png" class="w-100">
+              <img src="assets/images/8.jpg" class="w-100">
               <span
                 class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
             </div>
             <div class="text-center">
-              <div class="rating mt-3">
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-              </div>
+
               <p class="text-capitalize my-1">gray shirt</p>
               <span class="fw-bold">$ 45.50</span>
             </div>
@@ -207,18 +194,12 @@
 
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
             <div class="collection-img position-relative">
-              <img src="images/c_tunic-shirt_girl.png" class="w-100">
+              <img src="assets/images/8.jpg" class="w-100">
               <span
                 class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
             </div>
             <div class="text-center">
-              <div class="rating mt-3">
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-              </div>
+
               <p class="text-capitalize my-1">gray shirt</p>
               <span class="fw-bold">$ 45.50</span>
             </div>
@@ -226,18 +207,12 @@
 
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
             <div class="collection-img position-relative">
-              <img src="images/c_undershirt.png" class="w-100">
+              <img src="assets/images/8.jpg" class="w-100">
               <span
                 class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
             </div>
             <div class="text-center">
-              <div class="rating mt-3">
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-              </div>
+
               <p class="text-capitalize my-1">gray shirt</p>
               <span class="fw-bold">$ 45.50</span>
             </div>
@@ -245,18 +220,12 @@
 
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 feat">
             <div class="collection-img position-relative">
-              <img src="images/c_western-shirt.png" class="w-100">
+              <img src="assets/images/8.jpg" class="w-100">
               <span
                 class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
             </div>
             <div class="text-center">
-              <div class="rating mt-3">
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-                <span class="text-primary"><i class="fas fa-star"></i></span>
-              </div>
+
               <p class="text-capitalize my-1">gray shirt</p>
               <span class="fw-bold">$ 45.50</span>
             </div>
