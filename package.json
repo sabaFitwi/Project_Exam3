@@ -1,7 +1,7 @@
 {
   "name": "project_exam3",
   "version": "1.0.0",
-  "description": "",
+  "description": "project exam front end development",
   "main": "index.js",
   "scripts": {
     "build": "sass src/scss:dist/css",
@@ -10,7 +10,7 @@
     "format": "prettier -w ./**/*.{js,scss,html,md}"
   },
   "keywords": [],
-  "author": "",
+  "author": "saba samuel",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.2"
