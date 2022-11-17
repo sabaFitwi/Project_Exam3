@@ -38,7 +38,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top shadow-sm p-3 mb-5 bg-body rounded">
+    <nav
+        class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top shadow-sm p-3 mb-5  position-relative bg-body rounded">
         <div class="container">
             <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
                 <img src="/assets/images/8.jpg" alt="site icon">
@@ -86,80 +87,59 @@
     </nav>
     <!-- end of navbar -->
 
+    <!-- register form -->
+    <main class="container mb-5 ">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card shadow">
+                    <div class="card-title text-center border-bottom">
+                        <h2 class="p-3">Register</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="registerForm">
+                            <div class="form-floating"> <input id="username" type="text" name="name"
+                                    class="form-control" placeholder="username" pattern="^[\w]+$"
+                                    title="only upper and lowercase, numbers, and underscore  example(saba_sam123)"
+                                    required />
+                                <label for="username">User Name</label>
+                            </div>
 
-    <!-- header -->
-    <header id="header" class="header-height carousel slide" data-bs-ride="carousel">
-        <div class="container h-100 d-flex align-items-center carousel-inner">
-            <div class="text-center carousel-item active">
-                <h2 class="text-capitalize fw-light text-white large-font">best collection</h2>
-                <h1 class="text-uppercase py-2  text-white large-font">new arrivals</h1>
-                <a href="#" class="btn mt-3 text-uppercase">bid now</a>
-            </div>
-            <div class="text-center carousel-item">
-                <h2 class="text-capitalize fw-light text-white">best price and offer</h2>
-                <h1 class="text-uppercase py-2  text-white">Explore the Marketplace</h1>
-                <a href="#" class="btn mt-3 text-uppercase">register</a>
-            </div>
-        </div>
+                            <div class="form-floating">
+                                <input id="email" type="email" name="email" class="form-control my-3"
+                                    placeholder=" Email " required pattern="^[\w\-.]+@?stud.noroff.no$"
+                                    title="only@stud.noroff.no domain allowed. Example (example@(stud.)noroff.no" />
+                                <label for="email">Email</label>
+                            </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#header" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#header" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </header>
-    <!-- end of header -->
+                            <div class="form-floating">
+                                <input id="password" type="password" name="password" class="form-control my-3"
+                                    placeholder="New password" required minlength="8" />
+                                <label for="password">Password</label>
+                            </div>
 
-    <!-- collection -->
-    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ps-4">
-        <div class="container">
-            <div class="d-flex flex-column justify-content-center w-100 mx-auto"
-                style="padding-top: 60px; max-width: 850px">
-                <!--------------------------------- posts ..............................-->
-                <!---- photos ---->
+                            <div class="form-floating">
+                                <input id="avatarInput" type="url" name="avatar" class=" form-control my-2"
+                                    placeholder="Avatar URL" />
+                                <label for="avatar">Avatar Image</label>
+                            </div>
 
-                <div class="bg-white p-3 mt-3 rounded border shadow">
-                    <h5>Update your Post</h5>
-                    <form class="row g-3" id="updatePost">
-                        <div class="col-12">
-                            <label for="" class="form-label">Title</label>
-                            <input type="text" class="form-control" name="title" />
-                        </div>
-                        <div class="col-12">
-                            <label for="" class="form-label">Tags</label>
-                            <input type="text" class="form-control" name="tags" />
-                        </div>
-                        <div class="col-12">
-                            <label for="" class="form-label">Body text</label>
-                            <input type="text" class="form-control" name="body" />
-                        </div>
 
-                        <div class="col-12">
-                            <label for="" class="form-label">Media</label>
-                            <input type="url" class="form-control" name="media" />
-                        </div>
-
-                        <div class="col-12 mb-5 button">
-                            <button type="submit" class="btn btn-primary">
-                                sell product
-                            </button>
-                        </div>
-                    </form>
+                            <div class="d-grid p-3  mt-5 ">
+                                <button type="submit" class="btn text-dark">Register</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="bg-white p-3 mt-3 rounded border shadow">
-            <h5>Contact</h5>
-            <hr class="mb-3" />
-            <div class="contactsList d-flex justify-content-between"></div>
-            <div class="d-flex flex-column justify-content-center" style="padding-top: 60px; width: 100%">
-                <!----------------------------- contacts -------------------------------------------->
-            </div>
-        </div>
-        <!---------------------------create post----------------------->
-    </div>
-    <!-- end of collection -->
+    </main>
+
+    <main class="">
+
+    </main>
+    <!-- end of register form -->
+
+
 
     <script src="/node_modules/bootstrap/dist/js/"></script>
     <script type="module" src="/src/js/index.mjs"></script>
