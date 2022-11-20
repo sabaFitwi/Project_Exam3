@@ -11,6 +11,9 @@ body {
     font-family: var(--sm-font);
 }
 
+h1 {
+    font-family: var(--lg-font);
+}
 
 .large-font {
     font-family: var(--lg-font);
@@ -59,4 +62,12 @@ body {
 
 .btn-radius {
     border-radius: 25%;
+}
+
+.collection-img img {
+    height: 300px
+}
+
+.input-bg {
+    background: #f2f2f2;
 }
