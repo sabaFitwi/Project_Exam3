@@ -39,7 +39,7 @@
 
 <body>
     <nav
-        class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top shadow-sm p-3 mb-5 position-relative bg-body rounded">
+        class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top shadow-sm p-3 mb-5  position-relative bg-body rounded">
         <div class="container">
             <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
                 <img src="/assets/images/8.jpg" alt="site icon">
@@ -94,70 +94,59 @@
             </div>
         </div>
     </nav>
-    <!-- end of navbar -->
     <main class="container ">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-8 col-md-6 col-sm-6">
                 <div class="card shadow">
                     <div class="card-title text-center border-bottom bg-danger text-light">
-                        <h1 class="p-1 fs-4 ">Update your Post</h1>
+                        <h1 class="p-1 fs-4 ">Please fill in this form to sumbit your proposal</h1>
                     </div>
                     <div class="card-body">
-                        <form id="sellForm">
+                        <form id="loginForm">
 
-                            <div class=" d-flex justify-content-between gap-3 align-items-center p-3">
-                                <label for="" class="form-label fs-5 text-capitalize">Title:</label>
-                                <input type="text" class="form-control input-bg" name="title" required />
-                            </div>
+                            <div class=" d-flex justify-content-between gap-3 align-items-center">
+                                <label for="email" class="fs-5 text-capitalize">Email:</label>
+                                <input id="email" type="email" name="email" class="form-control my-3 input-bg "
+                                    placeholder=" Email " required pattern="^[\w\-.]+@?stud.noroff.no$"
+                                    title="only@stud.noroff.no domain allowed. Example (example@(stud.)noroff.no" />
 
-                            <div class="d-flex justify-content-between gap-3 align-items-center p-3">
-                                <label for="" class="form-label fs-5 text-capitalize">Tags:</label>
-                                <input type="text" class="form-control input-bg" name="tags" />
-                            </div>
-                            <div class=" d-flex justify-content-between gap-3 align-items-center p-3">
-                                <label for="" class="form-label fs-5 text-capitalize">Media:</label>
-                                <input type="text" class="form-control input-bg" name="media" />
-                            </div>
-                            <div class=" d-flex justify-content-between gap-3 align-items-center p-3">
-                                <label for="" class="form-label fs-5 text-capitalize flex-n-wrap">End Date:</label>
-                                <input type="date" class="form-control input-bg" name="media" required />
                             </div>
 
-                            <div class=" d-flex justify-content-between gap-3 align-items-center p-3">
-                                <label for="" class="form-label fs-5 text-capitalize w-20">Description:</label>
-                                <textarea type="text" class="form-control input-bg" name="description"></textarea>
+                            <div class="d-flex justify-content-between gap-3 align-items-center">
+                                <label for="price" class="fs-5 text-capitalize">price:</label>
+                                <input id="price" type="number" name="price" class="form-control my-3 input-bg "
+                                    placeholder="New Price" required />
+
                             </div>
 
                             <div class="d-grid p-3  mt-5 ">
-                                <button type="submit" class="btn text-light text-capitalize bg-danger"
-                                    data-bs-toggle="modal" data-bs-target="#createModal"> sell product</button>
+                                <button type="submit" class="btn text-light text-capitalize bg-succes"
+                                    data-bs-toggle="modal" data-bs-target="#bidModal">proposal
+                                    sumbit</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+        <div class="modal fade" id="bidModal" tabindex="-1" aria-labelledby="bidModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-
+                    <!-- head -->
                     <div class="modal-header">
 
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
+                    <!-- body -->
                     <div class="modal-body d-flex flex-column align-items-center">
                         <h1>Thank you</h1>
-                        <h2>your item posted successfully</h2>
-                        <button type="button" class="btn btn-primary">
-                            View Listing
-                        </button>
+                        <h2>your proposal submit successfully</h2>
+                        <p> we will contact you soon.</p>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </main>
-
 
     <script src="/node_modules/bootstrap/dist/js/"></script>
     <script type="module" src="/src/js/index.mjs"></script>

@@ -45,27 +45,36 @@
         <span class="text-uppercase fw-lighter ms-2">Attire</span>
       </a>
 
-      <div class="order-lg-2 nav-btns">
+      <div class="order-lg-2 order-2 nav-btns d-flex  gap-3 justify-content-between">
 
-        <button type="button" class="btn position-relative">
-          <i class="fa fa-heart"></i>
+        <button type="button" class="btn position-relative p-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-heart"
+            viewBox="0 0 16 16">
+            <path
+              d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+          </svg>
           <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">2</span>
         </button>
-
+        <div class="nav-item px-2 py-2 border-0 d-none d-lg-block">
+          <a class="nav-link text-uppercase text-dark large-font" href="/register"><button
+              class="btn btn-primary">Register</button></a>
+        </div>
       </div>
 
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+
+      <div class="collapse navbar-collapse order-lg-1 " id="navMenu">
+
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item px-2 py-2">
             <a class="nav-link text-uppercase text-dark large-font active active-color" aria-current="page"
               href="/">home</a>
           </li>
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font" href="/listing">collection</a>
+            <a class="nav-link text-uppercase text-dark large-font" href="/listing">Listing</a>
           </li>
           <li class="nav-item px-2 py-2">
             <a class="nav-link text-uppercase text-dark large-font" href="/buy">Buy</a>
@@ -74,12 +83,12 @@
             <a class="nav-link text-uppercase text-dark large-font" href="/sell">sell</a>
           </li>
           <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark large-font" href="/profile">profile</a>
+          </li>
+          <li class="nav-item px-2 py-2">
             <a class="nav-link text-uppercase text-dark large-font" href="/login">log in</a>
           </li>
-          <li class="nav-item px-2 py-2 border-0">
-            <a class="nav-link text-uppercase text-dark large-font" href="/register"><button
-                class="btn btn-primary ">register</button> </a>
-          </li>
+
         </ul>
       </div>
     </div>
@@ -154,18 +163,25 @@
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 new">
-            <div class="collection-img position-relative">
-              <img src="assets/images/8.jpg" class="w-100">
-              <span
-                class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
-            </div>
-            <div class="text-center">
+            <div class="container border-0 shadow">
 
-              <p class="text-capitalize my-1">gray shirt</p>
-              <span class="fw-bold">$ 45.50</span>
+              <div class="collection-img ">
+                <img src="assets/images/8.jpg" class="w-100">
+              </div>
+              <div class="text-center">
+
+                <h4 class="text-capitalize large-font  my-1">gray shirt</h4>
+                <p class=" fw-bold">$ 45.50</p>
+                <p>End date: <span text-primary f-large>12/12/22</span></p>
+                <button type="submit" class="btn btn-primary my-3">
+                  <span>View Detail
+                    <span>
+
+              </div>
+              </button>
+
             </div>
           </div>
-
           <div class="col-md-6 col-lg-4 col-xl-3 p-2 best">
             <div class="collection-img position-relative">
               <img src="assets/images/8.jpg" class="w-100">
