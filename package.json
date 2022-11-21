@@ -7,7 +7,8 @@
     "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css & live-server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --w ./**/*.{js,scss,html,md}"
+    "format": "prettier --w ./**/*.{js,scss,html,md}",
+    "lint": "eslint src/**/*.js"
   },
   "keywords": [],
   "author": "saba samuel",
