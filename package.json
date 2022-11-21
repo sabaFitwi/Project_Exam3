@@ -7,7 +7,7 @@
     "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css & live-server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier -w ./**/*.{js,scss,html,md}"
+    "format": "prettier --w ./**/*.{js,scss,html,md}"
   },
   "keywords": [],
   "author": "saba samuel",
@@ -17,6 +17,7 @@
     "bootstrap-icons": "^1.10.2"
   },
   "devDependencies": {
+    "eslint": "^8.28.0",
     "live-server": "^1.2.2",
     "prettier": "^2.7.1",
     "sass": "^1.56.1"
