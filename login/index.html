@@ -38,19 +38,12 @@
 
 <body>
   <nav
-    class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top shadow-sm p-3 mb-5 position-relative bg-body rounded">
+    class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top shadow-sm p-3 mb-5 bg-body position-relative rounded">
     <div class="container">
       <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
         <img src="/assets/images/8.jpg" alt="site icon" />
         <span class="text-uppercase fw-lighter ms-2">Attire</span>
       </a>
-
-      <div class="order-lg-2 nav-btns">
-        <button type="button" class="btn position-relative">
-          <i class="fa fa-heart"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge bg-primary">2</span>
-        </button>
-      </div>
 
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
@@ -59,10 +52,11 @@
       <div class="collapse navbar-collapse order-lg-1" id="navMenu">
         <ul class="navbar-nav mx-auto text-center">
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font" href="/">home</a>
+            <a class="nav-link text-uppercase text-dark large-font active active-color" aria-current="page"
+              href="/">home</a>
           </li>
           <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font" href="/listing">listing</a>
+            <a class="nav-link text-uppercase text-dark large-font" href="/listing">Listing</a>
           </li>
           <li class="nav-item px-2 py-2">
             <a class="nav-link text-uppercase text-dark large-font" href="/buy">Buy</a>
@@ -70,18 +64,11 @@
           <li class="nav-item px-2 py-2">
             <a class="nav-link text-uppercase text-dark large-font" href="/sell">sell</a>
           </li>
-          <!-- <li class="nav-item px-2 py-2">
-            <a class="nav-link text-uppercase text-dark large-font active active-color logout" aria-current="page"
-              href="/login"><button type="button" class="btn btn-outline-success me-2" data-auth="login"
-                data-visible="loggedOut">
-                Login
-              </button></a>
+
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark large-font" href="/profile">profile</a>
           </li>
-          <li class="nav-item px-2 py-2 border-0">
-            <a class="nav-link text-uppercase text-dark large-font" href="/register"><button
-                class="btn btn-primary">register</button>
-            </a>
-          </li> -->
+
         </ul>
       </div>
     </div>
