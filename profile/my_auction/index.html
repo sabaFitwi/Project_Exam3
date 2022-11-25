@@ -153,102 +153,24 @@
     <main class="container">
       <div class="row justify-content-evenly">
         <!---============================================ LEFT SIDE BAR ================================---->
-        <div
-          class="col-12 col-lg-3 shadow d-flex flex-column justify-content-center align-items-center"
-        >
+        <div class="col-12 col-lg-3 shadow">
           <img
             src="/assets/images/8.jpg"
             class="img-thumbnail rounded-circle me-2 avatar-profile-image"
             alt="avatar"
           />
-          <h4 class="mt-5">saba Samuel</h4>
-          <button
-            class="btn btn-outline-warning btn-long cart mt-2"
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#createModal"
-          >
-            Edit Profiles
-          </button>
-        </div>
-        <div
-          class="modal fade"
-          id="createModal"
-          tabindex="-1"
-          aria-labelledby="createModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-
-              <div class="modal-body d-flex flex-column align-items-center">
-                <h1>Thank you</h1>
-                <h2>your item posted successfully</h2>
-                <button type="button" class="btn btn-primary">
-                  View Listing
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!--========================================= Timeline ===================================---->
-
-        <div class="col-12 col-lg-9">
-          <div
-            class="d-flex flex-wrap justify-content-center filter-button-group"
-          >
-            <div class="col-6">
-              <a href="/buy/index.html" class="bg-sucess"
-                ><button
-                  type="button"
-                  class="btn m-2 text-dark active-filter-btn btn-radius"
-                  data-filter="*"
-                >
-                  My Auction
-                </button></a
-              >
-            </div>
-
-            <div class="col-6">
-              <button
-                type="button"
-                class="btn m-2 text-dark"
-                data-filter=".auction"
-              >
-                My Auction offer
-              </button>
-            </div>
-          </div>
+        <div class="col-12 col-lg-9 pb-5">
           <div class="d-flex flex-column justify-content-center w-100 mx-auto">
-            <div class="col-12">
-              <table class="table bg-danger text-light">
-                <thead>
-                  <tr>
-                    <th scope="col">Title: Item title</th>
-
-                    <th scope="col">Auction End Date: 12/12/22</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-              </table>
+            <div class="col-12 bg-danger">
+              <h1 class="fs-4">bid</h1>
             </div>
             <div class="card mb-3 col-12">
               <div class="row g-2">
                 <div class="col-md-4">
-                  <img
-                    src="/assets/images/8.jpg"
-                    class="img-fluid"
-                    alt="avatar"
-                  />
+                  <img src="/assets/images/8.jpg" class="img-fluid" alt="..." />
                 </div>
                 <div class="col-md-6">
                   <div class="card-body">
