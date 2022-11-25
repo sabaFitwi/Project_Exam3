@@ -4,8 +4,7 @@
   border: none;
 }
 
-#lightSlider li {
-}
+#lightSlider li {}
 
 .demo {
   width: 100%;
@@ -212,12 +211,12 @@ label.radio .orange {
   border-color: orange;
 }
 
-label.radio input:checked + span {
+label.radio input:checked+span {
   color: #fff;
   position: relative;
 }
 
-label.radio input:checked + span::before {
+label.radio input:checked+span::before {
   opacity: 1;
   content: "\2713";
   position: absolute;
