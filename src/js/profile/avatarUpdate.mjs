@@ -6,11 +6,13 @@ import { load } from "../storage/localStorage.mjs";
 
 
 
+
+
 async function setUpdateProfile() {
     const form = document.querySelector("#avatarForm");
 
     if (form) {
-        const { name, email, avatar } = load("profile");
+        const { name, email, avatar, credit } = load("profile");
 
         form.name.value = name;
         form.email.value = email;
