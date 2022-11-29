@@ -1,27 +1,16 @@
 
-
-//import * as auth from "../../api/auth/index.js";
-import { load } from "../localStorage.mjs";
+import { remove } from "../../storage/localStorage.mjs";
 
 
 
+/**
+ * Removes token and profile from local storage
+ */
+export const logout = function () {
+    remove("token");
+    remove("profile");
+    location.href = "../index.html";
+};
 
-const logout = document.querySelectorAll("[data-auth=logout]")
+document.querySelectorAll("#logout").addEventListener("click", logout)
 
-
-logout.addEventListener("click", updateLoginVisibility());
-
-
-// function logoutListener() {
-
-//     // updateLoginVisibility()
-//     console.log("hihi")
-// }
-
-
-
-function updateLoginVisibility() {
-    const token = load("token");
-    document.body.classList[token ? "add" : "remove"]("logged-in");
-    console.log("dddd")
-}

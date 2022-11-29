@@ -3,37 +3,59 @@ import { headers } from "../api/headers.mjs";
 
 
 const form = document.querySelector("#sellForm");
-const newTags = []
+
 /**
  * submit register form data.
  * @param {Event} submit form submission
  
  */
-form.addEventListener("submit", (event) => {
+
+
+async function createUpdateFormListener(event) {
     event.preventDefault();
-    const form = event.target
 
-    const sellsInput = {
-        title: form.title.value,
-        tags: form.tags.value,
-        media: form.media.value,
-        description: form.description.value,
-        endsAt: form.endsAt.value
+    const mediaInputs = Array.from(
+        event.target.querySelectorAll("input[type=url]:enabled")
+    );
+
+    console.log(event.target.endingAt);
+    const bodyData = {
+        title: event.target.title.value,
+        description: event.target.description.value,
+        tags: event.target.tags.value
+            .split(",")
+            .map((tag) => tag.trim())
+            .slice(0, 8),
+        media: mediaInputs.map((input) => input.value),
+        endsAt: new Date(event.target.endingAt.value),
     };
+    console.log(bodyData);
 
-    console.log();
+    try {
+        const queryString = window.location.search;
+        const params = new URLSearchParams(queryString);
+        let id = params.get("id");
+        let response = {};
 
+        if (id === null) {
+            response = await sellListing(bodyData);
+        } else {
+            console.log("hihi")
+            // response = await updateListing(bodyData, id);
+        }
+        //console.log(response);
 
+        // const deleted = await deleteListing(response.id);
+        //console.log(deleted);
+    } catch (error) {
+        console.log(error);
+    }
+};
 
-    sellListing(sellsInput)
-});
-
-
-
-async function sellListing(title, description, media, tags, endsAt) {
+async function sellListing(bodyData) {
     const options = {
         method: "post",
-        body: JSON.stringify({ title, description, media, tags, endsAt }),
+        body: JSON.stringify(bodyData),
         headers: headers("application/json"),
     }
 
@@ -46,3 +68,4 @@ async function sellListing(title, description, media, tags, endsAt) {
     throw new Error(response.statusText);
 
 }
+form.addEventListener("submit", createUpdateFormListener())

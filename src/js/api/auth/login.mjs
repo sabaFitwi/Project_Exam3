@@ -3,6 +3,7 @@ import { headers } from "../headers.mjs";
 import { save } from "../../storage/localStorage.mjs";
 
 
+
 const form = document.querySelector("#loginForm");
 
 /**
@@ -15,7 +16,10 @@ form.addEventListener("submit", (event) => {
     const form = event.target
     const formData = new FormData(form)
     const user = Object.fromEntries(formData.entries())
-    console.log(user);
+
+
+
+
     async function login(profile) {
         const options = {
             method: "post",
@@ -38,4 +42,6 @@ form.addEventListener("submit", (event) => {
     }
 
     login(user);
+
+
 });

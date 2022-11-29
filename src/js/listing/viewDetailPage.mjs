@@ -36,6 +36,7 @@ async function getListings(limit = 20, offset = 0) {
 
 function detailsTemplet(list) {
   let date = new Date(`${list.endsAt}`);
+  console.log(date)
 
   viewDetails.innerHTML += `
   <div class="container rounded bg-white mt-5 mb-5">
@@ -69,7 +70,7 @@ function detailsTemplet(list) {
             <th scope="col">Auction End Date:${date.toLocaleDateString(
     "en-US",
     dateFormat
-  )
+  ).replace(/[/]/g, "-")
 
     } </th>
             <th scope="col">Action</th>
@@ -92,7 +93,7 @@ function detailsTemplet(list) {
             <p class="card-text">EndDate: ${date.toLocaleDateString(
       "en-US",
       dateFormat
-    )
+    ).replace(/[/]/g, "-")
 
     }</p>
           </div>
@@ -117,16 +118,15 @@ function bidderTemplate(bids) {
 
   if (bids) {
     Array.from(bids).forEach((bid) => {
-      let date = new Date(`${bid.created} `);
-
+      let dates = new Date(`${bid[bids.length - 2]} `);
 
       bidder.innerHTML += `
     <tr>       
         <td>${bid.bidderName}</td>
-        <td>${date.toLocaleDateString(
+        <td>${dates.toLocaleDateString(
         "en-US",
         dateFormat
-      )}</td>
+      ).replace(/[/]/g, "-")}</td>
         <td>${bid.amount}</td>
       </tr > `
     })

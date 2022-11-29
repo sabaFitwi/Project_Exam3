@@ -38,7 +38,7 @@
 
 <body>
   <nav
-    class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top shadow-sm p-3 mb-5 bg-body position-relative rounded">
+    class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top shadow-sm p-3 bg-body position-relative rounded">
     <div class="container">
       <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
         <img src="/assets/images/8.jpg" alt="site icon" />
@@ -61,11 +61,11 @@
           <li class="nav-item px-2 py-2">
             <a class="nav-link text-uppercase text-dark large-font" href="/buy">Buy</a>
           </li>
-          <li class="nav-item px-2 py-2">
+          <li class="nav-item px-2 py-2" data-loggedVisibility="true">
             <a class="nav-link text-uppercase text-dark large-font" href="/sell">sell</a>
           </li>
 
-          <li class="nav-item px-2 py-2">
+          <li class="nav-item px-2 py-2" data-loggedVisibility="true">
             <a class="nav-link text-uppercase text-dark large-font" href="/profile">profile</a>
           </li>
         </ul>
@@ -73,17 +73,15 @@
     </div>
     <div class="text-end d-flex flex-row gap-1 align-items-center justify-content-center justify-content-sm-start">
       <a class="nav-link text-uppercase text-dark large-font active active-color logout" aria-current="page"
-        href="/login"><button type="button" class="btn btn-outline-success me-2" data-auth="login"
-          data-visible="loggedOut">
+        href="/login"><button type="button" class="btn btn-outline-success me-2" data-loggedVisibility="false">
           Login
         </button></a>
-      <a class="nav-link text-uppercase text-dark large-font active active-color logout" aria-current="page"
-        href="/login"><button type="button" class="btn btn-outline-success me-2" data-auth="logout"
-          data-visible="loggedOut">
+      <a class="nav-link text-uppercase text-dark large-font active active-color logout" id="logout" aria-current="page"
+        href="#"><button type="button" class="btn btn-outline-success me-2" data-loggedVisibility="true">
           Logout
         </button></a>
       <a class="nav-link text-uppercase text-dark large-font" href="/register"><button type="button"
-          class="btn btn-success" data-auth="register" data-visible="loggedOut">
+          class="btn btn-success" data-loggedVisibility="false">
           Register
         </button></a>
     </div>
@@ -133,7 +131,6 @@
           <div class="modal-body">
             <div class="card-body">
               <form id="bidForm">
-
                 <div class="d-flex justify-content-between gap-3 align-items-center">
                   <label for="price" class="fs-5 text-capitalize">price:</label>
                   <input id="price" type="number" name="amount" class="form-control my-3 input-bg"
@@ -156,6 +153,7 @@
   <script src="/node_modules/bootstrap/dist/js/"></script>
   <script type="module" src="/src/js/index.mjs"></script>
   <script type="module" src="/src/js/listing/bu.mjs"></script>
+  <script type="module" src="/src/js/api/auth/logout.mjs"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

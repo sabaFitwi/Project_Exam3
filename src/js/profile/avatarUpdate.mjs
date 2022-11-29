@@ -1,68 +1,46 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
-import { viewAllProfiles } from "../profile/getProfile.mjs"
-import { load } from "../storage/localStorage.mjs";
+import { load, save } from "../storage/localStorage.mjs";
 
 
+const form = document.querySelector("#avatarForm");
+async function setUpdateProfile(event) {
 
 
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const request = Object.fromEntries(formData.entries());
+    console.log(request)
+    try {
+        const profile = await update(request);
+        const avatar = document.querySelector("#updateAvatarImage");
+        avatar.src = await profile.avatar;
 
 
-async function setUpdateProfile() {
-    const form = document.querySelector("#avatarForm");
-
-    if (form) {
-        const { name, email, avatar, credit } = load("profile");
-
-        form.name.value = name;
-        form.email.value = email;
-
-        const button = document.querySelector(".button");
-        button.disabled = true;
-        await viewAllProfiles(name);
-
-
-        form.avatar.value = avatar;
-        button.disabled = false;
-
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const form = event.target;
-
-            const profileData = {
-                name: form.name.value,
-                email: form.email.value,
-                avatar: form.avatar.value,
-
-            };
-            profileData.name = name;
-            profileData.email = email;
-
-            update(profileData);
-            console.log(profileData);
-        });
+    } catch {
+        console.log("error");
     }
 }
-setUpdateProfile();
+form.addEventListener("submit", setUpdateProfile)
 
-async function update(avatar) {
-    // if (!profileData.name) {
-    //     throw new Error("update requires a profileID");
-    // }
+async function update(media) {
+
     const { name } = load("profile")
 
-    const updateProfileApi1 = Auction_API_URL + "/" + `${name}` + "/media";
+    const updateProfileApi1 = Auction_API_URL + "/profiles/" + `${name}` + "/media";
     console.log(updateProfileApi1);
-    const me = load("profile")
+
     const options = {
         method: "PUT",
-        body: JSON.stringify({ ...me, avatar }),
+        body: JSON.stringify(media),
         headers: headers("application/json"),
     }
 
     const response = await fetch(updateProfileApi1, options);
     const result = await response.json();
 
-    //location.reload();
-    console.log(result);
-}
+
+    return result
+
+} 
