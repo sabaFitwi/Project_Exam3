@@ -1,19 +1,16 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 import { dateOptions as dateFormat } from "../component/dateConverter.mjs";
-const viewDetails = document.querySelector(".view-detail")
-const bidder = document.querySelector(".bidder")
-const form = document.querySelector("#bidForm")
+const viewDetails = document.querySelector(".view-detail");
+const bidder = document.querySelector(".bidder");
+const form = document.querySelector("#bidForm");
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 console.log(id);
 
-
-
 async function getListings(limit = 20, offset = 0) {
-
   const options = {
     headers: headers("application/json"),
   };
@@ -22,13 +19,13 @@ async function getListings(limit = 20, offset = 0) {
     options
   );
   const data = await response.json();
-  console.log(data)
+  console.log(data);
 
   detailsTemplet(data);
 
-  bidderTemplate(data.bids)
+  bidderTemplate(data.bids);
   if (response.ok) {
-    return data
+    return data;
   }
 
   throw new Error(response.statusText);
@@ -36,7 +33,7 @@ async function getListings(limit = 20, offset = 0) {
 
 function detailsTemplet(list) {
   let date = new Date(`${list.endsAt}`);
-  console.log(date)
+  console.log(date);
 
   viewDetails.innerHTML += `
   <div class="container rounded bg-white mt-5 mb-5">
@@ -67,12 +64,9 @@ function detailsTemplet(list) {
           <tr>
             <th scope="col">Title: ${list.title}</th>
 
-            <th scope="col">Auction End Date:${date.toLocaleDateString(
-    "en-US",
-    dateFormat
-  ).replace(/[/]/g, "-")
-
-    } </th>
+            <th scope="col">Auction End Date:${date
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -90,16 +84,15 @@ function detailsTemplet(list) {
             <p class="card-text">
             ${list.description}
             </p>
-            <p class="card-text">EndDate: ${date.toLocaleDateString(
-      "en-US",
-      dateFormat
-    ).replace(/[/]/g, "-")
-
-    }</p>
+            <p class="card-text">EndDate: ${date
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")}</p>
           </div>
         </div>
         <div class="col-md-2">
-        <button class="btn btn-outline-warning btn-long cart"data-bs-toggle="modal" data-bs-target="#bidModal">Bids ${list._count.bids}</button>
+        <button class="btn btn-outline-warning btn-long cart"data-bs-toggle="modal" data-bs-target="#bidModal">Bids ${
+          list._count.bids
+        }</button>
             
         </div>
       </div>
@@ -111,11 +104,10 @@ function detailsTemplet(list) {
 
 
 
-`}
-
+`;
+}
 
 function bidderTemplate(bids) {
-
   if (bids) {
     Array.from(bids).forEach((bid) => {
       let dates = new Date(`${bid[bids.length - 2]} `);
@@ -123,19 +115,16 @@ function bidderTemplate(bids) {
       bidder.innerHTML += `
     <tr>       
         <td>${bid.bidderName}</td>
-        <td>${dates.toLocaleDateString(
-        "en-US",
-        dateFormat
-      ).replace(/[/]/g, "-")}</td>
+        <td>${dates
+          .toLocaleDateString("en-US", dateFormat)
+          .replace(/[/]/g, "-")}</td>
         <td>${bid.amount}</td>
-      </tr > `
-    })
+      </tr > `;
+    });
   }
 }
 
-getListings()
-
-
+getListings();
 
 /**
  * submit register form data.
@@ -144,7 +133,7 @@ getListings()
  */
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const form = event.target
+  const form = event.target;
 
   const bidInput = {
     id: event.target.id,
@@ -153,15 +142,10 @@ form.addEventListener("submit", (event) => {
 
   console.log(bidInput);
 
-  buyListner(bidInput)
-
-
+  buyListner(bidInput);
 });
 
 async function buyListner(amounts) {
-
-
-
   const options = {
     headers: headers("application/json"),
     method: "post",
@@ -172,11 +156,10 @@ async function buyListner(amounts) {
     options
   );
   const data = await response.json();
-  console.log(response)
-
+  console.log(response);
 
   if (response.ok) {
-    return data
+    return data;
   }
 
   throw new Error(response.statusText);

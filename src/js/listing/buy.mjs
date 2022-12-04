@@ -1,14 +1,8 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
-const form = document.querySelector("#bidForm")
+const form = document.querySelector("#bidForm");
 
 //const buyBid = document.querySelector(".buy-bid")
-
-
-
-
-
-
 
 // /**
 //  * submit register form data.
@@ -25,13 +19,10 @@ const form = document.querySelector("#bidForm")
 
 //     console.log(bidInput);
 
-
-
 //     buyListner(bidInput)
 // });
 // console.log("bidInput");
 async function buyListner(amount) {
-
   const queryString = document.location.search;
   const params = new URLSearchParams(queryString);
   const id = params.get("id");
@@ -47,18 +38,16 @@ async function buyListner(amount) {
     options
   );
   const data = await response.json();
-  console.log(data)
+  console.log(data);
 
-  bidTemplet(data)
+  bidTemplet(data);
   if (response.ok) {
-    return data
+    return data;
   }
 
   throw new Error(response.statusText);
 }
 function bidTemplet(buy) {
-
-
   buyBid.innerHTML += ` <div class="col-12 bg-danger">
     <h1 class="fs-4">bid</h1>
   </div>
@@ -83,10 +72,5 @@ function bidTemplet(buy) {
       </div>
 
     </div>
-  </div>`
-
-
+  </div>`;
 }
-
-
-

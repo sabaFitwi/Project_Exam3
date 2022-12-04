@@ -1,27 +1,28 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
-import { load } from "../storage/localStorage.mjs"
-const profileByBids = document.getElementById("profile-by-bids")
-
+import { load } from "../storage/localStorage.mjs";
+const profileByBids = document.getElementById("profile-by-bids");
 
 async function viewAllProfiles(limit = 20, offset = 0) {
-    const { name } = load("profile")
-    console.log(name)
-    const options = {
-        headers: headers("application/json"),
-    };
-    const response = await fetch(Auction_API_URL + `/profiles/${name}_?_listings=true`, options);
-    const result = await response.json();
-    console.log(result);
+  const { name } = load("profile");
+  console.log(name);
+  const options = {
+    headers: headers("application/json"),
+  };
+  const response = await fetch(
+    Auction_API_URL + `/profiles/${name}_?_listings=true`,
+    options
+  );
+  const result = await response.json();
+  console.log(result);
 }
-viewAllProfiles()
-
+viewAllProfiles();
 
 function getListingsTemplet(profileBids) {
-    profileByBids.innerHTML = "";
-    if (profileBids) {
-        profileBids.map((profile) => {
-            profileByBids.innerHTML += `<div class="row g-2">
+  profileByBids.innerHTML = "";
+  if (profileBids) {
+    profileBids.map((profile) => {
+      profileByBids.innerHTML += `<div class="row g-2">
             <div class="col-md-4">
               <img src="/assets/images/8.jpg" class="img-fluid" alt="avatar" />
             </div>
@@ -41,9 +42,7 @@ function getListingsTemplet(profileBids) {
                   Bid
                 </button></a>
             </div>
-          </div>`
-        })
-    }
+          </div>`;
+    });
+  }
 }
-
-
