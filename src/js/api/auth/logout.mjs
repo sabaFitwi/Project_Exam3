@@ -12,5 +12,5 @@ export const logout = function () {
     location.href = "../index.html";
 };
 
-document.querySelectorAll("#logout").addEventListener("click", logout)
+document.querySelector("#logout").addEventListener("click", logout)
 

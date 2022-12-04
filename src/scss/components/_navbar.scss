@@ -1,0 +1,38 @@
+//@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+  font-family: var(--sm-font);
+}
+
+h1 {
+  font-family: var(--lg-font);
+}
+
+.large-font {
+  font-family: var(--lg-font);
+}
+
+.navbar-brand img {
+  width: 30px;
+}
+
+.navbar-brand span {
+  letter-spacing: 2px;
+  font-family: var(--lg-font);
+}
+
+.nav-link:hover .active-color {
+  color: var(--button-color) !important;
+}
+
+.nav-item {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+}
+
+.collection-img img {
+  height: 300px;
+}
+
+.input-bg {
+  background: #f2f2f2;
+}

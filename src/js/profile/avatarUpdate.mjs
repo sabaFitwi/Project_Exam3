@@ -4,6 +4,7 @@ import { load, save } from "../storage/localStorage.mjs";
 
 
 const form = document.querySelector("#avatarForm");
+form.addEventListener("submit", setUpdateProfile)
 async function setUpdateProfile(event) {
 
 
@@ -22,7 +23,7 @@ async function setUpdateProfile(event) {
         console.log("error");
     }
 }
-form.addEventListener("submit", setUpdateProfile)
+
 
 async function update(media) {
 
@@ -41,6 +42,14 @@ async function update(media) {
     const result = await response.json();
 
 
-    return result
+    console.log(result)
 
-} 
+}
+
+const profileInfo = document.querySelector("#editProfile")
+function profileInformation(info) {
+    profile = load("profile").name
+    profileInfo.innerHTML += `<h4 class="mt-5">${info.profile.name}</h4>
+         
+                                <p>credits:${info.profile.credits}</p>`
+} profileInformation()

@@ -81,7 +81,7 @@ function detailsTemplet(list) {
     <div class="card mb-3 col-12">
       <div class="row g-2">
         <div class="col-md-4">
-          <img src="${list.media}" class="img-fluid" alt="avatar" />
+          <img src="${list.media[0]}" class="img-fluid" alt="${title}" />
         </div>
         <div class="col-md-6">
           <div class="card-body">

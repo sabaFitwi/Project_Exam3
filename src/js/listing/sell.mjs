@@ -7,51 +7,39 @@ const form = document.querySelector("#sellForm");
 /**
  * submit register form data.
  * @param {Event} submit form submission
- 
+
  */
+form.addEventListener("submit", sellListener)
 
-
-async function createUpdateFormListener(event) {
+async function sellListener(event) {
     event.preventDefault();
-
+    const form = event.target
     const mediaInputs = Array.from(
-        event.target.querySelectorAll("input[type=url]:enabled")
+        form.querySelectorAll("input[type=url]:enabled")
     );
 
-    console.log(event.target.endingAt);
     const bodyData = {
-        title: event.target.title.value,
-        description: event.target.description.value,
-        tags: event.target.tags.value
-            .split(",")
-            .map((tag) => tag.trim())
-            .slice(0, 8),
-        media: mediaInputs.map((input) => input.value),
-        endsAt: new Date(event.target.endingAt.value),
+        title: form.title.value,
+        description: form.description.value,
+        tags: form.tags.value.split(",").map((tag) => tag.trim()).slice(0, 3),
+        media: mediaInputs.map((image) => image.value),
+        endsAt: new Date(form.endsAt.value),
     };
     console.log(bodyData);
 
     try {
-        const queryString = window.location.search;
-        const params = new URLSearchParams(queryString);
-        let id = params.get("id");
-        let response = {};
-
-        if (id === null) {
-            response = await sellListing(bodyData);
-        } else {
-            console.log("hihi")
-            // response = await updateListing(bodyData, id);
-        }
-        //console.log(response);
-
-        // const deleted = await deleteListing(response.id);
-        //console.log(deleted);
+        // const queryString = window.location.search;
+        // const params = new URLSearchParams(queryString);
+        // let id = params.get("id");
+        let response = await sellListing(bodyData);
+        console.log(response)
     } catch (error) {
         console.log(error);
     }
-};
 
+
+    sellListing(bodyData)
+};
 async function sellListing(bodyData) {
     const options = {
         method: "post",
@@ -68,4 +56,4 @@ async function sellListing(bodyData) {
     throw new Error(response.statusText);
 
 }
-form.addEventListener("submit", createUpdateFormListener())
+
