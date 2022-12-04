@@ -20,16 +20,18 @@ form.addEventListener("submit", (event) => {
     sellListing(sellsInput)
 });
 
-
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+let id = params.get("id");
 
 async function sellListing(amount) {
     const options = {
         method: "post",
-        body: JSON.stringify({ amount }),
+        body: JSON.stringify(amount),
         headers: headers("application/json"),
     }
 
-    const response = await fetch(Auction_API_URL + "/listings", options);
+    const response = await fetch(`${Auction_API_URL}/listings/${id}/bids`, options);
     console.log(response);
     if (response.ok) {
         return await response.json();

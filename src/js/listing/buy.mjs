@@ -32,34 +32,34 @@ const form = document.querySelector("#bidForm")
 // console.log("bidInput");
 async function buyListner(amount) {
 
-    const queryString = document.location.search;
-    const params = new URLSearchParams(queryString);
-    const id = params.get("id");
-    console.log(id);
+  const queryString = document.location.search;
+  const params = new URLSearchParams(queryString);
+  const id = params.get("id");
+  console.log(id);
 
-    const options = {
-        headers: headers("application/json"),
-        method: "post",
-        body: JSON.stringify({ amount }),
-    };
-    const response = await fetch(
-        `${Auction_API_URL}/listings/${id}/bids?_seller=true&_bids=true`,
-        options
-    );
-    const data = await response.json();
-    console.log(data)
+  const options = {
+    headers: headers("application/json"),
+    method: "post",
+    body: JSON.stringify({ amount }),
+  };
+  const response = await fetch(
+    `${Auction_API_URL}/listings/${id}/bids?`,
+    options
+  );
+  const data = await response.json();
+  console.log(data)
 
-    bidTemplet(data)
-    if (response.ok) {
-        return data
-    }
+  bidTemplet(data)
+  if (response.ok) {
+    return data
+  }
 
-    throw new Error(response.statusText);
+  throw new Error(response.statusText);
 }
 function bidTemplet(buy) {
 
 
-    buyBid.innerHTML += ` <div class="col-12 bg-danger">
+  buyBid.innerHTML += ` <div class="col-12 bg-danger">
     <h1 class="fs-4">bid</h1>
   </div>
   <div class="card mb-3 col-12">
@@ -71,11 +71,9 @@ function bidTemplet(buy) {
         <div class="card-body">
           <h2 class="card-title fs-5">Description</h2>
           <p class="card-text">
-            This is a wider card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit
-            longer.
+          ${buy.description}
           </p>
-          <p class="card-text">EndDate: 12/12/22</p>
+          <p class="card-text">EndDate:${buy.endsAt}</p>
         </div>
       </div>
       <div class="col-md-2">
