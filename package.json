@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --w ./**/*.{js,scss,html,md}",
     "lint": "eslint src/**/*.js",
-    "lint-fix": "eslint src/**/*.js --cache --fix"
+    "lint-fix": "eslint src/**/*.js --cache --fix",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "saba samuel",
@@ -20,8 +21,14 @@
   },
   "devDependencies": {
     "eslint": "^8.28.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
     "live-server": "^1.2.2",
     "prettier": "^2.7.1",
     "sass": "^1.56.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,scss,html,md}": "prettier --write"
   }
 }
