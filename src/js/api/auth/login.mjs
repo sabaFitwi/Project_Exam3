@@ -31,7 +31,7 @@ form.addEventListener("submit", (event) => {
       delete profile.accessToken;
       save("profile", profile);
       load("profile", profile.name);
-      window.location.href = `/profile/?view=profile&name=${profile.name}`;
+      //window.location.href = `../profile/?view=profile&name=${profile.name}`;
 
       // if (token === "undefined" || token === null) {
       //     console.log("error email or password");

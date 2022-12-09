@@ -75,7 +75,7 @@ function detailsTemplet(list) {
     <div class="card mb-3 col-12">
       <div class="row g-2">
         <div class="col-md-4">
-          <img src="${list.media[0]}" class="img-fluid" alt="${title}" />
+          <img src="${list.media[0]}" class="img-fluid" alt="${list.title}" />
         </div>
         <div class="col-md-6">
           <div class="card-body">
@@ -126,41 +126,41 @@ function bidderTemplate(bids) {
 
 getListings();
 
-/**
- * submit register form data.
- * @param {Event} submit form submission
+// /**
+//  * submit register form data.
+//  * @param {Event} submit form submission
 
- */
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const form = event.target;
+//  */
+// form.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const form = event.target;
 
-  const bidInput = {
-    id: event.target.id,
-    amount: form.amount.value,
-  };
+//   const bidInput = {
+//     id: event.target.id,
+//     amount: form.amount.value,
+//   };
 
-  console.log(bidInput);
+//   console.log(bidInput);
 
-  buyListner(bidInput);
-});
+//   buyListner(bidInput);
+// });
 
-async function buyListner(amounts) {
-  const options = {
-    headers: headers("application/json"),
-    method: "post",
-    body: JSON.stringify({ amounts }),
-  };
-  const response = await fetch(
-    `${Auction_API_URL} /listings/${id} /bids`,
-    options
-  );
-  const data = await response.json();
-  console.log(response);
+// async function buyListner(amounts) {
+//   const options = {
+//     headers: headers("application/json"),
+//     method: "post",
+//     body: JSON.stringify({ amounts }),
+//   };
+//   const response = await fetch(
+//     `${Auction_API_URL} /listings/${id} /bids`,
+//     options
+//   );
+//   const data = await response.json();
+//   console.log(data);
 
-  if (response.ok) {
-    return data;
-  }
+//   if (response.ok) {
+//     return data;
+//   }
 
-  throw new Error(response.statusText);
-}
+//   throw new Error(response.statusText);
+// }

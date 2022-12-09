@@ -26,9 +26,9 @@ function getListingsTemplet(listings) {
   if (listings) {
     listings.map(
       (listing) =>
-        (listingsDiv.innerHTML += `<a href="view-detail/?id=${listing.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
+        (listingsDiv.innerHTML += `<a href="/auction-house/view-detail/index.html?id=${listing.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
           <div class="container border-0 ">
-             <img  id="img" src="${listing.media[0]}"  class="img-thumbnail listing-image"  />
+             <img  id="img" src="${listing.media[0]}" onerror="src='https://picsum.photos/id/111/4400/2656'"  class="img-thumbnail listing-image"  />
             <div class="text-center">
              <h4 class="text-capitalize  my-1">${listing.title}</h4>
              <p >${listing.description}</p>

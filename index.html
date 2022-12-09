@@ -81,28 +81,28 @@
             <li class="nav-item px-2 py-2">
               <a
                 class="nav-link text-uppercase text-dark large-font"
-                href="/listing"
+                href="auction-house/listing/"
                 >Listing</a
               >
             </li>
             <li class="nav-item px-2 py-2">
               <a
                 class="nav-link text-uppercase text-dark large-font"
-                href="/buy"
+                href="auction-house/buy/"
                 >Buy</a
               >
             </li>
             <li class="nav-item px-2 py-2" data-loggedVisibility="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
-                href="/sell"
+                href="auction-house/sell/"
                 >sell</a
               >
             </li>
             <li class="nav-item px-2 py-2" data-loggedVisibility="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
-                href="/profile"
+                href="auction-house/profile/"
                 >profile</a
               >
             </li>
@@ -112,37 +112,47 @@
       <div
         class="text-end d-flex flex-row gap-1 align-items-center justify-content-center justify-content-sm-start"
       >
-        <a
-          href="/login"
-          class="nav-link text-uppercase text-dark large-font active active-color logout"
-          data-loggedVisibility="false"
-          aria-current="page"
-          ><button
-            type="button"
-            class="btn btn-outline-success me-2 inverted-button"
-          >
-            Login
-          </button></a
-        >
-        <a
-          href="#"
-          class="nav-link text-uppercase text-dark large-font active active-color logout"
-          id="logout"
-          data-loggedVisibility="true"
-          aria-current="page"
-          ><button
-            type="button"
-            class="btn btn-outline-success me-2 inverted-button"
-          >
-            Logout
-          </button></a
-        >
-        <a
-          href="/register"
-          class="nav-link text-uppercase text-dark large-font"
-          data-loggedVisibility="false"
-          ><button type=" button" class="btn btn-success">Register</button></a
-        >
+        <ul>
+          <li>
+            <a
+              href="auction-house/login/"
+              class="nav-link text-uppercase text-dark large-font active active-color"
+              data-loggedVisibility="false"
+              aria-current="page"
+              ><button
+                type="button"
+                class="btn btn-outline-success me-2 inverted-button"
+              >
+                Login
+              </button></a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="nav-link text-uppercase text-dark large-font active active-color logout"
+              id="logout"
+              data-loggedVisibility="true"
+              aria-current="page"
+              ><button
+                type="button"
+                class="btn btn-outline-success me-2 inverted-button"
+              >
+                Logout
+              </button></a
+            >
+          </li>
+          <li>
+            <a
+              href="auction-house/register/"
+              class="nav-link text-uppercase text-dark large-font"
+              data-loggedVisibility="false"
+              ><button type=" button" class="btn btn-success">
+                Register
+              </button></a
+            >
+          </li>
+        </ul>
       </div>
     </nav>
     <!-- end of navbar -->
@@ -233,7 +243,7 @@
       </div>
 
       <div
-        class="listings-div container-fluid d-flex flex-wrap justify-content-evenly gap-2"
+        class="listings-div container-fluid d-flex flex-wrap justify-content-center gap-2"
       ></div>
     </main>
 
@@ -330,6 +340,7 @@
     <script type="module" src="/src/js/index.mjs"></script>
     <script type="module" src="/src/js/api/auth/logout.mjs"></script>
     <script type="module" src="/src/js/listing/getListings.mjs"></script>
+    <script type="module" src="/src/js/combine/loggedin.mjs"></script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

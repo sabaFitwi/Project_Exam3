@@ -30,9 +30,9 @@ async function sellListener(event) {
   console.log(bodyData);
 
   try {
-    const queryString = window.location.search;
-    const params = new URLSearchParams(queryString);
-    let id = params.get("id");
+    // const queryString = window.location.search;
+    // const params = new URLSearchParams(queryString);
+    // let id = params.get("id");
     let response = await sellListing(bodyData);
     console.log(response);
   } catch (error) {

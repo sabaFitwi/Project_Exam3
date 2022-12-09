@@ -6,21 +6,32 @@ const form = document.querySelector("#avatarForm");
 form.addEventListener("submit", setUpdateProfile);
 async function setUpdateProfile(event) {
   event.preventDefault();
+  // const [img] = event.target.elements;
+
+  // let dataImg = {
+  //   avatar: `${img.value}`,
+  // };
+  // update(dataImg);
   const form = event.target;
   const formData = new FormData(form);
-  const request = Object.fromEntries(formData.entries());
-  console.log(request);
+  const data = Object.fromEntries(formData.entries());
+  update(data);
+  console.log(data);
   try {
-    const profile = await update(request);
-    const avatar = document.querySelector("#updateAvatarImage");
-    avatar.src = await profile.avatar;
+    const profileData = await update(data);
+    console.log(profileData);
+    const avatar = document.querySelector(".avatar-profile-image");
+
+    avatar.src = await profileData.avatar;
   } catch {
     console.log("error");
   }
 }
 
 async function update(media) {
-  const { name } = load("profile");
+  const profile = load("profile");
+  const name = profile.name;
+  console.log(name);
 
   const updateProfileApi1 =
     Auction_API_URL + "/profiles/" + `${name}` + "/media";
@@ -33,16 +44,25 @@ async function update(media) {
   };
 
   const response = await fetch(updateProfileApi1, options);
-  const result = await response.json();
+  if (response.ok) {
+    const result = await response.json();
+    console.log(result);
+    return;
+  }
 
-  console.log(result);
+  throw new Error(response);
 }
+// save("profile", {
+//   avatar: result.avatar,
+//   credits: result.credits,
+//   email: result.email,
+//   name: result.name,
+// });
 
 const profileInfo = document.querySelector("#editProfile");
-function profileInformation(info) {
-  profile = load("profile").name;
-  profileInfo.innerHTML += `<h4 class="mt-5">${info.profile.name}</h4>
-         
-                                <p>credits:${info.profile.credits}</p>`;
-}
-profileInformation();
+const { name, email, avatar, credits } = load("profile");
+profileInfo.innerHTML += ` <img src=${avatar}" class="img-thumbnail rounded-circle me-2 avatar-profile-image"
+                            id="updateAvatarImage" alt="avatar" />
+                               <h4 class="mt-5">${name}</h4>         
+                                <p>credits:${credits}</p>
+                                <p>email: ${email}</p>`;

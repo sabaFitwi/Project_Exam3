@@ -9,14 +9,14 @@ const form = document.querySelector("#bidForm");
  
  */
 form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const form = event.target;
+  event.preventDefault();
+  const form = event.target;
 
-    const formData = new FormData(form);
-    const sellsInput = Object.fromEntries(formData.entries());
-    console.log(sellsInput);
+  const formData = new FormData(form);
+  const sellsInput = Object.fromEntries(formData.entries());
+  console.log(sellsInput);
 
-    sellListing(sellsInput);
+  sellListing(sellsInput);
 });
 
 const queryString = window.location.search;
@@ -24,20 +24,20 @@ const params = new URLSearchParams(queryString);
 let id = params.get("id");
 
 async function sellListing(amount) {
-    const options = {
-        method: "post",
-        body: JSON.stringify(amount),
-        headers: headers("application/json"),
-    };
+  const options = {
+    method: "post",
+    body: JSON.stringify(amount),
+    headers: headers("application/json"),
+  };
 
-    const response = await fetch(
-        `${Auction_API_URL}/listings/${id}/bids`,
-        options
-    );
-    console.log(response);
-    if (response.ok) {
-        return await response.json();
-    }
+  const response = await fetch(
+    `${Auction_API_URL}/listings/${id}/bids`,
+    options
+  );
+  console.log(response);
+  if (response.ok) {
+    return await response.json();
+  }
 
-    throw new Error(response.statusText);
+  throw new Error(response.statusText);
 }

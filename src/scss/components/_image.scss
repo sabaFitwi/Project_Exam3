@@ -3,3 +3,17 @@
   width: 100%;
   object-fit: cover;
 }
+
+.flex {
+  display: flex;
+  gap: 1.5em;
+}
+
+.sources {
+  overflow: "visible";
+  height: "auto";
+  max-height: "none";
+  opacity: "0";
+  visibility: "hidden";
+  display: "block";
+}

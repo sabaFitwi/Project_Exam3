@@ -31,4 +31,4 @@ form.addEventListener("submit", (event) => {
   }
   register(profile);
 });
-export const name = profile.name;
+//export const name = profile.name;

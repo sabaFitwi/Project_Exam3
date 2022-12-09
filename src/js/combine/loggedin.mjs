@@ -7,14 +7,19 @@ function isUserLoggedIn() {
   const loggedIn = document.querySelectorAll("[data-loggedVisibility=true]");
   const loggedOut = document.querySelectorAll("[data-loggedVisibility=false]");
   const isLoggedIn = load("token");
+  console.log(loggedIn);
 
   // Hide links and buttons depending on if the user is logged or not.
   if (isLoggedIn) {
+    console.log("hi");
     loggedOut.forEach((item) => item.classList.add("hidden"));
   } else {
     // redirect on profile and create when not logged in.
     const url = window.location.href.toString();
-    if (url.includes("/sell") || url.includes("/profile")) {
+    if (
+      url.includes("auction-house/sell/") ||
+      url.includes("auction-house/profile/")
+    ) {
       console.log("hhhhhhhhhhi");
       location.href = "../index.html";
     }

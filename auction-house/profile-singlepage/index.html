@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Complete and the most affordable auction solution, post your bid  and visit our website"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georama:wght@200;400;600&family=Tajawal&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2856179, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <title>Auction/Home</title>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-ligh py-4 fixed-top shadow-sm p-3 bg-white position-relative rounded"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand d-flex justify-content-between align-items-center order-lg-0"
+          href="index.html"
+        >
+          <img src="/assets/images/logo.PNG" alt="site icon" />
+        </a>
+
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+          <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item px-2 py-2">
+              <a
+                class="nav-link text-uppercase text-dark large-font active active-color"
+                aria-current="page"
+                href="../../index.html"
+                >home</a
+              >
+            </li>
+            <li class="nav-item px-2 py-2">
+              <a
+                class="nav-link text-uppercase text-dark large-font"
+                href="../listing/"
+                >Listing</a
+              >
+            </li>
+            <li class="nav-item px-2 py-2">
+              <a
+                class="nav-link text-uppercase text-dark large-font"
+                href="../buy/"
+                >Buy</a
+              >
+            </li>
+            <li class="nav-item px-2 py-2" data-loggedVisibility="true">
+              <a
+                class="nav-link text-uppercase text-dark large-font"
+                href="../sell/"
+                >sell</a
+              >
+            </li>
+            <li class="nav-item px-2 py-2" data-loggedVisibility="true">
+              <a
+                class="nav-link text-uppercase text-dark large-font"
+                href="../profile/"
+                >profile</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="text-end d-flex flex-row gap-1 align-items-center justify-content-center justify-content-sm-start"
+      >
+        <a
+          href="../login/"
+          class="nav-link text-uppercase text-dark large-font active active-color"
+          data-loggedVisibility="false"
+          aria-current="page"
+          ><button
+            type="button"
+            class="btn btn-outline-success me-2 inverted-button"
+          >
+            Login
+          </button></a
+        >
+        <a
+          href="#"
+          class="nav-link text-uppercase text-dark large-font active active-color logout"
+          id="logout"
+          data-loggedVisibility="true"
+          aria-current="page"
+          ><button
+            type="button"
+            class="btn btn-outline-success me-2 inverted-button"
+          >
+            Logout
+          </button></a
+        >
+        <a
+          href="../register/"
+          class="nav-link text-uppercase text-dark large-font"
+          data-loggedVisibility="false"
+          ><button type=" button" class="btn btn-success">Register</button></a
+        >
+      </div>
+    </nav>
+    <!-- end of navbar -->
+    <main class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-6 p-3 shadow">
+          <div class="container border-0">
+            <img
+              id="image-show"
+              src="/assets/images/8.jpg"
+              onerror="src='/assets/banner.jpg'"
+              alt="image-preview"
+              class="w-100 px-5 py-3"
+            />
+
+            <div class="text-center">
+              <h4 class="text-capitalize large-font my-1" id="sell-title">
+                Title:<span></span>
+              </h4>
+              <p id="sell-description">Description:<span></span></p>
+              <p id="sell-tags">Tags:<span></span></p>
+              <p fw-bold>End date: <span text-primary f-large></span></p>
+              <button type="buttom" class="btn btn-primary my-3">
+                view Detail
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="card shadow">
+            <div
+              class="card-title text-center border-bottom bg-danger text-light"
+            >
+              <h1 class="p-1 fs-4">Update your Post</h1>
+            </div>
+            <div class="card-body">
+              <form id="sellForm">
+                <div
+                  class="d-flex justify-content-between gap-3 align-items-center p-3"
+                >
+                  <label for="" class="form-label fs-5 text-capitalize"
+                    >Title:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control input-bg"
+                    name="title"
+                    required
+                  />
+                </div>
+
+                <div
+                  class="d-flex justify-content-between gap-3 align-items-center p-3"
+                >
+                  <label for="" class="form-label fs-5 text-capitalize"
+                    >Tags:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control input-bg"
+                    name="tags"
+                  />
+                </div>
+                <div class="d-flex flex-column" id="media-inputs">
+                  <div
+                    class="d-flex justify-content-between gap-3 align-items-center p-3"
+                  >
+                    <label for="" class="form-label fs-5 text-capitalize"
+                      >Media:</label
+                    >
+                    <input
+                      type="url"
+                      class="form-control input-bg"
+                      name="media"
+                      id="form-media-image"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between gap-3 align-items-center p-3"
+                  >
+                    <label
+                      for="form-media-image1"
+                      class="form-label closing hidden"
+                      >Image 1</label
+                    >
+                    <input
+                      type="url"
+                      name="media"
+                      id="form-media-image1"
+                      class="form-control mb-2 p-2 media-input closing hidden"
+                      disabled
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between gap-3 align-items-center p-3"
+                  >
+                    <label
+                      for="form-media-image2"
+                      class="form-label closing hidden"
+                      >Image 2</label
+                    >
+                    <input
+                      type="url"
+                      name="media"
+                      id="form-media-image2"
+                      class="form-control mb-2 p-2 media-input closing hidden"
+                      disabled
+                    />
+                  </div>
+                  <div
+                    class="d-flex justify-content-between gap-3 align-items-center p-3"
+                  >
+                    <label
+                      for="form-media-image2"
+                      class="form-label closing hidden"
+                      >Image 3</label
+                    >
+                    <input
+                      type="url"
+                      name="media"
+                      id="form-media-image3"
+                      class="form-control mb-2 p-2 media-input closing hidden"
+                      disabled
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <button type="button" class="btn btn-primary add-image">
+                      Add Another Image
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary hidden remove-image"
+                    >
+                      Remove Image
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-between gap-3 align-items-center p-3"
+                >
+                  <label
+                    for=""
+                    class="form-label fs-5 text-capitalize flex-n-wrap"
+                    >End Date:</label
+                  >
+                  <input
+                    type="datetime-local"
+                    class="form-control input-bg"
+                    name="endsAt"
+                    required
+                  />
+                </div>
+
+                <div
+                  class="d-flex justify-content-between gap-3 align-items-center p-3"
+                >
+                  <label for="" class="form-label fs-5 text-capitalize w-20"
+                    >Description:</label
+                  >
+                  <textarea
+                    type="text"
+                    class="form-control input-bg"
+                    name="description"
+                  ></textarea>
+                </div>
+
+                <div class="d-grid p-3 mt-5">
+                  <button
+                    type="submit"
+                    class="btn text-light text-capitalize bg-danger"
+                  >
+                    update Listings
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body d-flex flex-column align-items-center">
+                        <h1>Thank you</h1>
+                        <h2>your item posted successfully</h2>
+                        <button type="button" class="btn btn-primary">
+                            View Listing
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <script src="/node_modules/bootstrap/dist/js/"></script>
+    <script type="module" src="/src/js/index.mjs"></script>
+    <script type="module" src="/src/js/profile/sellupdate.mjs"></script>
+    <script type="module" src="/src/js/api/auth/logout.mjs"></script>
+    <script type="module" src="/src/js/combine/loggedin.mjs"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

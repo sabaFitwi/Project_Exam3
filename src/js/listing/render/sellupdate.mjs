@@ -1,5 +1,8 @@
-function getHiddenHeight(container) {
-  const clone = container.cloneNode(true);
+function hiddenDiv(el) {
+  if (!el?.cloneNode) {
+    return null;
+  }
+  const clone = el.cloneNode(true);
 
   Object.assign(clone.style, {
     overflow: "visible",
@@ -10,61 +13,67 @@ function getHiddenHeight(container) {
     display: "block",
   });
 
-  container.after(clone);
+  el.after(clone);
   const height = clone.offsetHeight;
   clone.remove();
   return height;
 }
-function showInputContainer(input) {
-  if (input.classList.contains("hidden")) {
-    input.classList.toggle("hidden");
-    setTimeout(function () {
+function viewInputDiv(input) {
+  if (input.classList.contains("d-none")) {
+    input.removeAttribute("disabled");
+    input.classList.toggle("d-none");
+    setTimeout(() => {
       input.classList.toggle("open");
-      input.style.height = `${getHiddenHeight(input)}px`;
-      input.removeAttribute("disabled");
-    }, 20);
+      input.style.height = `${hiddenDiv(input)}px`;
+
+    }, 10);
   } else {
+    input.setAttribute("disabled", "");
     input.classList.toggle("open");
     input.style.height = `0px`;
-    setTimeout(function () {
-      input.classList.toggle("hidden");
-      input.setAttribute("disabled", "");
-    }, 500);
+    setTimeout(() => {
+      input.classList.toggle("d-none");
+
+    }, 50);
   }
 }
 
-function removeMediaInput(event) {
-  const mediaInputContainer = document.querySelector("#media-inputs-container");
-  const enabledMediaInputs = mediaInputContainer.querySelectorAll(
+function deleteImg(e) {
+  const mediaInputDiv = document.getElementById("media-inputs-wapper");
+  const viewImgInput = mediaInputDiv.querySelectorAll(
     "input[type=url]:enabled"
   );
-  const addMoreMediaBtn = document.querySelector("#add-more-media-btn");
+  const addImgbtn = document.getElementById("add-img-btn");
 
-  if (enabledMediaInputs.length === 2) {
-    event.target.classList.add("hidden");
+  if (viewImgInput.length === 2) {
+    e.target.classList.add("d-none");
   }
-  addMoreMediaBtn.classList.remove("hidden");
-  showInputContainer(enabledMediaInputs[enabledMediaInputs.length - 1]);
+  addImgbtn.classList.remove("d-none");
+  viewInputDiv(viewImgInput[viewImgInput.length - 1]);
 }
 
-function addMoreMedia(event) {
-  const mediaInputContainer = document.querySelector("#media-inputs");
-  //const disabledMediaInputs = mediaInputContainer.querySelectorAll("input[type=url]:disabled");
-  const disabledMediaInputs = mediaInputContainer.querySelectorAll(
-    "input[type=url].hidden"
+function addImage(e) {
+  const mediaInputDiv = document.getElementById("media-inputs-wapper");
+  //const hiddenImgInputs = mediaInputDiv.querySelectorAll("input[type=url]:disabled");
+  const hiddenImgInputs = mediaInputDiv.querySelectorAll(
+    "input[type=url].d-none"
   );
-  const removeMediaBtn = document.querySelector("#remove-media-btn");
 
-  if (disabledMediaInputs.length === 1) {
-    event.target.classList.add("hidden");
+  const deleteImg = document.getElementById("delete-img-btn");
+  if (hiddenImgInputs.length === 1) {
+    e.target.classList.add("d-none");
+
   }
-  removeMediaBtn.classList.remove("hidden");
+  deleteImg.classList.remove("d-none");
 
-  showInputContainer(disabledMediaInputs[0]);
+  viewInputDiv(hiddenImgInputs[0]);
+
+  //updatePreview();
 }
+const addImgbtn = document.getElementById("add-img-btn");
 
-const addMoreMediaBtn = document.querySelector("#add-more-media-btn");
-addMoreMediaBtn.addEventListener("click", addMoreMedia);
+addImgbtn.addEventListener("click", addImage);
 
-const removeMediaBtn = document.querySelector("#remove-media-btn");
-removeMediaBtn.addEventListener("click", removeMediaInput);
+const deleteImgBtn = document.getElementById("delete-img-btn");
+deleteImgBtn.addEventListener("click", deleteImg);
+

@@ -17,7 +17,8 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.2",
-    "bootstrap-icons": "^1.10.2"
+    "bootstrap-icons": "^1.10.2",
+    "get-hidden-height": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "^8.28.0",
