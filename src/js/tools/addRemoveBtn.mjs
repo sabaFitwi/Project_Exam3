@@ -25,7 +25,6 @@ function viewInputDiv(input) {
     setTimeout(() => {
       input.classList.toggle("open");
       input.style.height = `${hiddenDiv(input)}px`;
-
     }, 10);
   } else {
     input.setAttribute("disabled", "");
@@ -33,7 +32,6 @@ function viewInputDiv(input) {
     input.style.height = `0px`;
     setTimeout(() => {
       input.classList.toggle("d-none");
-
     }, 50);
   }
 }
@@ -62,7 +60,6 @@ function addImage(e) {
   const deleteImg = document.getElementById("delete-img-btn");
   if (hiddenImgInputs.length === 1) {
     e.target.classList.add("d-none");
-
   }
   deleteImg.classList.remove("d-none");
 
@@ -76,4 +73,3 @@ addImgbtn.addEventListener("click", addImage);
 
 const deleteImgBtn = document.getElementById("delete-img-btn");
 deleteImgBtn.addEventListener("click", deleteImg);
-
