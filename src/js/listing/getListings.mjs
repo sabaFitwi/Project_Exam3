@@ -1,5 +1,6 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
+import { filterListings } from "../search/filter.mjs"
 const listingsDiv = document.querySelector(".listings-div");
 
 export async function getListings(limit = 20, offset = 0) {
@@ -13,6 +14,7 @@ export async function getListings(limit = 20, offset = 0) {
   const data = await response.json();
   console.log(data);
   getListingsTemplet(data);
+
   if (response.ok) {
     return data;
   }
@@ -21,12 +23,12 @@ export async function getListings(limit = 20, offset = 0) {
 }
 getListings();
 
-function getListingsTemplet(listings) {
+export function getListingsTemplet(listings) {
   listingsDiv.innerHTML = "";
   if (listings) {
     listings.map(
       (listing) =>
-        (listingsDiv.innerHTML += `<a href="/auction-house/view-detail/index.html?id=${listing.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
+        listingsDiv.innerHTML += `<a href="/auction-house/view-detail/index.html?id=${listing.id}"  class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow  new">
           <div class="container border-0 ">
              <img  id="img" src="${listing.media[0]}" onerror="src='https://picsum.photos/id/111/4400/2656'"  class="img-thumbnail listing-image"  />
             <div class="text-center">
@@ -38,8 +40,12 @@ function getListingsTemplet(listings) {
               </button>
            </div>
           </div >
-         </a > `)
+         </a > `
+
     );
+    const newCardBody = document.querySelectorAll(" .all ");
+
+    filterListings(newCardBody);
   }
 }
 
