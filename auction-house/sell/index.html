@@ -165,10 +165,6 @@
               <p id="sell-description">Description:<span></span></p>
               <p id="sell-tags">Tags:<span></span></p>
               <p fw-bold>End date: <span text-primary f-large></span></p>
-              <button type="buttom" class="btn btn-primary my-3">
-                view Detail
-                <span></span>
-              </button>
             </div>
           </div>
         </div>
@@ -177,7 +173,7 @@
             <div
               class="card-title text-center border-bottom bg-danger text-light"
             >
-              <h1 class="p-1 fs-4">Update your Post</h1>
+              <h1 class="p-1 fs-4">Create your Listing</h1>
             </div>
             <div class="card-body">
               <form id="sellForm">
@@ -225,7 +221,7 @@
                     />
                   </div>
                   <label for="form-image-1" class="form-label closing d-none"
-                    >Image 1</label
+                    >media 1</label
                   >
                   <input
                     type="url"
@@ -236,7 +232,7 @@
                   />
 
                   <label for="form-image-2" class="form-label closing d-none"
-                    >Image 2</label
+                    >media 2</label
                   >
                   <input
                     type="url"
@@ -247,7 +243,7 @@
                   />
 
                   <label for="form-image-3" class="form-label closing d-none"
-                    >Image 3</label
+                    >media 3</label
                   >
                   <input
                     type="url"
@@ -257,7 +253,7 @@
                     disabled
                   />
                   <label for="form-image-4" class="form-label closing d-none"
-                    >Image 4</label
+                    >media 4</label
                   >
                   <input
                     type="url"
@@ -318,46 +314,20 @@
                     type="submit"
                     class="btn text-light text-capitalize bg-danger"
                   >
-                    sell product
+                    Create Listing
                   </button>
                 </div>
               </form>
-              <hr />
-              <h5>Other Contacts</h5>
-              <div id="form-placeholder"></div>
-              <button id="btn-add" type="button" class="btn btn-primary">
-                Add
-              </button>
-              <hr />
             </div>
           </div>
         </div>
       </div>
-      <!-- <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-d-none="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body d-flex flex-column align-items-center">
-                        <h1>Thank you</h1>
-                        <h2>your item posted successfully</h2>
-                        <button type="button" class="btn btn-primary">
-                            View Listing
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </main>
 
     <script src="/node_modules/bootstrap/dist/js/"></script>
     <script type="module" src="/src/js/index.mjs"></script>
     <script type="module" src="/src/js/listing/sell.mjs"></script>
-    <script type="module" src="/src/js/listing/render/sellupdate.mjs"></script>
+    <script type="module" src="/src/js/tools/addRemoveBtn.mjs"></script>
     <script type="module" src="/src/js/api/auth/logout.mjs"></script>
     <script type="module" src="/src/js/combine/loggedin.mjs"></script>
     <script
