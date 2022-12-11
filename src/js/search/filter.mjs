@@ -12,7 +12,7 @@ export function filterListings(newCardBody) {
             let datafilter = event.target.dataset.filter;
             for (let k = 0; k < newCardBody.length; k++) {
                 const blockCaterory = newCardBody[k].getAttribute("data-category");
-                const blockCatero = newCardBody[k].getAttribute("data-category");
+
 
 
                 if (blockCaterory == datafilter || datafilter == "all") {
