@@ -57,8 +57,8 @@ function detailsTemplet(list) {
             <th scope="col">Title: ${list.title}</th>
 
             <th scope="col">Auction End Date:${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")} </th>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -67,7 +67,11 @@ function detailsTemplet(list) {
     <div class="card mb-3 col-12">
       <div class="row g-2">
         <div class="col-md-4">
-          <img src="${list.media[0]}" this.onerror="src='assets/images/profile.jpg'" class="img-fluid" alt="${list.title}" />
+          <img src="${
+            list.media[0]
+          }" this.onerror="src='https://cdn.discordapp.com/attachments/931268688412299274/1026475050578231376/no-user-image-icon-0.jpg'" class="img-fluid" alt="${
+    list.title
+  }" />
         </div>
         <div class="col-md-6">
           <div class="card-body">
@@ -77,13 +81,14 @@ function detailsTemplet(list) {
             ${list.description}
             </p>  <hr/>
             <p class="card-text">EndDate: ${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")}</p>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")}</p>
           </div>
         </div>
-        <div class="col-md-2">
-        <button class="btn btn-outline-warning btn-long cart"data-bs-toggle="modal" data-bs-target="#bidModal">Bids ${list._count.bids
-    }</button>
+        <div class="col-md-2" >
+        <button class="btn btn-outline-warning btn-long cart" data-isLogged="true" data-bs-target="#bidModal">Bids ${
+          list._count.bids
+        }</button>
             
         </div>
       </div>
@@ -101,8 +106,7 @@ function detailsTemplet(list) {
 function bidderTemplate(bids) {
   if (bids) {
     Array.from(bids).forEach((bid) => {
-
-      let date = new Date(`${bid.created}`)
+      let date = new Date(`${bid.created}`);
       bidder.innerHTML += `
     <tr>       
         <td>${bid.bidderName}</td>
@@ -115,13 +119,7 @@ function bidderTemplate(bids) {
   }
 }
 
-
 getListing();
-
-
-
-
-
 
 // /**
 //  * submit register form data.

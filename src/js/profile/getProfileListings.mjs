@@ -9,8 +9,7 @@ async function viewBidsProfiles() {
   const options = {
     headers: headers("application/json"),
   };
-  const api =
-    Auction_API_URL + `/profiles/${name}/bids?_listings=true`;
+  const api = Auction_API_URL + `/profiles/${name}/bids?_listings=true`;
   const response = await fetch(api, options);
   console.log(api);
   const result = await response.json();
@@ -22,11 +21,10 @@ async function viewBidsProfiles() {
 function getYourBids(bidsListing) {
   const profileBidsContainer = document.querySelector("#profile-bids");
 
-
   if (bidsListing) {
     bidsListing.map(
       (profile) =>
-      (profileBidsContainer.innerHTML += `<a href="../profile-detail/index.html?id=${profile.listing.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
+        (profileBidsContainer.innerHTML += `<a href="../profile-detail/index.html?id=${profile.listing.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
                                           <div class="container border-0 ">
                                               <img  id="img" src="${profile.listing.media[0]}" onerror="src='https://picsum.photos/id/111/4400/2656'"  class="img-thumbnail listing-image"  />
                                             <div class="text-center div-container">
@@ -38,17 +36,10 @@ function getYourBids(bidsListing) {
                                             Bids(${profile.amount})
                                               </button>
                                           </div >
-                                        </a >`
-
-      ),
-
-
+                                        </a >`)
     );
   }
 }
-
-
-
 
 async function viewAllProfiles() {
   const profile = load("profile");
@@ -57,8 +48,7 @@ async function viewAllProfiles() {
   const options = {
     headers: headers("application/json"),
   };
-  const api =
-    Auction_API_URL + `/profiles/${name}/listings`;
+  const api = Auction_API_URL + `/profiles/${name}/listings`;
   const response = await fetch(api, options);
   console.log(api);
   const result = await response.json();
@@ -66,20 +56,15 @@ async function viewAllProfiles() {
   getListingsTemplet(result);
 
   return result;
-
-
 }
-
 
 function getListingsTemplet(profileListing) {
   const profileListingContainer = document.querySelector("#profile-listings");
 
-
   if (profileListing) {
-
     profileListing.map(
       (profile) =>
-      (profileListingContainer.innerHTML += `<a href="../profile-detail/index.html?id=${profile.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
+        (profileListingContainer.innerHTML += `<a href="../profile-detail/index.html?id=${profile.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
                                           <div class="container border-0 ">
                                               <img  id="img" src="${profile.media[0]}" this.onerror="src='/assets/images/profile.jpg'"  class="img-thumbnail listing-image"  />
                                             <div class="text-center div-container">
@@ -91,16 +76,10 @@ function getListingsTemplet(profileListing) {
                                             Bids(${profile._count.bids})
                                               </button>
                                           </div >
-                                        </a >`
-
-      ),
-
-
+                                        </a >`)
     );
   }
 }
 
-
-
 viewAllProfiles();
-viewBidsProfiles()
+viewBidsProfiles();

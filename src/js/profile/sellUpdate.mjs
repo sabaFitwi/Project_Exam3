@@ -1,66 +1,35 @@
-import { Auction_API_URL } from "../api/constant.mjs";
-import { headers } from "../api/headers.mjs";
+console.log("hhhhhhh");
 import { getListing } from "../api/listing/viewDetailPage.mjs";
 
-
-
-async function setUpdate() {
-
-  const form = document.getElementById("edit-form")
-  const queryString = window.location.search;
-  const params = new URLSearchParams(queryString);
-  let id = params.get("id");
-
-  form.addEventListener("submit", editFormListener);
-  form.addEventListener("change", getPreview);
-
-
-  if (id) {
-
-    try {
-      const listingData = await getListing(id);
-      hibernate(listingData);
-      form.endsAt.setAttribute("disabled", "");
-      getPreview(listingData.media);
-    } catch (error) {
-      console.log(error);
-      // const errorContainer = document.querySelector(
-      //   "#error-reporting-container"
-      // );
-      //errorContainer.innerHTML = `<p class="p-3 text-losing bg-secondary"> An error occurred please refresh and try again. If problems persist, check the listing still exists.</p>`;
-      // location.hash = "#error-reporting-container";
-    }
-  }
+function renderImageSlider(media) {
+  const listingMainSlider = document.querySelector(".image-show");
+  const listingThumbSlider = document.querySelector(".thumbs-show");
+  listingMainSlider.innerHTML = "";
+  listingThumbSlider.innerHTML = "";
+  media.forEach((image, index) => {
+    listingMainSlider.innerHTML += `<div class="carousel-item${index === 0 ? " active" : ""
+      }">
+                                      <div class="specific-outer-slider">
+                                        <div class="specific-inner-slider">
+                                          <img id="listing-image" src="${image}" onerror="src='https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png'" alt="Item image ${index + 1
+      }" />
+                                        </div>
+                                      </div>
+                                    </div>`;
+    listingThumbSlider.innerHTML += `<a type="button" data-bs-target="#specific" data-bs-slide-to="${index}" class="thumbs ${index === 0 ? " active" : ""
+      }" aria-current="true" aria-label="Slide ${index + 1}">
+                                      <img id="listing-image" class="thumb-image" src="${image}" onerror="src='../images/empty_image.jpg'" alt="Item image" />
+                                    </a>`;
+  });
 }
 
-const getPreview = function () {
-  const form = document.getElementById("edit-form");
-  const title = document.getElementById("sell-title");
-  const description = document.getElementById("sell-description");
-  const tags = document.getElementById("sell-tags");
-  title.innerHTML = form.title.value;
-  description.innerText = form.description.value;
-  tags.innerText = form.tags.value;
-  if (media !== []) {
-    const mediaInputs = Array.from(
-      document.querySelectorAll("input[type=url]:enabled")
-    );
-    media = mediaInputs
-      .map((input) => input.value)
-      .filter((value) => value !== "");
-  }
-
-};
-
-//---------------------------
-function hibernate({ title, description, tags, media, endsAt, }) {
+function hibernate({ title, description, tags, media, endsAt }) {
   const titleInp = document.getElementById("hibernate-titel");
   const descrInp = document.getElementById("hibernate-description");
   const tagsInp = document.getElementById("hibernate-tags");
   const endsAtInp = document.getElementById("hibernate-endsAt");
   const mediaInp = document.querySelectorAll("input[type=url]");
   const addBtn = document.getElementById("add-img-btn");
-
 
   titleInp.value = title;
   descrInp.value = description;
@@ -72,73 +41,42 @@ function hibernate({ title, description, tags, media, endsAt, }) {
       addBtn.click();
     }
   });
-
-
-};
-//----------------------------------------------------------
-
-
-
-
-
-
-
-async function editFormListener(e) {
-  e.preventDefault();
-
-  const mediaInputs = Array.from(
-    e.target.querySelectorAll("input[type=url]:enabled")
-  );
-
-
-
-  const bodyData = {
-    title: e.target.title.value,
-    description: e.target.description.value,
-    tags: e.target.tags.value
-      .split(",")
-      .map((tag) => tag.trim())
-      .slice(0, 3),
-    media: mediaInputs
+}
+// //----------------------------------------------------------
+function updatePreview(media = false) {
+  const form = document.querySelector("#edit-form");
+  const title = document.getElementById("sell-title");
+  const description = document.getElementById("sell-description");
+  const tags = document.getElementById("sell-tags");
+  title.innerHTML = form.title.value;
+  description.innerHTML = form.description.value;
+  tags.innerHTML = form.tags.value;
+  //media on listener will event change{..} so false doesn't come through
+  if (media !== []) {
+    const mediaInputs = Array.from(
+      document.querySelectorAll("input[type=url]:enabled")
+    );
+    media = mediaInputs
       .map((input) => input.value)
-      .filter((value) => value !== ""),
-    endsAt: new Date(e.target.endingAt.value),
-  };
-
-  try {
-    let response = {}
-
-    if (id) {
-
-      response = await editListing(bodyData, id);
-    }
-    console.log(response);
-    //window.location.href = `./specific.html?id=${response.id}`;
-  } catch (error) {
-    console.log(error);
-    // const errorContainer = document.querySelector("#error-reporting-container");
-    // errorContainer.innerHTML = `<p class="p-3 text-losing bg-secondary"> An error occurred please refresh and try again </p>`;
-    // location.hash = "#error-reporting-container";
+      .filter((value) => value !== "");
   }
-};
+  renderImageSlider(media);
+}
+const form = document.querySelector("#edit-form");
+form.addEventListener("change", updatePreview);
 
-setUpdate()
+async function updatePage() {
+  const queryString = window.location.search;
+  const params = new URLSearchParams(queryString);
+  let id = params.get("id");
+  console.log(id)
 
-async function editListing(bodyData, id) {
 
-  const options = {
-    method: "PUT",
-    body: JSON.stringify(bodyData),
-    headers: headers("application/json"),
-  };
+  const listingData = await getListing(id);
+  hibernate(listingData);
+  form.endingAt.setAttribute("disabled", "");
+  updatePreview(listingData.media);
 
-  const response = await fetch(Auction_API_URL + "/listings" + id, options);
-  console.log(response);
-  if (response.ok) {
-    return await response.json();
-  }
-
-  throw new Error(response.statusText);
 }
 
-
+updatePage();

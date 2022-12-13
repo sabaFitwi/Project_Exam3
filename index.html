@@ -86,85 +86,81 @@
               >
             </li>
 
-            <li class="nav-item px-2 py-2" data-loggedVisibility="true">
+            <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
                 href="auction-house/sell/"
                 >sell</a
               >
             </li>
-            <li class="nav-item px-2 py-2" data-loggedVisibility="true">
+            <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
                 href="auction-house/profile/"
                 >profile</a
               >
             </li>
+            <li class="mx-auto search-input">
+              <form class="d-flex mx-auto" role="search">
+                <input
+                  class="form-control rounded-0 rounded-start"
+                  type="search"
+                  name="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  class="btn btn-primary rounded-0 rounded-end inverted-button"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
+            </li>
           </ul>
         </div>
       </div>
-      <div
+      <ul
         class="text-end d-flex flex-row gap-1 align-items-center justify-content-center justify-content-sm-start"
       >
-        <ul>
-          <li>
-            <a
-              href="auction-house/login/"
-              class="nav-link text-uppercase text-dark large-font active active-color"
-              data-loggedVisibility="false"
-              aria-current="page"
-              ><button
-                type="button"
-                class="btn btn-outline-success me-2 inverted-button"
-              >
-                Login
-              </button></a
+        <li>
+          <a
+            href="auction-house/login/"
+            class="nav-link text-uppercase text-dark large-font active active-color"
+            data-isLogged="false"
+            aria-current="page"
+            ><button
+              type="button"
+              class="btn btn-outline-success me-2 inverted-button"
             >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="nav-link text-uppercase text-dark large-font active active-color logout"
-              id="logout"
-              data-loggedVisibility="true"
-              aria-current="page"
-              ><button
-                type="button"
-                class="btn btn-outline-success me-2 inverted-button"
-              >
-                Logout
-              </button></a
-            >
-          </li>
-          <li>
-            <a
-              href="auction-house/register/"
-              class="nav-link text-uppercase text-dark large-font"
-              data-loggedVisibility="false"
-              ><button type=" button" class="btn btn-success">
-                Register
-              </button></a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="mx-auto search-input">
-        <form class="d-flex mx-auto" role="search">
-          <input
-            class="form-control rounded-0 rounded-start"
-            type="search"
-            name="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            class="btn btn-primary rounded-0 rounded-end inverted-button"
-            type="submit"
+              Login
+            </button></a
           >
-            Search
-          </button>
-        </form>
-      </div>
+        </li>
+        <li>
+          <a
+            href="#"
+            class="nav-link text-uppercase text-dark large-font active active-color logout"
+            id="logout"
+            data-isLogged="true"
+            aria-current="page"
+            ><button
+              type="button"
+              class="btn btn-outline-success me-2 inverted-button"
+            >
+              Logout
+            </button></a
+          >
+        </li>
+        <li>
+          <a
+            href="auction-house/register/"
+            class="nav-link text-uppercase text-dark large-font"
+            data-isLogged="false"
+            ><button type=" button" class="btn btn-success">Register</button></a
+          >
+        </li>
+      </ul>
     </nav>
     <!-- end of navbar -->
 
@@ -197,7 +193,9 @@
               </button>
             </form>
           </div>
-          <a href="#" class="btn mt-3 text-uppercase">bid now</a>
+          <a href="#" class="btn mt-3 text-uppercase" data-isLogged="true"
+            >bid now</a
+          >
         </div>
         <div class="text-center carousel-item banner-content">
           <h2 class="text-capitalize fw-light text-dark large-font">
@@ -223,7 +221,9 @@
               </button>
             </form>
           </div>
-          <a href="#" class="btn mt-3 text-uppercase">register</a>
+          <a href="#" class="btn mt-3 text-uppercase" data-isLogged="false"
+            >register</a
+          >
         </div>
       </div>
 

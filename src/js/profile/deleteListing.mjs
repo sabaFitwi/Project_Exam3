@@ -20,10 +20,10 @@ async function deleteListener() {
     // errorContainer.innerHTML = `<p class="p-3 text-losing bg-secondary">An error occurred please refresh and try again.</br> Listing might no longer exists. </p>`;
     // location.hash = "#error-reporting-container";
   }
-};
+}
 
 async function deleteListing(id) {
-  const API = `${Auction_API_URL}/listings/${id}`
+  const API = `${Auction_API_URL}/listings/${id}`;
 
   const options = {
     method: "DELETE",

@@ -39,7 +39,7 @@ async function sellListener(event) {
     console.log(error);
   }
 
-  sellListing(bodyData);
+  //sellListing(bodyData);
 }
 async function sellListing(bodyData) {
   const options = {

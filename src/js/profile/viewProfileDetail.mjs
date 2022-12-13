@@ -65,8 +65,8 @@ function detailsTemplet(list) {
             <th scope="col">Title: ${list.title}</th>
 
             <th scope="col">Auction End Date:${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")} </th>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -77,10 +77,18 @@ function detailsTemplet(list) {
         <div class="col-md-4">
           <img src="${list.media[0]}" class="img-fluid" alt="${list.title}" />
           <div class="d-flex flex-row col-md-4 justify-content-center mx-auto">
-              <img src="${list.media[1]}" class="col-3 m-1 rounded image-small" alt="${list.title}" />
-              <img src="${list.media[2]}" class="col-3 m-1 rounded image-small" alt="${list.title}" />
-              <img src="${list.media[3]}" class="col-3 m-1 rounded image-small" alt="${list.title}" />
-              <img src="${list.media[4]}" class="col-3 m-1 rounded image-small" alt="${list.title}" />
+              <img src="${
+                list.media[1]
+              }" class="col-3 m-1 rounded image-small" alt="${list.title}" />
+              <img src="${
+                list.media[2]
+              }" class="col-3 m-1 rounded image-small" alt="${list.title}" />
+              <img src="${
+                list.media[3]
+              }" class="col-3 m-1 rounded image-small" alt="${list.title}" />
+              <img src="${
+                list.media[4]
+              }" class="col-3 m-1 rounded image-small" alt="${list.title}" />
             </div>
         </div>
         <div class="col-md-5">
@@ -91,8 +99,8 @@ function detailsTemplet(list) {
             ${list.description}
             </p>
             <p class="card-text">EndDate: ${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")}</p>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")}</p>
           </div>
         </div>
         <div class="col-md-3 d-flex flex-column gap-2">
@@ -124,10 +132,6 @@ function bidderTemplate(bids) {
 }
 
 getListing();
-
-
-
-
 
 // /**
 //  * submit register form data.
