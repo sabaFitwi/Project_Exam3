@@ -6,7 +6,5 @@ import { remove } from "../../storage/localStorage.mjs";
 export const logout = function () {
   remove("token");
   remove("profile");
-  location.href = "../index.html";
+  window.location.replace("/index.html");
 };
-
-document.querySelector("#logout").addEventListener("click", logout);

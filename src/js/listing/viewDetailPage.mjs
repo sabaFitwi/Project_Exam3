@@ -3,7 +3,7 @@ import { headers } from "../api/headers.mjs";
 import { dateOptions as dateFormat } from "../component/dateConverter.mjs";
 const viewDetails = document.querySelector(".view-detail");
 const bidder = document.querySelector(".bidder");
-const form = document.querySelector("#bidForm");
+//const form = document.querySelector("#bidForm");
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -46,20 +46,12 @@ function detailsTemplet(list) {
     />
     <h4 class="mt-3">${list.seller.name}</h4>
     <p class="mt-1">${list.seller.email}</p>
-    <button
-      class="btn btn-outline-warning btn-long cart mt-2"
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#createModal"
-    >
-      Edit Profiles
-    </button>
-    </div>
+       </div>
 
     <div class="col-12 col-md-12 col-lg-9 mt-1">
     <div class="d-flex flex-column justify-content-center w-100 mx-auto">
     <div class="col-12">
-      <table class="table bg-danger text-light">
+      <table class="table bg-primary text-light">
         <thead>
           <tr>
             <th scope="col">Title: ${list.title}</th>
@@ -75,22 +67,26 @@ function detailsTemplet(list) {
     <div class="card mb-3 col-12">
       <div class="row g-2">
         <div class="col-md-4">
-          <img src="${list.media[0]}" class="img-fluid" alt="${list.title}" />
+          <img src="${
+            list.media[0]
+          }" this.onerror="src='https://cdn.discordapp.com/attachments/931268688412299274/1026475050578231376/no-user-image-icon-0.jpg'" class="img-fluid" alt="${
+    list.title
+  }" />
         </div>
         <div class="col-md-6">
           <div class="card-body">
-            <h2 class="card-title fs-6">Description</h2>
-            
+            <h2 class="card-title fs-5">Description</h2>
+          
             <p class="card-text">
             ${list.description}
-            </p>
+            </p>  <hr/>
             <p class="card-text">EndDate: ${date
               .toLocaleDateString("en-US", dateFormat)
               .replace(/[/]/g, "-")}</p>
           </div>
         </div>
-        <div class="col-md-2">
-        <button class="btn btn-outline-warning btn-long cart"data-bs-toggle="modal" data-bs-target="#bidModal">Bids ${
+        <div class="col-md-2" >
+        <button class="btn btn-outline-warning btn-long cart" data-isLogged="true" data-bs-target="#bidModal">Bids ${
           list._count.bids
         }</button>
             
@@ -110,12 +106,11 @@ function detailsTemplet(list) {
 function bidderTemplate(bids) {
   if (bids) {
     Array.from(bids).forEach((bid) => {
-      let dates = new Date(`${bid[bids.length - 2]} `);
-
+      let date = new Date(`${bid.created}`);
       bidder.innerHTML += `
     <tr>       
         <td>${bid.bidderName}</td>
-        <td>${dates
+        <td>${date
           .toLocaleDateString("en-US", dateFormat)
           .replace(/[/]/g, "-")}</td>
         <td>${bid.amount}</td>

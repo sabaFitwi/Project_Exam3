@@ -85,21 +85,15 @@
                 >Listing</a
               >
             </li>
-            <li class="nav-item px-2 py-2">
-              <a
-                class="nav-link text-uppercase text-dark large-font"
-                href="../buy/"
-                >Buy</a
-              >
-            </li>
-            <li class="nav-item px-2 py-2" data-loggedVisibility="true">
+
+            <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
                 href="../sell/"
                 >sell</a
               >
             </li>
-            <li class="nav-item px-2 py-2" data-loggedVisibility="true">
+            <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
                 href="../profile/"
@@ -115,7 +109,7 @@
         <a
           href="../login/"
           class="nav-link text-uppercase text-dark large-font active active-color"
-          data-loggedVisibility="false"
+          data-isLogged="false"
           aria-current="page"
           ><button
             type="button"
@@ -128,7 +122,7 @@
           href="#"
           class="nav-link text-uppercase text-dark large-font active active-color logout"
           id="logout"
-          data-loggedVisibility="true"
+          data-isLogged="true"
           aria-current="page"
           ><button
             type="button"
@@ -140,7 +134,7 @@
         <a
           href="../register/"
           class="nav-link text-uppercase text-dark large-font"
-          data-loggedVisibility="false"
+          data-isLogged="false"
           ><button type=" button" class="btn btn-success">Register</button></a
         >
       </div>
@@ -149,7 +143,7 @@
     <main class="container">
       <div class="row justify-content-evenly">
         <div
-          class="col-12 col-lg-3 shadow d-flex flex-column sticky-top bg-white z-1 mt-5 h-50 justify-content-center align-items-center pb-5"
+          class="col-12 col-lg-3 shadow d-flex flex-column sticky-top bg-white z-1 mt-3 h-50 justify-content-center align-items-center pb-5"
         >
           <div id="editProfile">
             <!-- <h4 class="mt-5">saba Samuel</h4>
@@ -213,45 +207,6 @@
         <!--========================================= Timeline ===================================---->
 
         <div class="col-12 col-lg-9">
-          <!-- <div
-            class="d-flex flex-wrap justify-content-center filter-button-group"
-          >
-            <div class="col-6">
-              <a href="/buy/index.html" class="bg-sucess"
-                ><button
-                  type="button"
-                  class="btn m-2 text-dark active-filter-btn btn-radius"
-                  data-filter="*"
-                >
-                  My Auction
-                </button></a
-              >
-            </div>
-
-            <div class="col-6">
-              <button
-                type="button"
-                class="btn m-2 text-dark"
-                data-filter=".auction"
-              >
-                My Auction offer
-              </button>
-            </div>
-          </div> -->
-          <div class="col-12">
-            <div class="container table-responsive py-2">
-              <table class="table table-bordered table-hover">
-                <thead class="thead-dark">
-                  <tr class="text-center table-scope">
-                    <th scope="col">Name</th>
-                    <th scope="col">Created Date</th>
-                    <th scope="col">Amount</th>
-                  </tr>
-                </thead>
-                <tbody class="bidder"></tbody>
-              </table>
-            </div>
-          </div>
           <div class="d-flex flex-column justify-content-center w-100 mx-auto">
             <div class="col-12" id="profile-info-listing">
               <!--   <table class="table bg-primary text-light">
@@ -265,48 +220,19 @@
               </thead>
             </table>-->
             </div>
-            <div
-              class="collection-list mt-4 row gx-0 gy-3"
-              id="profile-listings"
-            >
-              <!-- <div class=" col-md-6 col-lg-4 col-xl-3 p-2 best">
-              <div class="collection-img position-relative">
-                <img src="assets/images/8.jpg" class="w-100" />
-                <span
-                  class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
+            <div class="shadow">
+              <div>
+                <h1 class="text-">your Listings</h1>
               </div>
-              <div class="text-center">
-                <p class="text-capitalize my-1">gray shirt</p>
-                <span class="fw-bold">$ 45.50</span>
-              </div>
-            </div> -->
+              <div class="mt-4 row gx-1 gy-3" id="profile-listings"></div>
             </div>
-            <!-- <div class="card mb-3 col-12" id="profile-by-bids">
-            <div class="row g-2">
-              <div class="col-md-4">
-                <img src="/assets/images/8.jpg" class="img-fluid" alt="avatar" />
+
+            <div class="shadow">
+              <div>
+                <h1 class="mt-3">your Bids</h1>
               </div>
-              <div class="col-md-6">
-                <div class="card-body">
-                  <h2 class="card-title fs-5">Description</h2>
-                  <p class="card-text">
-                    This is a wider card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
-                  </p>
-                  <p class="card-text">EndDate: 12/12/22</p>
-                </div>
-              </div>
-              <div class="col-md-2 d-flex flex-column g-2 justify-content-around">
-                <a href="/bid/index.html"><button class="btn btn-outline-warning btn-long cart">
-                    update
-                  </button></a>
-                <a href="/bid/index.html"><button class="btn btn-outline-warning btn-long cart">
-                    delete
-                  </button></a>
-              </div>
+              <div class="mt-4 row gx-1 gy-3" id="profile-bids"></div>
             </div>
-          </div> -->
           </div>
         </div>
       </div>

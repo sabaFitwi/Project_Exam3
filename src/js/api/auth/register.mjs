@@ -23,11 +23,11 @@ form.addEventListener("submit", (event) => {
 
     const response = await fetch(Auction_API_URL + "/auth/register", options);
 
-    if (response.ok) {
-      return await response.json();
-    }
+    const result = await response.json();
 
-    throw new Error(response.statusText);
+    location.href = "/auction-house/login";
+
+    return result;
   }
   register(profile);
 });

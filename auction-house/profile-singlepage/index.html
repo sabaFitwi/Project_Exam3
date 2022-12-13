@@ -85,21 +85,15 @@
                 >Listing</a
               >
             </li>
-            <li class="nav-item px-2 py-2">
-              <a
-                class="nav-link text-uppercase text-dark large-font"
-                href="../buy/"
-                >Buy</a
-              >
-            </li>
-            <li class="nav-item px-2 py-2" data-loggedVisibility="true">
+
+            <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
                 href="../sell/"
                 >sell</a
               >
             </li>
-            <li class="nav-item px-2 py-2" data-loggedVisibility="true">
+            <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
                 href="../profile/"
@@ -115,7 +109,7 @@
         <a
           href="../login/"
           class="nav-link text-uppercase text-dark large-font active active-color"
-          data-loggedVisibility="false"
+          data-isLogged="false"
           aria-current="page"
           ><button
             type="button"
@@ -128,7 +122,7 @@
           href="#"
           class="nav-link text-uppercase text-dark large-font active active-color logout"
           id="logout"
-          data-loggedVisibility="true"
+          data-isLogged="true"
           aria-current="page"
           ><button
             type="button"
@@ -140,7 +134,7 @@
         <a
           href="../register/"
           class="nav-link text-uppercase text-dark large-font"
-          data-loggedVisibility="false"
+          data-isLogged="false"
           ><button type=" button" class="btn btn-success">Register</button></a
         >
       </div>
@@ -150,187 +144,225 @@
       <div class="row justify-content-center mt-5">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-3 shadow">
           <div class="container border-0">
-            <div>
-              <img
-                id="image-show"
-                src="/assets/images/8.jpg"
-                onerror="src='/assets/banner.jpg'"
-                alt="image-preview"
-                class="w-100 px-5 py-3"
-              />
-              <div class="d-flex flex-row col-6 justify-content-center mx-auto">
-                <img src="" class="col-3 m-1 rounded image-small" alt="..." />
-                <img src="" class="col-3 m-1 rounded image-small" alt="..." />
-                <img src="" class="col-3 m-1 rounded image-small" alt="..." />
-                <img src="" class="col-3 m-1 rounded image-small" alt="..." />
-              </div>
+            <!-- <div class="image-show">
+            <img id="image-show1" src="/assets/images/8.jpg" onerror="src='/assets/banner.jpg'" alt="image-preview"
+              class="w-100 px-5 py-3" />
+            <div class="d-flex flex-row col-6 justify-content-center mx-auto thumbs-show">
+              <img src="" class="col-3 m-1 rounded image-small" alt="..." />
+              <img src="" class="col-3 m-1 rounded image-small" alt="..." />
+              <img src="" class="col-3 m-1 rounded image-small" alt="..." />
+              <img src="" class="col-3 m-1 rounded image-small" alt="..." />
             </div>
-
-            <div class="text-center">
-              <h4 class="text-capitalize large-font my-1">
-                Title:<span id="sell-title"></span>
-              </h4>
-              <p>Description:<span id="sell-description"></span></p>
-              <p>Tags:<span id="sell-tags"></span></p>
-              <p>End date: <span id="sell-endingDate"></span></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-          <div class="card shadow">
-            <div
-              class="card-title text-center border-bottom bg-danger text-light"
-            >
-              <h1 class="p-1 fs-4">Edit your Listing</h1>
-            </div>
-            <div class="card-body">
-              <form id="edit-form">
-                <div
-                  class="d-flex justify-content-between gap-3 align-items-center p-3"
-                >
-                  <label for="" class="form-label fs-5 text-capitalize"
-                    >Title:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control input-bg"
-                    id="hibernate-title"
-                    name="title"
-                    required
-                  />
-                </div>
-
-                <div
-                  class="d-flex justify-content-between gap-3 align-items-center p-3"
-                >
-                  <label for="" class="form-label fs-5 text-capitalize"
-                    >Tags:</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control input-bg"
-                    id="hibernate-tags"
-                    name="tags"
-                  />
-                </div>
-                <div class="d-flex flex-column" id="media-inputs-wapper">
-                  <div
-                    class="d-flex justify-content-between gap-3 align-items-center p-3"
-                  >
-                    <label
-                      for="form-image"
-                      class="form-label fs-5 text-capitalize"
-                      >Media:</label
-                    >
-                    <input
-                      type="url"
-                      class="form-control mb-2 p-2 input-bg"
-                      name="media"
-                      id="hibernate-image"
-                      required
+          </div> -->
+            <div id="specific" class="carousel slide carousel-dark">
+              <div class="carousel-inner image-show">
+                <div class="carousel-item${index === 0 ? " active" : "" }">
+                <div class="specific-outer-slider">
+                  <div class="specific-inner-slider">
+                    <img
+                      id="listing-image"
+                      src="https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png"
+                      onerror="src='https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png'"
+                      alt="Image Placeholder"
                     />
                   </div>
-                  <label for="form-image-1" class="form-label closing d-none"
-                    >media 1</label
-                  >
-                  <input
-                    type="url"
-                    name="media"
-                    id="hibernate-image-1"
-                    class="form-control mb-2 p-2 media-input closing d-none"
-                    disabled
-                  />
-
-                  <label for="form-image-2" class="form-label closing d-none"
-                    >media 2</label
-                  >
-                  <input
-                    type="url"
-                    name="media"
-                    id="hibernate-image-2"
-                    class="form-control mb-2 p-2 media-input closing d-none"
-                    disabled
-                  />
-
-                  <label for="form-image-3" class="form-label closing d-none"
-                    >media 3</label
-                  >
-                  <input
-                    type="url"
-                    name="media"
-                    id="hibernate-image-3"
-                    class="form-control mb-2 p-2 media-input closing d-none"
-                    disabled
-                  />
-                  <label for="form-image-4" class="form-label closing d-none"
-                    >media 4</label
-                  >
-                  <input
-                    type="url"
-                    name="media"
-                    id="hibernate-image-4"
-                    class="form-control mb-2 p-2 media-input closing d-none"
-                    disabled
-                  />
-
-                  <div class="mb-3">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="add-img-btn"
-                    >
-                      Add
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-primary d-none"
-                      id="delete-img-btn"
-                    >
-                      Remove
-                    </button>
-                  </div>
                 </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#specific"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#specific"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <!-- The primary image slider thumb controls-->
+            <div class="carousel-indicators thumbs-show"></div>
+          </div>
+
+          <div class="text-center">
+            <h4 class="text-capitalize large-font my-1">Title:</h4>
+            <p id="sell-title"></p>
+            <h4>Description:</h4>
+            <p id="sell-description"></p>
+            <h4>Tags:</h4>
+            <p id="sell-tags"></p>
+            <p>End date:</p>
+            <p id="sell-endingDate"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card shadow">
+          <div
+            class="card-title text-center border-bottom bg-danger text-light"
+          >
+            <h1 class="p-1 fs-4">Edit your Listing</h1>
+          </div>
+          <div class="card-body">
+            <form id="edit-form">
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <label for="" class="form-label fs-5 text-capitalize"
+                  >Title:</label
+                >
+                <input
+                  type="text"
+                  class="form-control input-bg"
+                  id="hibernate-title"
+                  name="title"
+                  required
+                />
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <label for="" class="form-label fs-5 text-capitalize"
+                  >Tags:</label
+                >
+                <input
+                  type="text"
+                  class="form-control input-bg"
+                  id="hibernate-tags"
+                  name="tags"
+                />
+              </div>
+              <div class="d-flex flex-column" id="media-inputs-wapper">
                 <div
                   class="d-flex justify-content-between gap-3 align-items-center p-3"
                 >
                   <label
-                    for=""
-                    class="form-label fs-5 text-capitalize flex-n-wrap"
-                    >End Date:</label
+                    for="form-image"
+                    class="form-label fs-5 text-capitalize"
+                    >Media:</label
                   >
                   <input
-                    type="datetime-local"
-                    class="form-control input-bg"
-                    id="hibernate-EndsAt"
-                    name="endsAt"
+                    type="url"
+                    class="form-control mb-2 p-2 input-bg"
+                    name="media"
+                    id="hibernate-image"
                     required
                   />
                 </div>
-
-                <div
-                  class="d-flex justify-content-between gap-3 align-items-center p-3"
+                <label for="form-image-1" class="form-label closing d-none"
+                  >media 1</label
                 >
-                  <label for="" class="form-label fs-5 text-capitalize w-20"
-                    >Description:</label
-                  >
-                  <textarea
-                    type="text"
-                    class="form-control input-bg"
-                    id="hibernate-description"
-                    name="description"
-                  ></textarea>
-                </div>
+                <input
+                  type="url"
+                  name="media"
+                  id="hibernate-image-1"
+                  class="form-control mb-2 p-2 media-input closing d-none"
+                  disabled
+                />
 
-                <div class="d-grid p-3 mt-5">
+                <label for="form-image-2" class="form-label closing d-none"
+                  >media 2</label
+                >
+                <input
+                  type="url"
+                  name="media"
+                  id="hibernate-image-2"
+                  class="form-control mb-2 p-2 media-input closing d-none"
+                  disabled
+                />
+
+                <label for="form-image-3" class="form-label closing d-none"
+                  >media 3</label
+                >
+                <input
+                  type="url"
+                  name="media"
+                  id="hibernate-image-3"
+                  class="form-control mb-2 p-2 media-input closing d-none"
+                  disabled
+                />
+                <label for="form-image-4" class="form-label closing d-none"
+                  >media 4</label
+                >
+                <input
+                  type="url"
+                  name="media"
+                  id="hibernate-image-4"
+                  class="form-control mb-2 p-2 media-input closing d-none"
+                  disabled
+                />
+
+                <div class="mb-3">
                   <button
-                    type="submit"
-                    class="btn text-light text-capitalize bg-danger"
+                    type="button"
+                    class="btn btn-primary"
+                    id="add-img-btn"
                   >
-                    Save changes
+                    Add
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary d-none"
+                    id="delete-img-btn"
+                  >
+                    Remove
                   </button>
                 </div>
-              </form>
-            </div>
+              </div>
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <label
+                  for=""
+                  class="form-label fs-5 text-capitalize flex-n-wrap"
+                  >End Date:</label
+                >
+                <input
+                  type="datetime-local"
+                  class="form-control input-bg"
+                  id="hibernate-EndsAt"
+                  name="endsAt"
+                  required
+                />
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <label for="" class="form-label fs-5 text-capitalize w-20"
+                  >Description:</label
+                >
+                <textarea
+                  type="text"
+                  class="form-control input-bg"
+                  id="hibernate-description"
+                  name="description"
+                ></textarea>
+              </div>
+
+              <div class="d-grid p-3 mt-5">
+                <button
+                  type="submit"
+                  class="btn text-light text-capitalize bg-danger"
+                >
+                  Save changes
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -342,6 +374,7 @@
       type="module"
       src="/src/js/profile/singleProfileListing.mjs"
     ></script>
+    <script type="module" src="/src/js/profile/sellUpdate.mjs"></script>
     <script type="module" src="/src/js/tools/addRemoveBtn.mjs"></script>
     <script type="module" src="/src/js/api/auth/logout.mjs"></script>
     <script type="module" src="/src/js/combine/loggedin.mjs"></script>
