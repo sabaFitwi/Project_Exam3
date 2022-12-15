@@ -1,5 +1,6 @@
 import { isUserLoggedIn } from "../js/api/auth/state.mjs";
-
+import { navAvatar } from "../js/profile/navAvatar.mjs";
+//import { countDown } from "../js/component/timeCount.mjs"
 // /**
 //  * --------------------------------------------------------------------------
 //  * Bootstrap (v5.2.2): carousel.js
@@ -10,3 +11,5 @@ import { isUserLoggedIn } from "../js/api/auth/state.mjs";
 // var carousel = new bootstrap.Carousel(myCarousel);
 
 isUserLoggedIn();
+navAvatar();
+//countDown()

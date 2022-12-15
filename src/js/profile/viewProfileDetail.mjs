@@ -46,20 +46,13 @@ function detailsTemplet(list) {
     />
     <h4 class="mt-3">${list.seller.name}</h4>
     <p class="mt-1">${list.seller.email}</p>
-    <button
-      class="btn btn-outline-warning btn-long cart mt-2"
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#createModal"
-    >
-      Edit Profiles
-    </button>
     </div>
 
+    
     <div class="col-12 col-md-12 col-lg-9 mt-1">
     <div class="d-flex flex-column justify-content-center w-100 mx-auto">
     <div class="col-12">
-      <table class="table bg-danger text-light">
+      <table class="table bg-primary text-light">
         <thead>
           <tr>
             <th scope="col">Title: ${list.title}</th>
@@ -76,19 +69,27 @@ function detailsTemplet(list) {
       <div class="row g-2">
         <div class="col-md-4">
           <img src="${list.media[0]}" class="img-fluid" alt="${list.title}" />
-          <div class="d-flex flex-row col-md-4 justify-content-center mx-auto">
+          <div class="d-flex flex-row  gap-2 my-3 col-md-4 justify-content-center mx-auto">
               <img src="${
                 list.media[1]
-              }" class="col-3 m-1 rounded image-small" alt="${list.title}" />
+              }" onerror="src='/assets/images/image-default.jpg'" class="col-2 m-1 rounded image-small" alt="${
+    list.title
+  }" />
               <img src="${
                 list.media[2]
-              }" class="col-3 m-1 rounded image-small" alt="${list.title}" />
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-2 m-1 rounded image-small" alt="${
+    list.title
+  }" />
               <img src="${
                 list.media[3]
-              }" class="col-3 m-1 rounded image-small" alt="${list.title}" />
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-2 m-1 rounded image-small" alt="${
+    list.title
+  }" />
               <img src="${
                 list.media[4]
-              }" class="col-3 m-1 rounded image-small" alt="${list.title}" />
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-2 m-1 rounded image-small" alt="${
+    list.title
+  }" />
             </div>
         </div>
         <div class="col-md-5">

@@ -103,41 +103,51 @@
           </ul>
         </div>
       </div>
-      <div
+      <ul
         class="text-end d-flex flex-row gap-1 align-items-center justify-content-center justify-content-sm-start"
       >
-        <a
-          href="../login/"
-          class="nav-link text-uppercase text-dark large-font active active-color"
-          data-isLogged="false"
-          aria-current="page"
-          ><button
-            type="button"
-            class="btn btn-outline-success me-2 inverted-button"
+        <li
+          class="align-items-center justify-content-center d-none d-lg-flex nav-avatar"
+        ></li>
+        <li>
+          <a
+            href="#"
+            class="nav-link text-uppercase text-dark large-font active active-color logout"
+            id="logout"
+            data-isLogged="true"
+            aria-current="page"
+            ><button
+              type="button"
+              class="btn btn-outline-success me-2 inverted-button"
+            >
+              Logout
+            </button></a
           >
-            Login
-          </button></a
-        >
-        <a
-          href="#"
-          class="nav-link text-uppercase text-dark large-font active active-color logout"
-          id="logout"
-          data-isLogged="true"
-          aria-current="page"
-          ><button
-            type="button"
-            class="btn btn-outline-success me-2 inverted-button"
+        </li>
+        <li>
+          <a
+            href="auction-house/login/"
+            class="nav-link text-uppercase text-dark large-font active active-color"
+            data-isLogged="false"
+            aria-current="page"
+            ><button
+              type="button"
+              class="btn btn-outline-success me-2 inverted-button"
+            >
+              Login
+            </button></a
           >
-            Logout
-          </button></a
-        >
-        <a
-          href="../register/"
-          class="nav-link text-uppercase text-dark large-font"
-          data-isLogged="false"
-          ><button type=" button" class="btn btn-success">Register</button></a
-        >
-      </div>
+        </li>
+
+        <li>
+          <a
+            href="auction-house/register/"
+            class="nav-link text-uppercase text-dark large-font"
+            data-isLogged="false"
+            ><button type=" button" class="btn btn-success">Register</button></a
+          >
+        </li>
+      </ul>
     </nav>
     <!-- end of navbar -->
 
@@ -147,7 +157,7 @@
       <div class="container table-responsive py-2">
         <table class="table table-bordered table-hover">
           <thead class="thead-dark">
-            <tr class="text-center table-scope">
+            <tr class="text-center table-scope bg-primary">
               <th scope="col">Name</th>
               <th scope="col">Created Date</th>
               <th scope="col">Amount</th>
@@ -180,7 +190,7 @@
             </div>
             <div class="modal-body">
               <div class="card-body">
-                <form id="bidFor">
+                <form id="comfirm-delet">
                   <div
                     class="d-flex flex-column justify-content-between gap-3 align-items-center"
                   >

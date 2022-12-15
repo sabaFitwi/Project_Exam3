@@ -69,7 +69,7 @@ function detailsTemplet(list) {
         <div class="col-md-4">
           <img src="${
             list.media[0]
-          }" this.onerror="src='https://cdn.discordapp.com/attachments/931268688412299274/1026475050578231376/no-user-image-icon-0.jpg'" class="img-fluid" alt="${
+          }" this.onerror="src='/assets/images/image-default.jpg'" class="img-fluid" alt="${
     list.title
   }" />
         </div>

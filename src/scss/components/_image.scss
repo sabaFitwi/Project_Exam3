@@ -1,10 +1,25 @@
-.listing-image {
-  max-height: 150px;
-  width: 100%;
-  object-fit: cover;
-}
-
 .flex {
   display: flex;
   gap: 1.5em;
+}
+
+.listing-image {
+  width: 100%;
+  height: 200px;
+  background-color: var(--button-color);
+  overflow: hidden;
+
+  .listing-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    image {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      flex-grow: 0;
+    }
+  }
 }

@@ -1,6 +1,7 @@
-$primary: #e5cea9;
-$secondary: #e2e1fb;
-$success: #2ea8d3;
-$danger: #b50000;
+$pink: #f6edf2;
+$dark-pink: #ddb9cb;
+
+$primary: $dark-pink;
+$secondary: $pink;
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";

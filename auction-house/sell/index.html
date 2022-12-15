@@ -103,62 +103,74 @@
           </ul>
         </div>
       </div>
-      <div
+      <ul
         class="text-end d-flex flex-row gap-1 align-items-center justify-content-center justify-content-sm-start"
       >
-        <a
-          href="../login/"
-          class="nav-link text-uppercase text-dark large-font active active-color"
-          data-isLogged="false"
-          aria-current="page"
-          ><button
-            type="button"
-            class="btn btn-outline-success me-2 inverted-button"
+        <li
+          class="align-items-center justify-content-center d-none d-lg-flex nav-avatar"
+        ></li>
+        <li>
+          <a
+            href="#"
+            class="nav-link text-uppercase text-dark large-font active active-color logout"
+            id="logout"
+            data-isLogged="true"
+            aria-current="page"
+            ><button
+              type="button"
+              class="btn btn-outline-success me-2 inverted-button"
+            >
+              Logout
+            </button></a
           >
-            Login
-          </button></a
-        >
-        <a
-          href="#"
-          class="nav-link text-uppercase text-dark large-font active active-color logout"
-          id="logout"
-          data-isLogged="true"
-          aria-current="page"
-          ><button
-            type="button"
-            class="btn btn-outline-success me-2 inverted-button"
+        </li>
+        <li>
+          <a
+            href="auction-house/login/"
+            class="nav-link text-uppercase text-dark large-font active active-color"
+            data-isLogged="false"
+            aria-current="page"
+            ><button
+              type="button"
+              class="btn btn-outline-success me-2 inverted-button"
+            >
+              Login
+            </button></a
           >
-            Logout
-          </button></a
-        >
-        <a
-          href="../register/"
-          class="nav-link text-uppercase text-dark large-font"
-          data-isLogged="false"
-          ><button type=" button" class="btn btn-success">Register</button></a
-        >
-      </div>
+        </li>
+
+        <li>
+          <a
+            href="auction-house/register/"
+            class="nav-link text-uppercase text-dark large-font"
+            data-isLogged="false"
+            ><button type=" button" class="btn btn-success">Register</button></a
+          >
+        </li>
+      </ul>
     </nav>
     <!-- end of navbar -->
     <main class="container">
-      <div class="row justify-content-center mt-5">
-        <div class="col-6 p-3 shadow">
+      <div class="row justify-content-center gap-5 mt-5">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-3 shadow">
           <div class="container border-0">
             <img
               id="image-show"
-              src="/assets/images/8.jpg"
-              onerror="src='/assets/banner.jpg'"
+              src=""
+              onerror="src='/assets/images/image-default.jpg'"
               alt="image-preview"
               class="w-100 px-5 py-3"
             />
 
             <div class="text-center">
-              <h4 class="text-capitalize large-font my-1" id="sell-title">
-                Title:<span></span>
-              </h4>
-              <p id="sell-description">Description:<span></span></p>
-              <p id="sell-tags">Tags:<span></span></p>
-              <p fw-bold>End date: <span text-primary f-large></span></p>
+              <h4 class="text-capitalize large-font my-1">Title:</h4>
+              <p class="sell-title"></p>
+              <h4>Description:</h4>
+              <p class="sell-description"></p>
+              <h4>Tags:</h4>
+              <p class="sell-tags"></p>
+              <p>End date:</p>
+              <p class="sell-endingDate"></p>
             </div>
           </div>
         </div>

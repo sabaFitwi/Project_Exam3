@@ -2,9 +2,9 @@ import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 import { load, save } from "../storage/localStorage.mjs";
 
-const form = document.querySelector("#avatarForm");
-form.addEventListener("submit", setUpdateProfile);
-async function setUpdateProfile(event) {
+const form = document.querySelector(".avatarForm");
+form.addEventListener("submit", setUpdateAvatar);
+async function setUpdateAvatar(event) {
   event.preventDefault();
   // const [img] = event.target.elements;
 
@@ -23,6 +23,9 @@ async function setUpdateProfile(event) {
     const avatar = document.querySelector(".avatar-profile-image");
 
     avatar.src = await profileData.avatar;
+    save("profile", { name, credits, email, avatar: avatar.src });
+
+    location.reload();
   } catch {
     console.log("error");
   }
@@ -45,23 +48,15 @@ async function update(media) {
 
   const response = await fetch(updateProfileApi1, options);
   if (response.ok) {
-    const result = await response.json();
-    console.log(result);
-    return;
+    return await response.json();
   }
 
   throw new Error(response);
 }
-// save("profile", {
-//   avatar: result.avatar,
-//   credits: result.credits,
-//   email: result.email,
-//   name: result.name,
-// });
 
 const profileInfo = document.querySelector("#editProfile");
 const { name, email, avatar, credits } = load("profile");
-profileInfo.innerHTML += ` <img src=${avatar}" class="img-thumbnail rounded-circle me-2 avatar-profile-image"
+profileInfo.innerHTML += `<img src="${avatar}" onerror="src='/assets/images/avatar-default.jpg'" class="img-thumbnail rounded-circle me-2 avatar-profile-image"
                             id="updateAvatarImage" alt="avatar" />
                                <h4 class="mt-5">${name}</h4>         
                                 <p>credits:${credits}</p>

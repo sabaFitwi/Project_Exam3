@@ -17,3 +17,12 @@
 .div-container {
   height: 200px;
 }
+
+.listing-card {
+  word-wrap: break-word;
+
+  h4 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
