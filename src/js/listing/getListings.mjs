@@ -29,7 +29,7 @@ export async function getListings(limit = 20, offset = 0) {
   } catch (error) {
     loaderButton.style.display = "none";
     listingsDiv.innerHTML = displayError("An error occurred. Please try again");
-    //throw new Error(response.statusText);
+
   }
 }
 getListings();
@@ -40,7 +40,7 @@ export function getListingsTemplet(listings) {
   if (listings) {
     listings.map(
       (listing) =>
-        (listingsDiv.innerHTML += `<a href="/auction-house/view-detail/index.html?id=${listing.id}"  class="p-2 p-xl-3 col-sm-6 col-md-4 col-lg-3 listing-card mt-5 shadow new">
+      (listingsDiv.innerHTML += `<a href="/auction-house/view-detail/index.html?id=${listing.id}"  class="p-2 p-xl-3 col-sm-6 col-md-4 col-lg-3 listing-card mt-5 shadow new">
           <div class="container border-0">
              <img  id="img" class="img-thumbnail listing-image  rounded" src="${listing.media[0]}" onerror="src='/assets/images/image-default.jpg'"   />
             <div class="text-center">

@@ -242,17 +242,17 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 order-md-2 order-1">
           <div class="card shadow">
             <div
-              class="card-title text-center border-bottom bg-danger text-light"
+              class="card-title text-center border-bottom bg-primary text-light"
             >
               <h1 class="p-1 fs-4">Create your Listing</h1>
             </div>
             <div class="card-body">
               <form id="sellForm">
                 <div
-                  class="d-flex justify-content-between gap-3 align-items-center p-3"
+                  class="d-flex flex-column justify-content-between gap-1 align-items-start p-3"
                 >
                   <label for="" class="form-label fs-5 text-capitalize"
-                    >Title:</label
+                    >Title</label
                   >
                   <input
                     type="text"
@@ -263,10 +263,10 @@
                 </div>
 
                 <div
-                  class="d-flex justify-content-between gap-3 align-items-center p-3"
+                  class="d-flex flex-column justify-content-between gap-1 align-items-start p-3"
                 >
                   <label for="" class="form-label fs-5 text-capitalize"
-                    >Tags:</label
+                    >Tags</label
                   >
                   <input
                     type="text"
@@ -274,9 +274,37 @@
                     name="tags"
                   />
                 </div>
+                <div
+                  class="d-flex flex-column justify-content-between gap-1 align-items-star p-3"
+                >
+                  <label
+                    for=""
+                    class="form-label fs-5 text-capitalize flex-n-wrap"
+                    >End Date:</label
+                  >
+                  <input
+                    type="datetime-local"
+                    class="form-control input-bg"
+                    name="endsAt"
+                    required
+                  />
+                </div>
+
+                <div
+                  class="d-flex flex-column justify-content-between gap-1 align-items-start p-3"
+                >
+                  <label for="" class="form-label fs-5 text-capitalize w-20"
+                    >Description:</label
+                  >
+                  <textarea
+                    type="text"
+                    class="form-control input-bg"
+                    name="description"
+                  ></textarea>
+                </div>
                 <div class="d-flex flex-column" id="media-inputs-wapper">
                   <div
-                    class="d-flex justify-content-between gap-3 align-items-center p-3"
+                    class="d-flex flex-column justify-content-between gap-1 align-items-start p-3"
                   >
                     <label
                       for="form-image"
@@ -290,7 +318,22 @@
                       id="form-image"
                       required
                     />
+                    <div
+                      class="d-flex justify-content-between gap-3 align-items-center fs-4"
+                    >
+                      <i
+                        class="fas fa-photo-video me-2 text-success"
+                        id="add-img-btn"
+                        ><span class="text-primary">Add</span></i
+                      >
+                      <i
+                        class="fa fa-trash text-danger d-none"
+                        id="delete-img-btn"
+                        >Remove</i
+                      >
+                    </div>
                   </div>
+
                   <label for="form-image-1" class="form-label closing d-none"
                     >media 1</label
                   >
@@ -298,7 +341,7 @@
                     type="url"
                     name="media"
                     id="form-image-1"
-                    class="form-control mb-2 p-2 media-input closing d-none"
+                    class="form-control mx-auto mb-2 p-2 media-input closing d-none"
                     disabled
                   />
 
@@ -323,6 +366,10 @@
                     class="form-control mb-2 p-2 media-input closing d-none"
                     disabled
                   />
+                  <i
+                    class="fa fa-trash text-danger delete-img-btn d-none"
+                    id="delete-img-btn"
+                  ></i>
                   <label for="form-image-4" class="form-label closing d-none"
                     >media 4</label
                   >
@@ -333,57 +380,27 @@
                     class="form-control mb-2 p-2 media-input closing d-none"
                     disabled
                   />
+                  <i
+                    class="fa fa-trash text-danger delete-img-btn d-none"
+                    id="delete-img-btn"
+                  ></i>
 
-                  <div class="mb-3">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="add-img-btn"
-                    >
-                      Add
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-primary d-none"
-                      id="delete-img-btn"
-                    >
-                      Remove
-                    </button>
+                  <div
+                    class="mb-3 d-flex justify-content-center gap-3 align-items-center p-3"
+                  >
+                    <!-- <button type="button" class="btn inverted-button" id="add-img-btn">
+                    <i class="fas fa-photo-video me-2 text-success"></i>Add
+                  </button> -->
+                    <!-- <button type="button" class="btn btn-info inverted-button d-none" id="delete-img-btn">
+                    <i class="fa fa-trash text-danger"></i> Remove
+                  </button> -->
                   </div>
-                </div>
-                <div
-                  class="d-flex justify-content-between gap-3 align-items-center p-3"
-                >
-                  <label
-                    for=""
-                    class="form-label fs-5 text-capitalize flex-n-wrap"
-                    >End Date:</label
-                  >
-                  <input
-                    type="datetime-local"
-                    class="form-control input-bg"
-                    name="endsAt"
-                    required
-                  />
-                </div>
-
-                <div
-                  class="d-flex justify-content-between gap-3 align-items-center p-3"
-                >
-                  <label for="" class="form-label fs-5 text-capitalize w-20"
-                    >Description:</label
-                  >
-                  <textarea
-                    type="text"
-                    class="form-control input-bg"
-                    name="description"
-                  ></textarea>
                 </div>
 
                 <div class="d-grid p-3 mt-5">
                   <button
                     type="submit"
-                    class="btn text-light text-capitalize bg-danger"
+                    class="btn btn-primary text-light fs-5 text-capitalize bg-primary"
                   >
                     Create Listing
                   </button>

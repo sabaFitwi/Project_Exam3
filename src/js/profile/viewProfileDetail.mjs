@@ -44,7 +44,7 @@ function detailsTemplet(list) {
       class="img-thumbnail rounded-circle me-2 avatar-profile-image"
       alt="avatar"
     />
-    <h4 class="mt-3">${list.seller.name}</h4>
+    <h4 class="mt-3 text-capitalize">${list.seller.name}</h4>
     <p class="mt-1">${list.seller.email}</p>
     </div>
 
@@ -54,12 +54,12 @@ function detailsTemplet(list) {
     <div class="col-12">
       <table class="table bg-primary text-light">
         <thead>
-          <tr>
+          <tr class="text-dark fs-5">
             <th scope="col">Title: ${list.title}</th>
 
             <th scope="col">Auction End Date:${date
-              .toLocaleDateString("en-US", dateFormat)
-              .replace(/[/]/g, "-")} </th>
+      .toLocaleDateString("en-US", dateFormat)
+      .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -70,38 +70,30 @@ function detailsTemplet(list) {
         <div class="col-md-4">
           <img src="${list.media[0]}" class="img-fluid" alt="${list.title}" />
           <div class="d-flex flex-row  gap-2 my-3 col-md-4 justify-content-center mx-auto">
-              <img src="${
-                list.media[1]
-              }" onerror="src='/assets/images/image-default.jpg'" class="col-2 m-1 rounded image-small" alt="${
-    list.title
-  }" />
-              <img src="${
-                list.media[2]
-              }"onerror="src='/assets/images/image-default.jpg'" class="col-2 m-1 rounded image-small" alt="${
-    list.title
-  }" />
-              <img src="${
-                list.media[3]
-              }"onerror="src='/assets/images/image-default.jpg'" class="col-2 m-1 rounded image-small" alt="${
-    list.title
-  }" />
-              <img src="${
-                list.media[4]
-              }"onerror="src='/assets/images/image-default.jpg'" class="col-2 m-1 rounded image-small" alt="${
-    list.title
-  }" />
+              <img src="${list.media[1]
+    }" onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${list.title
+    }" />
+              <img src="${list.media[2]
+    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${list.title
+    }" />
+              <img src="${list.media[3]
+    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${list.title
+    }" />
+              <img src="${list.media[4]
+    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${list.title
+    }" />
             </div>
         </div>
         <div class="col-md-5">
           <div class="card-body">
-            <h2 class="card-title fs-6">Description</h2>
+            <h2 class="card-title tex-dark fs-4">Description</h2>
             
-            <p class="card-text">
+            <p class="card-tex ">
             ${list.description}
             </p>
             <p class="card-text">EndDate: ${date
-              .toLocaleDateString("en-US", dateFormat)
-              .replace(/[/]/g, "-")}</p>
+      .toLocaleDateString("en-US", dateFormat)
+      .replace(/[/]/g, "-")}</p>
           </div>
         </div>
         <div class="col-md-3 d-flex flex-column gap-2">
@@ -124,7 +116,7 @@ function bidderTemplate(bids) {
       //let dates = new Date(`${bid[bids.length - 2]} `);
 
       bidder.innerHTML += `
-    <tr>       
+    <tr class=" tex-dark fs-5">       
         <td>${bid.bidderName}</td>
         <td>${bid.created}</td>
         <td>${bid.amount}</td>
