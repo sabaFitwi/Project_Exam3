@@ -86,7 +86,7 @@ function detailsTemplet(list) {
           </div>
         </div>
         <div class="col-md-2" >
-        <button class="btn btn-outline-warning btn-long cart" data-isLogged="true" data-bs-target="#bidModal">Bids ${
+        <button class="btn btn-outline-warning btn-long cart" data-bs-toggle="modal" data-bs-target="#bidModal">Bids ${
           list._count.bids
         }</button>
             

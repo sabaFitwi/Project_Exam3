@@ -1,5 +1,7 @@
 import { isUserLoggedIn } from "../js/api/auth/state.mjs";
 import { navAvatar } from "../js/profile/navAvatar.mjs";
+import { displayButton } from "../js/tools/scrollup.mjs";
+
 //import { countDown } from "../js/component/timeCount.mjs"
 // /**
 //  * --------------------------------------------------------------------------
@@ -13,3 +15,4 @@ import { navAvatar } from "../js/profile/navAvatar.mjs";
 isUserLoggedIn();
 navAvatar();
 //countDown()
+displayButton();

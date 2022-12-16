@@ -1,7 +1,11 @@
 $pink: #f6edf2;
 $dark-pink: #ddb9cb;
+$success: #3bcf18;
+$danger: #b50000;
 
 $primary: $dark-pink;
 $secondary: $pink;
-
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+$success: $success;
+$danger: $danger;
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";

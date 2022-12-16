@@ -1,0 +1,21 @@
+.loader-size {
+  width: 150px;
+  height: 150px;
+}
+
+.error {
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+
+.danger {
+  border-left-color: #d9534f;
+  /* Left side border color */
+  background-color: rgba(217, 83, 79, 0.1);
+  /*Same color as the left border with reduced alpha to 0.1*/
+}
+
+.danger strong {
+  color: $danger;
+}

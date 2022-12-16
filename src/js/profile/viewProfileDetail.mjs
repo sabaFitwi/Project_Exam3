@@ -105,9 +105,10 @@ function detailsTemplet(list) {
           </div>
         </div>
         <div class="col-md-3 d-flex flex-column gap-2">
-        <button class="btn btn-outline-warning btn-long cart"data-bs-toggle="modal" data-bs-target="#bidModal">Delete</button>
+        <a href="#" ><button class="btn btn-outline-warning btn-long cart"data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></a>
+        
         <a href="../profile-singlepage/index.html?id=${list.id}">
-        <button class="btn btn-outline-warning btn-long cart"id="update-btn">Update Listing</button>
+        <button class="btn btn-outline-warning btn-long cart"id="update-btn">Update </button>
         </a>
          </div>
       </div>

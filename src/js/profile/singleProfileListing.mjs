@@ -1,6 +1,7 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 import { getListing } from "../listing/read.mjs";
+import { imageCarousel } from "./profileComponents/previewRender.mjs";
 
 async function setUpdateListner() {
   const formUpdate = document.querySelector("#edit-form");
@@ -14,7 +15,13 @@ async function setUpdateListner() {
     formUpdate.title.value = listings.title;
     formUpdate.description.value = listings.description;
     formUpdate.tags.value = listings.tags;
-    formUpdate.media[0].value = listings.media;
+    formUpdate.media[0].value = listings.media[0];
+    formUpdate.media[1].value = listings.media[1];
+    formUpdate.media[2].value = listings.media[2];
+    formUpdate.media[3].value = listings.media[3];
+
+    imageCarousel(listings.media);
+    formUpdate.endsAt.setAttribute("disabled", "");
 
     formUpdate.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -39,34 +46,42 @@ async function setUpdateListner() {
       sellListing(listingData);
     });
 
-    formUpdate.addEventListener("change", (e) => {
-      e.preventDefault();
+    formUpdate.addEventListener("keyup", (media = false) => {
+      //e.preventDefault();
 
       const title = document.querySelector(".sell-title");
       const description = document.querySelector(".sell-description");
       const tags = document.querySelector(".sell-tags");
-      const media = document.querySelector(".sell-media")
 
       title.innerHTML = formUpdate.title.value;
       description.innerText = formUpdate.description.value;
       tags.innerText = formUpdate.tags.value;
-      media.src = formUpdate.media.value
+
+      if (media !== []) {
+        const mediaInputs = Array.from(
+          document.querySelectorAll("input[type=url]:enabled")
+        );
+        media = mediaInputs
+          .map((images) => images.value)
+          .filter((value) => value !== "");
+      }
     });
   }
 
-  async function sellListing(bodyData) {
+  async function sellListing(listingData) {
     const options = {
       method: "put",
-      body: JSON.stringify(bodyData),
+      body: JSON.stringify(listingData),
       headers: headers("application/json"),
     };
 
     const response = await fetch(
-      Auction_API_URL + "/listings/" + bodyData.id,
+      Auction_API_URL + "/listings/" + listingData.id,
       options
     );
     console.log(response);
     if (response.ok) {
+      window.location.replace("../profile/");
       return await response.json();
     }
 

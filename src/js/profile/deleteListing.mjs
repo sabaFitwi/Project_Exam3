@@ -12,7 +12,7 @@ async function deleteListener() {
     let id = params.get("id");
     const response = await deleteListing(id);
     if (response) {
-      location.href = "../profile/";
+      window.location.replace("../profile/");
     }
   } catch (error) {
     console.log(error);
