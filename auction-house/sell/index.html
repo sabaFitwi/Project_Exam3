@@ -78,14 +78,14 @@
                 >home</a
               >
             </li>
-
             <li class="nav-item px-2 py-2">
               <a
                 class="nav-link text-uppercase text-dark large-font"
-                href="../buy/"
-                >Buy</a
+                href="../listing/"
+                >Listing</a
               >
             </li>
+
             <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
@@ -151,30 +151,95 @@
     </nav>
     <!-- end of navbar -->
     <main class="container">
-      <div class="row justify-content-center gap-5 mt-5">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-3 shadow">
+      <div class="row justify-content-center mt-5">
+        <div
+          class="col-lg-5 col-md-6 col-sm-12 col-xs-12 order-md-1 order-2 p-3 shadow"
+        >
           <div class="container border-0">
-            <img
-              id="image-show"
-              src=""
-              onerror="src='/assets/images/image-default.jpg'"
-              alt="image-preview"
-              class="w-100 px-5 py-3"
-            />
+            <div id="arrow" class="carousel slide carousel-dark">
+              <div class="carousel-inner big-image">
+                <div class="">
+                  <div class="specific-outer-slider">
+                    <div class="specific-inner-slider">
+                      <img
+                        id="listing-image"
+                        src="/assets/images/avatar-default.jpg"
+                        onerror="src='/assets/images/image-defualt.jpg'"
+                        alt="Item image             }"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#arrow"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#arrow"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+
+              <div class="carousel-indicators small-image"></div>
+            </div>
 
             <div class="text-center">
-              <h4 class="text-capitalize large-font my-1">Title:</h4>
-              <p class="sell-title"></p>
-              <h4>Description:</h4>
-              <p class="sell-description"></p>
-              <h4>Tags:</h4>
-              <p class="sell-tags"></p>
-              <p>End date:</p>
-              <p class="sell-endingDate"></p>
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <h5 class="text-capitalize my-1">Title:</h5>
+                <div class="input-bg rounded p-2 w-100">
+                  <p class="sell-title m-0"></p>
+                </div>
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <h5>Tags:</h5>
+                <div class="input-bg rounded p-2 w-100">
+                  <p class="sell-tags m-0"></p>
+                </div>
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <h5>End date:</h5>
+                <div class="input-bg rounded p-2 w-100">
+                  <p class="sell-endingDate m-0"></p>
+                </div>
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <h5>Description:</h5>
+                <div class="input-bg rounded p-2 w-100">
+                  <p class="sell-description m-0"></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 order-md-2 order-1">
           <div class="card shadow">
             <div
               class="card-title text-center border-bottom bg-danger text-light"

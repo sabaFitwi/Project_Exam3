@@ -156,26 +156,9 @@
           class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-3 mt-2 order-md-1 order-sm-2 shadow"
         >
           <div class="container border-0">
-            <!-- <div class="image-show">
-            <img id="image-show1" src="/assets/images/8.jpg" onerror="src='/assets/banner.jpg'" alt="image-preview"
-              class="w-100 px-5 py-3" />
-            <div class="d-flex flex-row col-6 justify-content-center mx-auto thumbs-show">
-              <img src="" class="col-3 m-1 rounded image-small" alt="..." />
-              <img src="" class="col-3 m-1 rounded image-small" alt="..." />
-              <img src="" class="col-3 m-1 rounded image-small" alt="..." />
-              <img src="" class="col-3 m-1 rounded image-small" alt="..." />
-            </div>
-          </div> -->
             <div id="arrow" class="carousel slide carousel-dark">
-              <div class="carousel-inner image-show">
-                <img
-                  id="image-show1"
-                  src=""
-                  onerror="src='/assets/images/image-default.jpg'"
-                  alt="image-preview"
-                  class="w-100 px-5 py-3 sell-media"
-                />
-              </div>
+              <div class="carousel-inner big-image"></div>
+
               <button
                 class="carousel-control-prev"
                 type="button"
@@ -201,17 +184,44 @@
                 <span class="visually-hidden">Next</span>
               </button>
 
-              <div class="carousel-indicators thumbs-show"></div>
+              <div class="carousel-indicators small-image"></div>
             </div>
             <div class="text-center">
-              <h4 class="text-capitalize large-font my-1">Title:</h4>
-              <p class="sell-title"></p>
-              <h4>Description:</h4>
-              <p class="sell-description"></p>
-              <h4>Tags:</h4>
-              <p class="sell-tags"></p>
-              <p>End date:</p>
-              <p class="sell-endingDate"></p>
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <h5 class="text-capitalize my-1">Title:</h5>
+                <div class="input-bg rounded p-2 w-100">
+                  <p class="sell-title m-0"></p>
+                </div>
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <h5>Tags:</h5>
+                <div class="input-bg rounded p-2 w-100">
+                  <p class="sell-tags m-0"></p>
+                </div>
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <h5>End date:</h5>
+                <div class="input-bg rounded p-2 w-100">
+                  <p class="sell-endingDate m-0"></p>
+                </div>
+              </div>
+
+              <div
+                class="d-flex justify-content-between gap-3 align-items-center p-3"
+              >
+                <h5>Description:</h5>
+                <div class="input-bg rounded p-2 w-100">
+                  <p class="sell-description m-0"></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -383,9 +393,13 @@
       type="module"
       src="/src/js/profile/singleProfileListing.mjs"
     ></script>
+    <script
+      type="module"
+      src="/src/js/profile/singleProfileListing.mjs"
+    ></script>
     <script type="module" src="/src/js/profile/sellUpdate.mjs"></script>
     <script type="module" src="/src/js/tools/addRemoveBtn.mjs"></script>
-    <script type="module" src="/src/js/api/auth/logout.mjs"></script>
+
     <script type="module" src="/src/js/combine/loggedin.mjs"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
