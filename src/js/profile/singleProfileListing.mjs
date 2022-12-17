@@ -81,7 +81,7 @@ async function setUpdateListner() {
     );
     console.log(response);
     if (response.ok) {
-      window.location.replace("../profile/");
+      location.replace("../profile/");
       return await response.json();
     }
 

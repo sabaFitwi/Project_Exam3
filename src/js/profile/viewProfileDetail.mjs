@@ -25,6 +25,7 @@ export async function getListing(limit = 20, offset = 0) {
 
   bidderTemplate(data.bids);
   if (response.ok) {
+
     return data;
   }
 
@@ -44,8 +45,7 @@ function detailsTemplet(list) {
       class="img-thumbnail rounded-circle me-2 avatar-profile-image"
       alt="avatar"
     />
-    <h4 class="mt-3 text-capitalize text-primary  fw-bolder fs-3">${
-      list.seller.name
+    <h4 class="mt-3 text-capitalize text-primary  fw-bolder fs-3">${list.seller.name
     }</h4>
     <p class="mt-1 fs-5">${list.seller.email}</p>
     </div>
@@ -54,14 +54,14 @@ function detailsTemplet(list) {
     <div class="col-12 col-md-12 col-lg-9 mt-1">
     <div class="d-flex flex-column justify-content-center w-100 mx-auto">
     <div class="col-12">
-      <table class="table bg-info text-dark">
+      <table class="table bg-primary text-light">
         <thead>
           <tr class=" fs-5">
             <th class"fs-3 fw-bolder" scope="col">Title: ${list.title}</th>
 
             <th scope="col">End Date:${date
-              .toLocaleDateString("en-US", dateFormat)
-              .replace(/[/]/g, "-")} </th>
+      .toLocaleDateString("en-US", dateFormat)
+      .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -69,30 +69,38 @@ function detailsTemplet(list) {
     </div>
     <div class="card ms-2 mb-3 col-12">
       <div class="row g-2">
-        <div class="col-md-6">
-          <img src="${list.media[0]}" class="img-fluid" alt="${list.title}" />
-          <div class="d-flex flex-row  gap-2 my-3 col-md-4 justify-content-center mx-auto">
-              <img src="${
-                list.media[1]
-              }" onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${
-    list.title
-  }" />
-              <img src="${
-                list.media[2]
-              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${
-    list.title
-  }" />
-              <img src="${
-                list.media[3]
-              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${
-    list.title
-  }" />
-              <img src="${
-                list.media[4]
-              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${
-    list.title
-  }" />
-            </div>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade col-md-6" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+               <img src="${list.media[0]}" class="img-fluid d-block w-100" alt="${list.title}" />
+          </div>
+         
+          <div class="carousel-item">
+              <img src="${list.media[1]
+    }" onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 " alt="${list.title
+    }" /></div>
+    <div class="carousel-item">
+              <img src="${list.media[2]
+    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 " alt="${list.title
+    }" /></div>
+    <div class="carousel-item">
+              <img src="${list.media[3]
+    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 l" alt="${list.title
+    }" /></div>
+    <div class="carousel-item">
+              <img src="${list.media[4]
+    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100  " alt="${list.title
+    }" />
+    </div>
+       </div>  
+       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>  
         </div>
         <div class="col-md-4">
           <div class="card-body">
@@ -102,8 +110,8 @@ function detailsTemplet(list) {
             ${list.description}
             </p>
             <p class="card-text">EndDate: ${date
-              .toLocaleDateString("en-US", dateFormat)
-              .replace(/[/]/g, "-")}</p>
+      .toLocaleDateString("en-US", dateFormat)
+      .replace(/[/]/g, "-")}</p>
           </div>
         </div>
         <div class="col-md-2 d-flex flex-column gap-2">
@@ -124,55 +132,15 @@ function detailsTemplet(list) {
 function bidderTemplate(bids) {
   if (bids) {
     Array.from(bids).forEach((bid) => {
-      //let dates = new Date(`${bid[bids.length - 2]} `);
 
       bidder.innerHTML += `
     <tr class=" tex-dark fs-5">       
         <td>${bid.bidderName}</td>
         <td>${bid.created}</td>
-        <td>${bid.amount}</td>
+        <td> $ ${bid.amount}</td>
       </tr > `;
     });
   }
 }
 
 getListing();
-
-// /**
-//  * submit register form data.
-//  * @param {Event} submit form submission
-
-//  */
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   const form = event.target;
-
-//   const bidInput = {
-//     id: event.target.id,
-//     amount: form.amount.value,
-//   };
-
-//   console.log(bidInput);
-
-//   buyListner(bidInput);
-// });
-
-// async function buyListner(amounts) {
-//   const options = {
-//     headers: headers("application/json"),
-//     method: "post",
-//     body: JSON.stringify({ amounts }),
-//   };
-//   const response = await fetch(
-//     `${Auction_API_URL} /listings/${id} /bids`,
-//     options
-//   );
-//   const data = await response.json();
-//   console.log(data);
-
-//   if (response.ok) {
-//     return data;
-//   }
-
-//   throw new Error(response.statusText);
-// }

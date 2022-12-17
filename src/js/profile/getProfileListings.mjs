@@ -24,7 +24,7 @@ function getYourBids(bidsListing) {
   if (bidsListing) {
     bidsListing.map(
       (profile) =>
-        (profileBidsContainer.innerHTML += `<a href="../profile-detail/index.html?id=${profile.listing.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
+      (profileBidsContainer.innerHTML += `<a href="../profile-detail/index.html?id=${profile.listing.id}" class="col-md-4 col-lg-4 col-xl-3 p-2 mt-5 shadow new">
                                           <div class="container border-0 ">
                                               <img  id="img" src="${profile.listing.media[0]}" onerror="src='/assets/images/image-default.jpg'"  class="img-thumbnail listing-image  rounded"  />
                                             <div class="text-center div-container">
@@ -32,9 +32,9 @@ function getYourBids(bidsListing) {
                                             
                                               <p fw-bold>End date: <span text-primary f-large>${profile.listing.endsAt}</span></p>      
                                             </div> 
-                                            <button type="buttom" class="btn btn-primary my-3"> 
-                                            Bids(${profile.amount})
-                                              </button>
+                                            <div  class=" bg-secondary my-3  p-2 text-capitalize fs-5"> <strong> 
+                                         Bids amount: $ ${profile.amount}</strong>
+                                              </div>
                                           </div >
                                         </a >`)
     );
@@ -64,7 +64,7 @@ function getListingsTemplet(profileListing) {
   if (profileListing) {
     profileListing.map(
       (profile) =>
-        (profileListingContainer.innerHTML += `       
+      (profileListingContainer.innerHTML += `       
                              <a href="../profile-detail/index.html?id=${profile.id}" 
                              class="col-md-4 col-lg-3 col-xl-3 p-2 listing-card mt-5 shadow new ">
                                           <div class="container border-1 ">
@@ -75,9 +75,9 @@ function getListingsTemplet(profileListing) {
                                             
                                               <p fw-bold>End date: <span text-primary f-large>${profile.endsAt}</span></p>      
                                             </div> 
-                                            <button type="buttom" class="btn btn-primary my-3"> 
-                                            Bids(${profile._count.bids})
-                                              </button>
+                                            <div  class=" bg-secondary my-3  p-2 text-capitalize fs-5"> <strong> bids: ${profile._count.bids}</strong>
+                                          
+                                              </div>
                                           
                                        
                                           </div>
@@ -87,5 +87,42 @@ function getListingsTemplet(profileListing) {
   }
 }
 
+async function viewBidswins() {
+  const profile = load("profile");
+  const name = profile.name;
+  console.log(name);
+  const options = {
+    headers: headers("application/json"),
+  };
+  const api = Auction_API_URL + `/profiles/${name}?_listings=true`;
+  const response = await fetch(api, options);
+  console.log(api);
+  const result = await response.json();
+  console.log(result);
+  getWinsTemplet(result)
+
+  return result;
+}
+
+
+function getWinsTemplet(profile) {
+  const profileInfo = document.querySelector("#profile-info-listing");
+
+
+  profileInfo.innerHTML += `       
+      
+    
+        <tr class="text-capitalize  p-2 fs-4">
+          <th scope="col" >${profile.name}'s Listings</th>
+          <th scope="col">Listing Number: ${profile._count.listings}</th>
+          <th scope="col">Win: ${profile.wins.length}</th>
+        </tr>
+    
+   `
+    ;
+}
+
+
+viewBidswins()
 viewAllProfiles();
 viewBidsProfiles();

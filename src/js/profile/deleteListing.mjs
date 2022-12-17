@@ -11,14 +11,12 @@ async function deleteListener() {
     const params = new URLSearchParams(queryString);
     let id = params.get("id");
     const response = await deleteListing(id);
-    if (response) {
-      window.location.replace("../profile/");
+    if (response.ok) {
+      window.location.href = "../profile/";
     }
   } catch (error) {
     console.log(error);
-    // const errorContainer = document.querySelector("#error-reporting-container");
-    // errorContainer.innerHTML = `<p class="p-3 text-losing bg-secondary">An error occurred please refresh and try again.</br> Listing might no longer exists. </p>`;
-    // location.hash = "#error-reporting-container";
+
   }
 }
 
