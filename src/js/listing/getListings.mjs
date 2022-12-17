@@ -4,8 +4,8 @@ import { displayError } from "../component/displayError.mjs";
 import { countDown } from "../component/timeCount.mjs"
 //import { filterListings } from "../search/filter.mjs";
 
-const getCount = countDown("2022-12-18T17:29:55")
-console.log(getCount)
+// const getCount = countDown("2022-12-18T17:29:55")
+// console.log(getCount)
 
 const listingsDiv = document.querySelector(".listings-div");
 
