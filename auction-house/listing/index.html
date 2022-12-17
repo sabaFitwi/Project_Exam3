@@ -48,44 +48,42 @@
   </head>
 
   <body>
-    <nav
-      class="navbar navbar-expand-lg navbar-ligh py-4 fixed-top shadow-sm p-3 bg-white position-relative rounded"
-    >
+    <nav class="navbar navbar-expand-md container-xxl pt-5 flex-column">
       <div class="container">
         <a
-          class="navbar-brand d-flex justify-content-between align-items-center order-lg-0"
+          class="navbar-brand d-flex justify-content-between align-items-center"
           href="index.html"
         >
           <img src="/assets/images/logo.PNG" alt="site icon" />
         </a>
-
         <button
-          class="navbar-toggler border-0"
+          class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse order-lg-1" id="navMenu">
-          <ul class="navbar-nav mx-auto text-center">
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav flex-wrap me-auto mb-2 mb-lg-0 w-100">
             <li class="nav-item px-2 py-2">
               <a
-                class="nav-link text-uppercase text-dark large-font active active-color"
+                class="nav-link navActive text-uppercase text-dark large-font"
                 aria-current="page"
                 href="../../index.html"
-                >home</a
+                >Home</a
               >
             </li>
             <li class="nav-item px-2 py-2">
               <a
-                class="nav-link text-uppercase text-dark large-font"
+                class="nav-link text-uppercase text-dark large-font active"
                 href="../listing/"
                 >Listing</a
               >
             </li>
-
             <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
@@ -93,71 +91,86 @@
                 >sell</a
               >
             </li>
-            <li class="nav-item px-2 py-2" data-isLogged="true">
+            <li class="nav-item px-2 py-2" data-isLogged=" true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
                 href="../profile/"
                 >profile</a
               >
             </li>
+
+            <li class="nav-item ms-md-auto">
+              <a
+                href="../login/"
+                class="nav-link text-uppercase text-dark large-font active active-color"
+                data-isLogged="false"
+                aria-current="page"
+                ><button
+                  type="button"
+                  class="btn btn-outline-success me-2 inverted-button"
+                >
+                  Login
+                </button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../register/"
+                class="nav-link text-uppercase text-dark large-font"
+                data-isLogged="false"
+                ><button type=" button" class="btn btn-success">
+                  Register
+                </button></a
+              >
+            </li>
+            <li
+              class="align-items-center justify-content-center d-none d-lg-flex nav-avatar"
+            ></li>
+            <li>
+              <a
+                href="#"
+                class="nav-link text-uppercase text-dark large-font logout"
+                id="logout"
+                data-isLogged="true"
+                aria-current="page"
+                ><button
+                  type="button"
+                  class="btn btn-outline-success me-2 inverted-button"
+                >
+                  Logout
+                </button></a
+              >
+            </li>
           </ul>
         </div>
       </div>
-      <ul
-        class="text-end d-flex flex-row gap-1 align-items-center justify-content-center justify-content-sm-start"
-      >
-        <li
-          class="align-items-center justify-content-center d-none d-lg-flex nav-avatar"
-        ></li>
-        <li>
-          <a
-            href="#"
-            class="nav-link text-uppercase text-dark large-font active active-color logout"
-            id="logout"
-            data-isLogged="true"
-            aria-current="page"
-            ><button
-              type="button"
-              class="btn btn-outline-success me-2 inverted-button"
-            >
-              Logout
-            </button></a
-          >
-        </li>
-        <li>
-          <a
-            href="/auction-house/login/"
-            class="nav-link text-uppercase text-dark large-font active active-color"
-            data-isLogged="false"
-            aria-current="page"
-            ><button
-              type="button"
-              class="btn btn-outline-success me-2 inverted-button"
-            >
-              Login
-            </button></a
-          >
-        </li>
-
-        <li>
-          <a
-            href="/auction-house/register/"
-            class="nav-link text-uppercase text-dark large-font"
-            data-isLogged="false"
-            ><button type=" button" class="btn btn-success">Register</button></a
-          >
-        </li>
-      </ul>
+      <li class="nav-item mx-auto w-100 mt-3 mt-md-0 py-1 order-md-2">
+        <form class="d-flex mx-auto" role="search">
+          <input
+            class="form-control rounded-0 rounded-start"
+            type="search"
+            name="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-primary rounded-0 rounded-end" type="submit">
+            Search
+          </button>
+        </form>
+      </li>
     </nav>
+
     <!-- end of navbar -->
 
     <!-- collection -->
     <main id="collection" class="py-5">
       <div class="container">
-        <div class="title text-center">
-          <h2 class="position-relative d-inline-block large-font">
-            Featured Auctions
-          </h2>
+        <div class="title p-3 bg-info text-center">
+          <h1
+            class="position-relative text-uppercase large-text fw-bolder d-inline-block"
+          >
+            Listing Auctions
+          </h1>
         </div>
 
         <div class="row g-0">
@@ -166,28 +179,28 @@
           >
             <button
               type="button"
-              class="filter-title btn m-2 text-light active"
+              class="filter-titl btn m-2 text-light active"
               data-filter="*"
             >
               All
             </button>
             <button
               type="button"
-              class="filter-title btn m-2 text-light"
+              class="filter-titl btn m-2 text-light"
               data-filter=".best"
             >
               Best Sells
             </button>
             <button
               type="button"
-              class="filter-title btn m-2 text-light"
+              class="filter-titl btn m-2 text-light"
               data-filter=".feat"
             >
               Closed soon
             </button>
             <button
               type="button"
-              class="filter-title btn m-2 text-light"
+              class="filter-titl btn m-2 text-light"
               data-filter=".new"
             >
               New Listings
