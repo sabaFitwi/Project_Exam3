@@ -1,6 +1,6 @@
-export const countDown = () => {
-  const countDate = new Date("dec 16, 2022 00:00:00").getTime();
-  const now = new Date().getTime();
+export const countDown = (bidsdate) => {
+  const countDate = new Date(bidsdate).getTime();
+  const now = new Date(bidsdate).getTime();
   const gap = countDate - now;
   const countdown = document.querySelector(".countdownDiv");
 

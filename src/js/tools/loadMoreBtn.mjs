@@ -1,20 +1,19 @@
 let loadMoreBtn = document.querySelector(".button-loadmore");
 let currentPosts = 10;
-export function loadMore() {
+function loadMore() {
   loadMoreBtn.onclick = () => {
-    let postSection = [
-      ...document.querySelectorAll(".blog-wrapper .blogs_card"),
-    ];
+    let postSection = [...document.querySelectorAll(".loader-div")];
 
-    for (var i = currentPosts; i < currentPosts + 10; i++) {
+    for (var i = currentPosts; i < currentPosts + 15; i++) {
       if (postSection[i]) {
-        postSection[i].style.display = "inline-block";
+        postSection[i].style.display = "d-flex";
       }
     }
-    currentPosts += 10;
+    currentPosts += 15;
 
     if (currentPosts >= postSection.length) {
-      loadMoreBtn.style.display = "none";
+      loadMoreBtn.style.display = "d-none";
     }
   };
 }
+loadMore();

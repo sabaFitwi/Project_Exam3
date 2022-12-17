@@ -32,7 +32,7 @@ async function setSellListner() {
     console.log(bodyData);
 
     let response = await sellListing(bodyData);
-    window.location.replace("/auction-house/profile/")
+    window.location.replace("/auction-house/profile/");
     return response;
   }
 

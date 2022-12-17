@@ -36,72 +36,83 @@ function detailsTemplet(list) {
   console.log(date);
 
   viewDetails.innerHTML += `
-  <div class="container rounded bg-white mt-5 mb-5">
-  <div class="row">
-      <div class="col-md-12 col-lg-3 d-flex flex-column border-0 shadow justify-content-start align-items-center p-5 ">
+  <div class="container-fluid rounded mt-5 mb-5">
+  <div class="row ">
+      <div class="col-md-12 col-lg-3 d-flex flex-column bg-info border-0 shadow justify-content-start align-items-center p-5 ">
       <img
       src="${list.seller.avatar}"
       class="img-thumbnail rounded-circle me-2 avatar-profile-image"
       alt="avatar"
     />
-    <h4 class="mt-3 text-capitalize">${list.seller.name}</h4>
-    <p class="mt-1">${list.seller.email}</p>
+    <h4 class="mt-3 text-capitalize text-primary  fw-bolder fs-3">${
+      list.seller.name
+    }</h4>
+    <p class="mt-1 fs-5">${list.seller.email}</p>
     </div>
 
     
     <div class="col-12 col-md-12 col-lg-9 mt-1">
     <div class="d-flex flex-column justify-content-center w-100 mx-auto">
     <div class="col-12">
-      <table class="table bg-primary text-light">
+      <table class="table bg-info text-dark">
         <thead>
-          <tr class="text-dark fs-5">
-            <th scope="col">Title: ${list.title}</th>
+          <tr class=" fs-5">
+            <th class"fs-3 fw-bolder" scope="col">Title: ${list.title}</th>
 
-            <th scope="col">Auction End Date:${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")} </th>
+            <th scope="col">End Date:${date
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
       </table>
     </div>
-    <div class="card mb-3 col-12">
+    <div class="card ms-2 mb-3 col-12">
       <div class="row g-2">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <img src="${list.media[0]}" class="img-fluid" alt="${list.title}" />
           <div class="d-flex flex-row  gap-2 my-3 col-md-4 justify-content-center mx-auto">
-              <img src="${list.media[1]
-    }" onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${list.title
-    }" />
-              <img src="${list.media[2]
-    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${list.title
-    }" />
-              <img src="${list.media[3]
-    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${list.title
-    }" />
-              <img src="${list.media[4]
-    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${list.title
-    }" />
+              <img src="${
+                list.media[1]
+              }" onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${
+    list.title
+  }" />
+              <img src="${
+                list.media[2]
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${
+    list.title
+  }" />
+              <img src="${
+                list.media[3]
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${
+    list.title
+  }" />
+              <img src="${
+                list.media[4]
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1  image-small" alt="${
+    list.title
+  }" />
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
           <div class="card-body">
-            <h2 class="card-title tex-dark fs-4">Description</h2>
+            <h2 class="card-title fw-bold tex-dark fs-4">Description</h2>
             
-            <p class="card-tex ">
+            <p class="card-tex  ">
             ${list.description}
             </p>
             <p class="card-text">EndDate: ${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")}</p>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")}</p>
           </div>
         </div>
-        <div class="col-md-3 d-flex flex-column gap-2">
-        <a href="#" ><button class="btn btn-outline-warning btn-long cart"data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></a>
-        
+        <div class="col-md-2 d-flex flex-column gap-2">
         <a href="../profile-singlepage/index.html?id=${list.id}">
         <button class="btn btn-outline-warning btn-long cart"id="update-btn">Update </button>
         </a>
+        <a href="#" ><button class="btn btn-outline-warning inverted-button btn-long cart"data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></a>
+        
+        
          </div>
       </div>
     </div>
