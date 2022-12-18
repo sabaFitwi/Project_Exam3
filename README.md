@@ -2,7 +2,7 @@
 
 ## Goal of the project
 
-To take the skills learned over the past three semesters and create an auction website.
+To build an auction website using the knowledge gained over the last three semesters.
 
 ## Table of Contents
 
