@@ -1,0 +1,19 @@
+.new {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.closing {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 1.5s ease, opacity 1.5s ease;
+}
+
+.open {
+  opacity: 1;
+}
+
+.div-container {
+  height: 150px;
+}

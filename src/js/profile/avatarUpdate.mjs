@@ -1,68 +1,63 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
-import { viewAllProfiles } from "../profile/getProfile.mjs"
-import { load } from "../storage/localStorage.mjs";
+import { load, save } from "../storage/localStorage.mjs";
 
+const form = document.querySelector(".avatarForm");
+form.addEventListener("submit", setUpdateAvatar);
+async function setUpdateAvatar(event) {
+  event.preventDefault();
+  // const [img] = event.target.elements;
 
+  // let dataImg = {
+  //   avatar: `${img.value}`,
+  // };
+  // update(dataImg);
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+  update(data);
+  console.log(data);
+  try {
+    const profileData = await update(data);
+    console.log(profileData);
+    const avatar = document.querySelector(".avatar-profile-image");
 
+    avatar.src = await profileData.avatar;
+    save("profile", { name, credits, email, avatar: avatar.src });
 
-
-
-async function setUpdateProfile() {
-    const form = document.querySelector("#avatarForm");
-
-    if (form) {
-        const { name, email, avatar, credit } = load("profile");
-
-        form.name.value = name;
-        form.email.value = email;
-
-        const button = document.querySelector(".button");
-        button.disabled = true;
-        await viewAllProfiles(name);
-
-
-        form.avatar.value = avatar;
-        button.disabled = false;
-
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const form = event.target;
-
-            const profileData = {
-                name: form.name.value,
-                email: form.email.value,
-                avatar: form.avatar.value,
-
-            };
-            profileData.name = name;
-            profileData.email = email;
-
-            update(profileData);
-            console.log(profileData);
-        });
-    }
+    location.reload();
+  } catch {
+    console.log("error");
+  }
 }
-setUpdateProfile();
 
-async function update(avatar) {
-    // if (!profileData.name) {
-    //     throw new Error("update requires a profileID");
-    // }
-    const { name } = load("profile")
+async function update(media) {
+  const profile = load("profile");
+  const name = profile.name;
+  console.log(name);
 
-    const updateProfileApi1 = Auction_API_URL + "/" + `${name}` + "/media";
-    console.log(updateProfileApi1);
-    const me = load("profile")
-    const options = {
-        method: "PUT",
-        body: JSON.stringify({ ...me, avatar }),
-        headers: headers("application/json"),
-    }
+  const updateProfileApi1 =
+    Auction_API_URL + "/profiles/" + `${name}` + "/media";
+  console.log(updateProfileApi1);
 
-    const response = await fetch(updateProfileApi1, options);
-    const result = await response.json();
+  const options = {
+    method: "PUT",
+    body: JSON.stringify(media),
+    headers: headers("application/json"),
+  };
 
-    //location.reload();
-    console.log(result);
+  const response = await fetch(updateProfileApi1, options);
+  if (response.ok) {
+    return await response.json();
+  }
+
+  throw new Error(response);
 }
+
+const profileInfo = document.querySelector("#editProfile");
+const { name, email, avatar, credits } = load("profile");
+profileInfo.innerHTML += `<img src="${avatar}" onerror="src='/assets/images/avatar-default.jpg'" class="img-thumbnail rounded-circle me-2 avatar-profile-image"
+                            id="updateAvatarImage" alt="avatar" />
+                               <h4 class="mt-3 text-capitalize text-primary  fw-bolder fs-3">${name}</h4>         
+                                <p class="fs-4 text-capitalize">credits:<strong class="fs-5">$${credits}</strong></p>
+                                <p class="fs-5">email: ${email}</p>`;

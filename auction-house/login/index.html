@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Login to bid and sell, post your bid  and visit our website"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georama:wght@200;400;600&family=Tajawal&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2856179, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
+    <link rel="stylesheet" href="/dist/css/style.css" />
+    <title>Auction/Login</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md container-xxl pt-5 flex-column shadow">
+      <div class="container">
+        <a
+          class="navbar-brand d-flex justify-content-between align-items-center"
+          href="index.html"
+        >
+          <img src="/assets/images/logo.PNG" alt="site icon" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav flex-wrap me-auto mb-2 mb-lg-0 w-100">
+            <li class="nav-item px-2 py-2">
+              <a
+                class="nav-link text-uppercase text-dark large-font"
+                href="../../index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item px-2 py-2">
+              <a
+                class="nav-link text-uppercase text-dark large-font"
+                href="../listing/"
+                >Listing</a
+              >
+            </li>
+            <li class="nav-item px-2 py-2" data-isLogged="true">
+              <a
+                class="nav-link text-uppercase text-dark large-font"
+                href="../sell/"
+                >sell</a
+              >
+            </li>
+            <li class="nav-item px-2 py-2" data-isLogged="true">
+              <a
+                class="nav-link text-uppercase text-dark large-font"
+                href="../profile/"
+                >profile</a
+              >
+            </li>
+
+            <li class="nav-item ms-md-auto">
+              <a
+                href="../login/"
+                class="nav-link text-uppercase text-dark large-font"
+                data-isLogged="false"
+                ><button type="button" class="btn me-2">Login</button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../register/"
+                class="nav-link text-uppercase text-dark large-font inverted-button"
+                data-isLogged="false"
+                ><button type=" button" class="btn">Register</button></a
+              >
+            </li>
+            <li
+              class="align-items-center justify-content-center d-none d-lg-flex nav-avatar"
+            ></li>
+            <li>
+              <a
+                href="#"
+                class="nav-link text-uppercase text-dark large-font logout"
+                id="logout"
+                data-isLogged="true"
+                aria-current="page"
+                ><button
+                  type="button"
+                  class="btn btn-outline-success me-2 inverted-button"
+                >
+                  Logout
+                </button></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+
+    <main class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-5 col-md-6 col-sm-6">
+          <div class="card shadow">
+            <div class="card-title text-center bg-info border-bottom">
+              <h2 class="p-3">Login</h2>
+            </div>
+            <div class="card-body">
+              <form id="loginForm">
+                <div class="error error-container"></div>
+                <div class="form-floating">
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    class="form-control my-3"
+                    placeholder=" Email "
+                    required
+                    pattern="^[\w\-.]+@?stud.noroff.no$"
+                    title="only@stud.noroff.no domain allowed. Example (example@(stud.)noroff.no"
+                  />
+                  <label for="email">Email</label>
+                </div>
+
+                <div class="form-floating">
+                  <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    class="form-control my-3"
+                    placeholder="New password"
+                    required
+                    minlength="8"
+                  />
+                  <label for="password">Password</label>
+                </div>
+
+                <div class="d-grid p-3 mt-5">
+                  <button type="submit" class="btn text-light fs-4">
+                    Login
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="btn rounded-pill bg-dark scrollup-button float-end mt-5 position-fixed bottom-0 end-0 fs-5"
+      >
+        Top
+      </button>
+    </main>
+    <div class="my-5">
+      <footer class="text-center text-lg-star text-white footer-background">
+        <div class="container p-4 pb-0">
+          <section class="">
+            <div class="row">
+              <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">About Us</h6>
+                <p>
+                  An auction House where users can add items to be bid on and
+                  bid on items other users have put up for auction.
+                </p>
+              </div>
+
+              <hr class="w-100 clearfix d-md-none" />
+
+              <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                <p><i class="fas fa-home mr-3"></i> OSLO 1012, NO</p>
+                <p><i class="fas fa-envelope mr-3"></i> info@stud.noroff.no</p>
+                <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+              </div>
+            </div>
+          </section>
+
+          <hr class="my-3" />
+
+          <section class="p-3 pt-0">
+            <div class="row d-flex align-items-center">
+              <div class="col-md-6 col-lg-7 text-center text-md-start">
+                <div class="p-3">
+                  © 2022 Copyright:
+                  <a class="text-white" href="£">Second semester project</a>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-5 ml-lg-0 text-center text-md-end">
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  class="text-white"
+                  role="button"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  class="text-white"
+                  role="button"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+
+                <a
+                  class="btn btn-outline-light btn-floating m-1"
+                  class="text-white circle"
+                  role="button"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/node_modules/bootstrap/dist/js/"></script>
+    <script type="module" src="/src/js/index.mjs"></script>
+    <script type="module" src="/src/js/api/auth/login.mjs"></script>
+    <script type="module" src="/src/js/api/auth/logout.mjs"></script>
+    <script type="module" src="/src/js/combine/loggedin.mjs"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

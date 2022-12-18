@@ -1,0 +1,31 @@
+.btn:not(.nav-btns button) {
+  background-color: var(--button-color);
+  color: var(--white);
+  padding: 10px 28px;
+  border-radius: 5px;
+  border: 1px solid rgb(85, 85, 85);
+}
+
+.btn:not(.nav-btns button):hover {
+  background-color: var(--white);
+  color: var(--button-color);
+  border-color: var(--button-color);
+}
+
+.btn-radius {
+  border-radius: 25%;
+}
+
+.btn:not(.nav-btns button).inverted-button {
+  background-color: var(--white);
+  color: $primary;
+  padding: 10px 28px;
+  border-radius: 5px;
+  border: 1px solid $primary;
+}
+
+.btn:not(.nav-btns button).inverted-button:hover {
+  background-color: $primary;
+  color: var(--white);
+  border-color: $primary;
+}
