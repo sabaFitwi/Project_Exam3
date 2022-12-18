@@ -13,7 +13,6 @@ form.addEventListener("submit", (event) => {
 
   const amountNum = Number(amount.value);
 
-
   let sellsInput = {
     amount: amountNum,
   };
@@ -23,13 +22,12 @@ form.addEventListener("submit", (event) => {
   sellListing(sellsInput);
 });
 
-
 /**
  * The postData from the inputs will be taken in by the function.
- * 
+ *
  * @param {object} sellsInput This is the input information provided in an input
  * @returns returns the post
- * 
+ *
  * **/
 
 async function sellListing(sellsInput) {

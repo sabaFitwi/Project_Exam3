@@ -27,12 +27,10 @@ export const countDown = (bidsdate) => {
   }
 
   if (textDay > 0) {
-
     return `${Math.abs(textDay)} days`;
   }
 
   if (textHour > 0) {
-
     return `${Math.abs(textHour)} Hours`;
   }
 
@@ -43,7 +41,6 @@ export const countDown = (bidsdate) => {
   if (textSecond <= 0) {
     // clearInterval();
     return `Bid Ended`;
-
   }
 };
 
