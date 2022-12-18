@@ -1,26 +1,38 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 import { load } from "../storage/localStorage.mjs";
+import { displayError } from "../component/displayError.mjs";
+const profileBidsContainer = document.querySelector("#profile-bids");
+const profileListingContainer = document.querySelector("#profile-listings");
 
 async function viewBidsProfiles() {
+  profileBidsContainer.innerHTML += `<div class="d-flex justify-content-center">
+  <div class="spinner-border loader-size text-primary " role="status">
+    <span class="sr-only">Loading...</span>
+  </div>`;
+  const loaderButton = document.querySelector(".loader-size");
   const profile = load("profile");
   const name = profile.name;
   console.log(name);
-  const options = {
-    headers: headers("application/json"),
-  };
-  const api = Auction_API_URL + `/profiles/${name}/bids?_listings=true`;
-  const response = await fetch(api, options);
-  console.log(api);
-  const result = await response.json();
-  console.log(result);
-  getYourBids(result);
-  return result;
+  try {
+    const options = {
+      headers: headers("application/json"),
+    };
+    const api = Auction_API_URL + `/profiles/${name}/bids?_listings=true`;
+    const response = await fetch(api, options);
+    console.log(api);
+    const result = await response.json();
+    console.log(result);
+    getYourBids(result);
+    return result;
+  } catch (error) {
+    loaderButton.style.display = "none";
+    profileBidsContainer.innerHTML = displayError("An error occurred. Please try again");
+  }
 }
 
 function getYourBids(bidsListing) {
-  const profileBidsContainer = document.querySelector("#profile-bids");
-
+  profileBidsContainer.innerHTML = "";
   if (bidsListing) {
     bidsListing.map(
       (profile) =>
@@ -45,22 +57,31 @@ async function viewAllProfiles() {
   const profile = load("profile");
   const name = profile.name;
   console.log(name);
-  const options = {
-    headers: headers("application/json"),
-  };
-  const api = Auction_API_URL + `/profiles/${name}/listings`;
-  const response = await fetch(api, options);
-  console.log(api);
-  const result = await response.json();
-  console.log(result);
-  getListingsTemplet(result);
+  profileListingContainer.innerHTML += `<div class="d-flex justify-content-center">
+  <div class="spinner-border loader-size text-primary " role="status">
+    <span class="sr-only">Loading...</span>
+  </div>`;
+  const loaderButton = document.querySelector(".loader-size");
+  try {
+    const options = {
+      headers: headers("application/json"),
+    };
+    const api = Auction_API_URL + `/profiles/${name}/listings`;
+    const response = await fetch(api, options);
+    console.log(api);
+    const result = await response.json();
+    console.log(result);
+    getListingsTemplet(result);
 
-  return result;
+    return result;
+  } catch (error) {
+    loaderButton.style.display = "none";
+    profileListingContainer.innerHTML = displayError("An error occurred. Please try again");
+  }
 }
 
 function getListingsTemplet(profileListing) {
-  const profileListingContainer = document.querySelector("#profile-listings");
-
+  profileListingContainer.innerHTML = "";
   if (profileListing) {
     profileListing.map(
       (profile) =>

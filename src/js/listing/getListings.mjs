@@ -28,7 +28,7 @@ export async function getListings(limit = 20, offset = 0) {
     console.log(data);
 
     getListingsTemplet(data);
-
+    return data
     //countDown(data.endsAt)
   } catch (error) {
     loaderButton.style.display = "none";
