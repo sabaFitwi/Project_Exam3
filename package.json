@@ -12,7 +12,11 @@
     "lint-fix": "eslint src/**/*.mjs --cache --fix",
     "prepare": "husky install"
   },
-  "keywords": [],
+  "keywords": [
+    "Auction",
+    "bid",
+    "sell"
+  ],
   "author": "saba samuel",
   "license": "ISC",
   "dependencies": {
