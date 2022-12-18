@@ -17,9 +17,8 @@ export const isUserLoggedIn = function () {
       url.includes("auction-house/Profile/") ||
       url.includes("auction-house/sell/")
     ) {
-      location.href = "../index.html";
+      windows.location.replace("../index.html");
     }
-
     loggedIn.forEach((item) => item.classList.add("d-none"));
   }
 };

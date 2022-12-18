@@ -12,7 +12,11 @@
     "lint-fix": "eslint src/**/*.mjs --cache --fix",
     "prepare": "husky install"
   },
-  "keywords": [],
+  "keywords": [
+    "Auction",
+    "bid",
+    "sell"
+  ],
   "author": "saba samuel",
   "license": "ISC",
   "dependencies": {
@@ -26,7 +30,7 @@
     "lint-staged": "^13.1.0",
     "live-server": "^1.2.2",
     "prettier": "^2.7.1",
-    "sass": "^1.56.1"
+    "sass": "^1.56.2"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",

@@ -7,17 +7,20 @@ function renderImageSlider(media) {
   listingMainSlider.innerHTML = "";
   listingThumbSlider.innerHTML = "";
   media.forEach((image, index) => {
-    listingMainSlider.innerHTML += `<div class="carousel-item${index === 0 ? " active" : ""
-      }">
+    listingMainSlider.innerHTML += `<div class="carousel-item${
+      index === 0 ? " active" : ""
+    }">
                                       <div class="specific-outer-slider">
                                         <div class="specific-inner-slider">
-                                          <img id="listing-image" src="${image}" onerror="src='https://cdn.discordapp.com/attachments/931268688412299274/1026475078847823972/Hero-Banner-Placeholder-Dark-1024x480-1.png'" alt="Item image ${index + 1
-      }" />
+                                          <img id="listing-image" src="${image}" onerror="src=''" alt="Item image ${
+      index + 1
+    }" />
                                         </div>
                                       </div>
                                     </div>`;
-    listingThumbSlider.innerHTML += `<a type="button" data-bs-target="#specific" data-bs-slide-to="${index}" class="thumbs ${index === 0 ? " active" : ""
-      }" aria-current="true" aria-label="Slide ${index + 1}">
+    listingThumbSlider.innerHTML += `<a type="button" data-bs-target="#specific" data-bs-slide-to="${index}" class="thumbs ${
+      index === 0 ? " active" : ""
+    }" aria-current="true" aria-label="Slide ${index + 1}">
                                       <img id="listing-image" class="thumb-image" src="${image}" onerror="src='../images/empty_image.jpg'" alt="Item image" />
                                     </a>`;
   });
@@ -69,14 +72,12 @@ async function updatePage() {
   const queryString = window.location.search;
   const params = new URLSearchParams(queryString);
   let id = params.get("id");
-  console.log(id)
-
+  console.log(id);
 
   const listingData = await getListing(id);
   hibernate(listingData);
   form.endingAt.setAttribute("disabled", "");
   updatePreview(listingData.media);
-
 }
 
 updatePage();

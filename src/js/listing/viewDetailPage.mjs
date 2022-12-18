@@ -1,6 +1,7 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 import { dateOptions as dateFormat } from "../component/dateConverter.mjs";
+import { load } from "../storage/localStorage.mjs"
 const viewDetails = document.querySelector(".view-detail");
 const bidder = document.querySelector(".bidder");
 //const form = document.querySelector("#bidForm");
@@ -8,7 +9,7 @@ const bidder = document.querySelector(".bidder");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-console.log(id);
+const profile = load("profile")
 
 export async function getListing(limit = 20, offset = 0) {
   const options = {
@@ -38,7 +39,7 @@ function detailsTemplet(list) {
   viewDetails.innerHTML += `
   <div class="container rounded bg-white mt-5 mb-5">
   <div class="row">
-      <div class="col-md-12 col-lg-3 d-flex flex-column border-0 shadow justify-content-start align-items-center p-5 ">
+      <div class="col-md-12 col-lg-3 d-flex flex-column border-0 bg-info shadow justify-content-start align-items-center p-5 ">
       <img
       src="${list.seller.avatar}"
       class="img-thumbnail rounded-circle me-2 avatar-profile-image"
@@ -57,8 +58,8 @@ function detailsTemplet(list) {
             <th scope="col">Title: ${list.title}</th>
 
             <th scope="col">Auction End Date:${date
-              .toLocaleDateString("en-US", dateFormat)
-              .replace(/[/]/g, "-")} </th>
+      .toLocaleDateString("en-US", dateFormat)
+      .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -67,11 +68,9 @@ function detailsTemplet(list) {
     <div class="card mb-3 col-12">
       <div class="row g-2">
         <div class="col-md-4">
-          <img src="${
-            list.media[0]
-          }" this.onerror="src='https://cdn.discordapp.com/attachments/931268688412299274/1026475050578231376/no-user-image-icon-0.jpg'" class="img-fluid" alt="${
-    list.title
-  }" />
+          <img src="${list.media[0]
+    }" this.onerror="src='/assets/images/image-default.jpg'" class="img-fluid" alt="${list.title
+    }" />
         </div>
         <div class="col-md-6">
           <div class="card-body">
@@ -81,15 +80,15 @@ function detailsTemplet(list) {
             ${list.description}
             </p>  <hr/>
             <p class="card-text">EndDate: ${date
-              .toLocaleDateString("en-US", dateFormat)
-              .replace(/[/]/g, "-")}</p>
+      .toLocaleDateString("en-US", dateFormat)
+      .replace(/[/]/g, "-")}</p>
           </div>
         </div>
-        <div class="col-md-2" >
-        <button class="btn btn-outline-warning btn-long cart" data-isLogged="true" data-bs-target="#bidModal">Bids ${
-          list._count.bids
-        }</button>
-            
+        <div class="col-md-2"  >
+        ${profile ? (` <button class="btn btn-outline-warning btn-long cart" data-bs-toggle="modal" data-bs-target="#bidModal">Bids ${list._count.bids
+      } </button>`) : (` <div></div>`)
+    }
+               
         </div>
       </div>
     </div>

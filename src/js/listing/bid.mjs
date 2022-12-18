@@ -1,32 +1,35 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 
-const form = document.querySelector("#bidForm");
-
 /**
  * submit register form data.
  * @param {Event} submit form submission
- 
+
  */
+const form = document.querySelector("#bidForm");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const form = event.target;
+  const [amount] = event.target.elements;
 
-  const formData = new FormData(form);
-  const sellsInput = Object.fromEntries(formData.entries());
+  const amountNum = Number(amount.value);
+
+  // Construct the data object which is to be sent to the API
+  let sellsInput = {
+    amount: amountNum,
+  };
+
   console.log(sellsInput);
 
   sellListing(sellsInput);
 });
 
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
-let id = params.get("id");
-
-async function sellListing(amount) {
+async function sellListing(sellsInput) {
+  const queryString = window.location.search;
+  const params = new URLSearchParams(queryString);
+  let id = params.get("id");
   const options = {
     method: "post",
-    body: JSON.stringify(amount),
+    body: JSON.stringify(sellsInput),
     headers: headers("application/json"),
   };
 

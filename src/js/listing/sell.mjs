@@ -1,46 +1,63 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
+//import { imageCarousel } from "./profileComponents/previewRender.mjs";
 
-const form = document.querySelector("#sellForm");
+async function setSellListner() {
+  const form = document.querySelector("#sellForm");
 
-/**
- * submit register form data.
- * @param {Event} submit form submission
+  /**
+   * submit register form data.
+   * @param {Event} submit form submission
+  
+   */
+  form.addEventListener("submit", sellListener);
 
- */
-form.addEventListener("submit", sellListener);
+  async function sellListener(event) {
+    event.preventDefault();
+    const form = event.target;
+    const mediaInp = Array.from(
+      form.querySelectorAll("input[type=url]:enabled")
+    );
 
-async function sellListener(event) {
-  event.preventDefault();
-  const form = event.target;
-  const mediaInputs = Array.from(
-    form.querySelectorAll("input[type=url]:enabled")
-  );
+    const bodyData = {
+      title: form.title.value,
+      description: form.description.value,
+      tags: form.tags.value
+        .split(",")
+        .map((tag) => tag.trim())
+        .slice(0, 3),
+      media: mediaInp.map((image) => image.value),
+      endsAt: new Date(form.endsAt.value),
+    };
+    console.log(bodyData);
 
-  const bodyData = {
-    title: form.title.value,
-    description: form.description.value,
-    tags: form.tags.value
-      .split(",")
-      .map((tag) => tag.trim())
-      .slice(0, 3),
-    media: mediaInputs.map((image) => image.value),
-    endsAt: new Date(form.endsAt.value),
-  };
-  console.log(bodyData);
-
-  try {
-    // const queryString = window.location.search;
-    // const params = new URLSearchParams(queryString);
-    // let id = params.get("id");
     let response = await sellListing(bodyData);
-    console.log(response);
-  } catch (error) {
-    console.log(error);
+    window.location.replace("/auction-house/profile/");
+    return response;
   }
 
-  //sellListing(bodyData);
+  form.addEventListener("keyup", (media = false) => {
+    //e.preventDefault();
+
+    const title = document.querySelector(".sell-title");
+    const description = document.querySelector(".sell-description");
+    const tags = document.querySelector(".sell-tags");
+
+    title.innerHTML = form.title.value;
+    description.innerText = form.description.value;
+    tags.innerText = form.tags.value;
+
+    if (media !== []) {
+      const mediaInp = Array.from(
+        document.querySelectorAll("input[type=url]:enabled")
+      );
+      media = mediaInp
+        .map((images) => images.value)
+        .filter((value) => value !== "");
+    }
+  });
 }
+
 async function sellListing(bodyData) {
   const options = {
     method: "post",
@@ -53,6 +70,8 @@ async function sellListing(bodyData) {
   if (response.ok) {
     return await response.json();
   }
-
+  imageCarousel(bodyData.media);
   throw new Error(response.statusText);
 }
+
+setSellListner();
