@@ -133,7 +133,7 @@ Then open it on the live server by runing `npm run watch`
     </tr>
     <tr>
       <th>Hosted Demo</th>
-      <td><a href="">Live Site</a></td>
+      <td><a href="https://lovely-lebkuchen-1efdca.netlify.app/">Live Site</a></td>
     </tr>
   </tbody>
 </table>
