@@ -9,8 +9,8 @@ To build an auction website using the knowledge gained over the last three semes
 - [General Information](#general-information)
 - [Project Requirments](#project-requirments)
 - [Setup](#setup)
-- [How to run the project locally](#how to run the project locally)
-- [Required Links](#required Links)
+- [How to run the project locally](#how-to-run-the-project-locally)
+- [Required Links](#required-Links)
 
 ## General Information
 
