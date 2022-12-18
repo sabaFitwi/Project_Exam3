@@ -54,11 +54,6 @@ nav {
   }
 }
 
-// .nav ul li.a:after {
-//   position: relative;
-//   padding: 10px 0;
-// }
-
 .nav-link.active {
   background: $secondary;
   padding: 5px 10px;
@@ -69,21 +64,3 @@ nav {
 .nav-link.active:hover {
   opacity: 0.5;
 }
-
-// nav ul li.a:after {
-//   content: "";
-//   position: absolute;
-//   background: $primary;
-//   width: 100%;
-//   height: 4px;
-//   left: 0;
-//   bottom: 0;
-//   transform: scaleX(0);
-//   transform-origin: center;
-//   transition: transform 250ms ease-in;
-// }
-
-// nav ul li.a:hover:after {
-//   transform: scaleX(1);
-//   transform-origin: center;
-// }
