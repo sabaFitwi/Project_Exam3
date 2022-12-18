@@ -6,11 +6,11 @@ To take the skills learned over the past three semesters and create an auction w
 
 ## Table of Contents
 
-- [General Info](#general-information)
+- [General Information](#general-information)
 - [Project Requirments](#project-requirments)
 - [Setup](#setup)
-- [Project Status](#project-status)
-- [Acknowledgements](#acknowledgements)
+- [How to run the project locally](#how to run the project locally)
+- [Required Links](#required Links)
 
 ## General Information
 
@@ -39,41 +39,32 @@ The API which are using for this project can be found under Auction EndPoints in
 ### The following technical restrictions are required:
 
 - Must use an approved CSS Framework
-- CSS processors
-  [x] SASS/SCSS`used`
-  [ ] PostCSS
-- CSS frameworks
-  [x] Bootstrap (>5)`used`
-  [ ] Tailwind (>3)
-  [ ] MUI (>5)
+
+  - CSS processors
+    [x] SASS/SCSS`used`
+    [ ] PostCSS
+  - CSS frameworks
+    [x] Bootstrap (>5)`used`
+    [ ] Tailwind (>3)
+    [ ] MUI (>5)
 
 - Must be hosted on an approved Static Host
-- Hosting services
-  [ ] GitHub Pages
-  [x] Netlify`used`
+
+  - Hosting services
+    - [ ] GitHub Pages
+    - [x] Netlify`used`
 
 - Must use an approved Design Application
-- Design applications
-  [ ] Adobe XD
-  [x] Figma`used`
-  [ ] Sketch
+
+  - Design applications
+    - [ ] Adobe XD
+    - [x] Figma`used`
+    - [ ] Sketch
 
 - Must use an approved Planning Application
-- Planning applications
-  [x] Trello`used`
-  [ ] GitHub Projects
-
-The following features must be automatically tested with unit tests:
-
-- The login function returns a valid token when provided with valid credentials
-- The logout function clears the token from browser storage
-- The create item function creates a new item on the API
-
-The following features must be automatically tested with end-to-end tests:
-
-- The login form validates user inputs correctly based on API restrictions
-- The create item form validates user inputs correctly based on API restrictions
-- The logout button logs the user out when clicked
+  - Planning applications
+    - [x] Trello`used`
+    - [ ] GitHub Projects
 
 ## Setups
 
