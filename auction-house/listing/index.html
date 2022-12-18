@@ -91,7 +91,7 @@
                 >sell</a
               >
             </li>
-            <li class="nav-item px-2 py-2" data-isLogged=" true">
+            <li class="nav-item px-2 py-2" data-isLogged="true">
               <a
                 class="nav-link text-uppercase text-dark large-font"
                 href="../profile/"
@@ -102,7 +102,7 @@
             <li class="nav-item ms-md-auto">
               <a
                 href="../login/"
-                class="nav-link text-uppercase text-dark large-font active active-color"
+                class="nav-link text-uppercase text-dark large-font"
                 data-isLogged="false"
                 aria-current="page"
                 ><button
@@ -164,9 +164,9 @@
     <!-- end of navbar -->
 
     <!-- collection -->
-    <main id="collection" class="py-5">
+    <main id="collection" class="py-2">
       <div class="container">
-        <div class="title text-center">
+        <div class="title text-center bg-info py-3">
           <h2 class="position-relative d-inline-block large-font">
             Featured Auctions
           </h2>
@@ -178,40 +178,40 @@
           >
             <button
               type="button"
-              class="filter-title btn m-2 text-light active"
+              class="filter-title filter-btn m-2 boarder-0 fs-5 px-4 py-2 active-btn"
               data-filter="*"
             >
               All
             </button>
             <button
               type="button"
-              class="filter-title btn m-2 text-light"
+              class="filter-title filter-btn boarder-0 fs-5 px-4 py-2 m-2"
               data-filter=".best"
             >
               Best Sells
             </button>
             <button
               type="button"
-              class="filter-title btn m-2 text-light"
-              data-filter=".feat"
+              class="filter-title filter-btn boarder-0 fs-5 px-4 py-2 m-2"
+              data-filter=".closed"
             >
               Closed soon
             </button>
-            <button
-              type="button"
-              class="filter-title btn m-2 text-light"
-              data-filter=".new"
-            >
-              New Listings
-            </button>
           </div>
 
-          <div class="collection-list mt-4 row gx-0 gy-3">
+          <div class="collection-list mt-2 row gx-0 gy-3">
             <div
-              class="listings-div d-flex flex-wrap justify-content-center gap-2"
+              class="listings-div d-flex flex-wrap justify-content-center more-load gap-2"
             ></div>
           </div>
         </div>
+      </div>
+      <div class="d-flex justify-content-center mt-5 button-loadmore">
+        <button
+          class="btn custom-btn btn-3 rounded-pill bg-dark text-light text-capitalize fs-5"
+        >
+          load more
+        </button>
       </div>
       <button
         class="btn rounded-pil bg-dark scrollup-button float-end mt-5 position-fixed bottom-0 end-0 fs-5"
@@ -290,6 +290,9 @@
     <script type="module" src="/src/js/search/search.mjs"></script>
     <script type="module" src="/src/js/search/filter.mjs"></script>
     <script type="module" src="/src/js/combine/loggedin.mjs"></script>
+
+    <script type="module" src="/src/js/tools/loadMoreBtn.mjs"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

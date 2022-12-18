@@ -11,12 +11,12 @@ const params = new URLSearchParams(queryString);
 const id = params.get("id");
 const profile = load("profile")
 
-export async function getListing(limit = 20, offset = 0) {
+export async function getListing() {
   const options = {
     headers: headers("application/json"),
   };
   const response = await fetch(
-    `${Auction_API_URL}/listings/${id}?_seller=true&_bids=true&limit=${limit}&offset=${offset}`,
+    `${Auction_API_URL}/listings/${id}?_seller=true&_bids=true`,
     options
   );
   const data = await response.json();

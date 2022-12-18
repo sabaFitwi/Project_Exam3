@@ -16,26 +16,13 @@ async function getListingNewData() {
 }
 getListingNewData()
 
-// const countTime = (newApiDate) => {
-//   const countDate = new Date(newApiDate).getTime()
-//   const now = new Date().getTime()
-//   const gap = countDate - now
-//   const second = 1000;
-//   const minute = second * 60;
-//   const hour = minute * 60;
-//   const day = hour * 24
-//   const textDay = Math.floor(gap / day)
-//   // const textHour = Math.floor(gap % day / hour)
-//   // const textMinute = Math.floor(gap % day / minute)
-//   // const textSecond = Math.floor(gap % day / second)
-//   return textDay
-// }
+
 
 export function filterListings() {
   filterButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       for (let i = 0; i < filterButtons.length; i++) {
-        filterButtons[i].classList.remove("active");
+        filterButtons[i].classList.remove("active-btn");
       }
       button.classList.add("active");
       let datafilter = event.target.dataset.filter;
@@ -47,12 +34,12 @@ export function filterListings() {
         if (datafilter === "*") {
           return data
         }
-        if (datafilter === ".best" && user._count.bids > 1) {
+        if (datafilter === ".best" && user._count.bids > 5) {
 
           return user._count.bids
 
         }
-        if (datafilter === ".feat" && newApiDate < 10) {
+        if (datafilter === ".closed" && newApiDate < "10 Days") {
 
           return user.endsAt
 

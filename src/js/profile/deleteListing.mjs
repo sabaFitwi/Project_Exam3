@@ -3,6 +3,7 @@ import { headers } from "../api/headers.mjs";
 
 const deleteBtn = document.querySelector("#delete-btn");
 
+
 deleteBtn.addEventListener("click", deleteListener);
 
 async function deleteListener() {
@@ -20,6 +21,11 @@ async function deleteListener() {
   }
 }
 
+/**
+ * Deletes a listing
+ * @param {String} id Listings id
+ * @returns
+ */
 async function deleteListing(id) {
   const API = `${Auction_API_URL}/listings/${id}`;
 
