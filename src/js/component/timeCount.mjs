@@ -1,5 +1,5 @@
 export const countDown = (bidsdate) => {
-  const countDate = new Date(bidsdate).getTime();
+  const countDate = new Date().getTime();
   const now = new Date(bidsdate).getTime();
   const gap = countDate - now;
   const countdown = document.querySelector(".countdownDiv");
@@ -18,26 +18,32 @@ export const countDown = (bidsdate) => {
   const textMinute = Math.floor((gap % hour) / minute);
   const textSecond = Math.floor((gap % minute) / second);
 
-  if (textMonth > 0) {
-    countdown.innerHTML = ` ${textMonth} Months, ${textDay} Days`;
-    return countdown;
+  if (textYear > 0) {
+    return `year left`;
+  }
+
+  if (textMonth) {
+    return `${Math.abs(textMonth)} Month`;
   }
 
   if (textDay > 0) {
-    countdown.innerHTML = ` ${textDay} Days, ${textHour} Hours`;
-    return countdown;
+
+    return `${Math.abs(textDay)} days`;
   }
 
   if (textHour > 0) {
-    countdown.innerHTML = ` ${textHour} Hours, ${textMinute} Minutes`;
-    return countdown;
+
+    return `${Math.abs(textHour)} Hours`;
   }
 
-  if (textMinute > 0) countdown.innerHTML = `${textMinute}:${textSecond}`;
+  if (textMinute > 0) {
+    return `${Math.abs(textMinute)} Minutes`;
+  }
 
   if (textSecond <= 0) {
-    countdown.innerHTML = `Bid Ended`;
-    clearInterval(countdown);
+    // clearInterval();
+    return `Bid Ended`;
+
   }
 };
 

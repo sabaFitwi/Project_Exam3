@@ -2,10 +2,11 @@ import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 import { load } from "../storage/localStorage.mjs";
 import { displayError } from "../component/displayError.mjs";
+import { countDown } from "../component/timeCount.mjs"
 const profileBidsContainer = document.querySelector("#profile-bids");
 const profileListingContainer = document.querySelector("#profile-listings");
 
-async function viewBidsProfiles() {
+export async function viewBidsProfiles() {
   profileBidsContainer.innerHTML += `<div class="d-flex justify-content-center">
   <div class="spinner-border loader-size text-primary " role="status">
     <span class="sr-only">Loading...</span>
@@ -31,7 +32,7 @@ async function viewBidsProfiles() {
   }
 }
 
-function getYourBids(bidsListing) {
+export function getYourBids(bidsListing) {
   profileBidsContainer.innerHTML = "";
   if (bidsListing) {
     bidsListing.map(
@@ -53,7 +54,8 @@ function getYourBids(bidsListing) {
   }
 }
 
-async function viewAllProfiles() {
+
+export async function viewAllProfiles() {
   const profile = load("profile");
   const name = profile.name;
   console.log(name);
@@ -71,7 +73,7 @@ async function viewAllProfiles() {
     console.log(api);
     const result = await response.json();
     console.log(result);
-    getListingsTemplet(result);
+    getProfilesTemplet(result);
 
     return result;
   } catch (error) {
@@ -80,13 +82,13 @@ async function viewAllProfiles() {
   }
 }
 
-function getListingsTemplet(profileListing) {
+export function getProfilesTemplet(profileListing) {
   profileListingContainer.innerHTML = "";
   if (profileListing) {
     profileListing.map(
       (profile) =>
       (profileListingContainer.innerHTML += `       
-                             <a href="../profile-detail/index.html?id=${profile.id}" 
+                             <a href="../profile-detail/index.html?id=${profile.id} " 
                              class="col-md-4 col-lg-3 col-xl-3 p-2 listing-card mt-5 shadow new ">
                                           <div class="container border-1 ">
                                          
@@ -94,7 +96,7 @@ function getListingsTemplet(profileListing) {
                                             <div class="text-center div-container">
                                               <h4 class="text-capitalize  my-1">${profile.title}</h4>
                                             
-                                              <p fw-bold>End date: <span text-primary f-large>${profile.endsAt}</span></p>      
+                                              <p fw-bold>End date: <span text-primary f-large>${countDown(profile.endsAt)}</span></p>      
                                             </div> 
                                             <div  class=" bg-secondary my-3  p-2 text-capitalize fs-5"> <strong> bids: ${profile._count.bids}</strong>
                                           
@@ -117,7 +119,7 @@ async function viewBidswins() {
   };
   const api = Auction_API_URL + `/profiles/${name}?_listings=true`;
   const response = await fetch(api, options);
-  console.log(api);
+
   const result = await response.json();
   console.log(result);
   getWinsTemplet(result)
