@@ -12,9 +12,13 @@ const searchInput = document.querySelector("[data-search]");
 searchInput?.addEventListener("keyup", (event) => {
   const inputValue = event.target.value.toLowerCase();
 
-  const filteredData = data?.filter(user => {
-    return (user.title.toLowerCase().includes(inputValue))
-
+  const filteredData = data?.filter((user) => {
+    if (
+      user.title.toLowerCase().startsWith(inputValue) ||
+      user.seller.name.toLowerCase().startsWith(inputValue)
+    ) {
+      return true
+    }
   })
   getListingsTemplet(filteredData)
 
@@ -30,36 +34,3 @@ getListingNewData()
 
 
 
-
-// import { getListingsTemplet } from "../listing/getListings.mjs";
-
-// let data = [];
-// /**
-//  *uses the input value to filter the user by its title and name
-//  * @param {keyup} event
-//  */
-
-// const listingsDiv = document.querySelector(".listings-div");
-
-// const searchInput = document.querySelector("input[name=search]");
-
-// searchInput.addEventListener("keyup", (event) => {
-//   const inputValue = event.target.value.toLowerCase();
-
-//   const inputResult = data.filter((listing) => {
-//     if (
-//       listing.title.toLowerCase().startsWith(inputValue) ||
-//       listing.seller.name.toLowerCase().startsWith(inputValue)
-//     ) {
-//       return true;
-//     }
-//     // else {
-//     //     return `<div class="danger">Search Not found</div>`;
-//     // }
-//   });
-//   console.log(inputResult);
-
-//   getListingsTemplet(inputResult);
-
-//   listingsDiv.innerHTML = getListingsTemplet(inputResult);
-// });

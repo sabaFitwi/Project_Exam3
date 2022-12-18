@@ -14,6 +14,12 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(form);
   const profile = Object.fromEntries(formData.entries());
 
+  /**
+ * Register a new user
+ * @param {Object} user {name, email, password, avatar}
+ * @returns {Promise<Object>} response object
+ */
+
   async function register(user) {
     const options = {
       method: "post",
@@ -31,4 +37,4 @@ form.addEventListener("submit", (event) => {
   }
   register(profile);
 });
-//export const name = profile.name;
+

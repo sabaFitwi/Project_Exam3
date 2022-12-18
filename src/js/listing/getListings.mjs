@@ -2,14 +2,17 @@ import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 import { displayError } from "../component/displayError.mjs";
 import { countDown } from "../component/timeCount.mjs"
-//import { filterListings } from "../search/filter.mjs";
 
-// const getCount = countDown("2022-12-18T17:29:55")
-// console.log(getCount)
+
+/**
+ * Get a listings
+ * @param {string} id the posts id
+ * @returns {Promise<Array>} Response array of listing objects.
+ */
 
 const listingsDiv = document.querySelector(".listings-div");
 
-export async function getListings(limit = 20, offset = 0) {
+export async function getListings(limit = 100, offset = 0) {
   listingsDiv.innerHTML += `<div class="d-flex justify-content-center">
   <div class="spinner-border loader-size text-primary " role="status">
     <span class="sr-only">Loading...</span>
@@ -20,7 +23,7 @@ export async function getListings(limit = 20, offset = 0) {
       headers: headers("application/json"),
     };
     const response = await fetch(
-      `${Auction_API_URL}/listings?limit=${limit}&offset=${offset}&sort=created&sortOrder=desc`,
+      `${Auction_API_URL}/listings?limit=${limit}&offset=${offset}&sort=created&sortOrder=desc&_seller=true&_bids=true`,
       options
     );
     const data = await response.json();
@@ -29,7 +32,7 @@ export async function getListings(limit = 20, offset = 0) {
 
     getListingsTemplet(data);
     return data
-    //countDown(data.endsAt)
+
   } catch (error) {
     loaderButton.style.display = "none";
     listingsDiv.innerHTML = displayError("An error occurred. Please try again");
@@ -38,9 +41,10 @@ export async function getListings(limit = 20, offset = 0) {
 getListings();
 
 export function getListingsTemplet(listings) {
-  // const countdownDiv = document.querySelector(countdownDiv)
+
   listingsDiv.innerHTML = "";
   if (listings) {
+
     listings.map(
       (listing) =>
 
@@ -50,9 +54,7 @@ export function getListingsTemplet(listings) {
              <img  id="img" class="img-thumbnail listing-image  rounded" src="${listing.media[0]}" onerror="src='/assets/images/image-default.jpg'"   />
             <div class="text-center">
              <h4 class="text-capitalize flex-shrink-1 my-1">${listing.title}</h4>
-             <p fw-bold>End date: <div class="countdownDiv d-flex">
-
-             </div> <span text-primary f-large>${countDown(listing.endsAt)}</span></p>
+             <div fw-bold>Time Left: <span text-primary f-large>${countDown(listing.endsAt)}</span></div>
              <button type="buttom" class="btn btn-primary my-3"> view Detail
              <span> Bid(${listing._count.bids})</span>
               </button>

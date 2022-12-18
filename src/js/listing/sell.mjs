@@ -1,15 +1,10 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
-//import { imageCarousel } from "./profileComponents/previewRender.mjs";
+
 
 async function setSellListner() {
   const form = document.querySelector("#sellForm");
 
-  /**
-   * submit register form data.
-   * @param {Event} submit form submission
-  
-   */
   form.addEventListener("submit", sellListener);
 
   async function sellListener(event) {
@@ -57,6 +52,12 @@ async function setSellListner() {
     }
   });
 }
+
+/**
+ * new listings are made
+ * @param {Object} bodyData title, description, [tags], [media], endsAt)
+ * @returns {Promise<Object>} returns and object with the listing details
+ */
 
 async function sellListing(bodyData) {
   const options = {

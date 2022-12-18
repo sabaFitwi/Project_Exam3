@@ -11,11 +11,19 @@
 
 .danger {
   border-left-color: #d9534f;
-  /* Left side border color */
+
   background-color: rgba(217, 83, 79, 0.1);
-  /*Same color as the left border with reduced alpha to 0.1*/
 }
 
 .danger strong {
   color: $danger;
+}
+
+.listing-card {
+  display: none;
+}
+
+.listing-card:nth-child(n + 1):nth-child(-n + 10) {
+  display: inline-block;
+  transition: 0.2s ease;
 }
