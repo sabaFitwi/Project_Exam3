@@ -1,7 +1,6 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 
-
 async function setSellListner() {
   const form = document.querySelector("#sellForm");
 

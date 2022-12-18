@@ -20,7 +20,7 @@
   "author": "saba samuel",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.2.2",
+    "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.2",
     "get-hidden-height": "^1.0.1"
   },

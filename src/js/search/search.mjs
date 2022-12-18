@@ -1,5 +1,3 @@
-
-
 import { getListingsTemplet, getListings } from "../listing/getListings.mjs";
 
 let data = [];
@@ -17,20 +15,16 @@ searchInput?.addEventListener("keyup", (event) => {
       user.title.toLowerCase().startsWith(inputValue) ||
       user.seller.name.toLowerCase().startsWith(inputValue)
     ) {
-      return true
+      return true;
     }
-  })
-  getListingsTemplet(filteredData)
-
-})
+  });
+  getListingsTemplet(filteredData);
+});
 
 async function getListingNewData() {
   let result = await getListings();
-  data = result.map(user => {
-    return user
-  })
+  data = result.map((user) => {
+    return user;
+  });
 }
-getListingNewData()
-
-
-
+getListingNewData();

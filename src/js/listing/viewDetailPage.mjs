@@ -1,7 +1,7 @@
 import { Auction_API_URL } from "../api/constant.mjs";
 import { headers } from "../api/headers.mjs";
 import { dateOptions as dateFormat } from "../component/dateConverter.mjs";
-import { load } from "../storage/localStorage.mjs"
+import { load } from "../storage/localStorage.mjs";
 const viewDetails = document.querySelector(".view-detail");
 const bidder = document.querySelector(".bidder");
 //const form = document.querySelector("#bidForm");
@@ -9,7 +9,7 @@ const bidder = document.querySelector(".bidder");
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-const profile = load("profile")
+const profile = load("profile");
 
 export async function getListing() {
   const options = {
@@ -58,8 +58,8 @@ function detailsTemplet(list) {
             <th scope="col">Title: ${list.title}</th>
 
             <th scope="col">Auction End Date:${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")} </th>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -68,9 +68,11 @@ function detailsTemplet(list) {
     <div class="card mb-3 col-12">
       <div class="row g-2">
         <div class="col-md-4">
-          <img src="${list.media[0]
-    }" this.onerror="src='/assets/images/image-default.jpg'" class="img-fluid" alt="${list.title
-    }" />
+          <img src="${
+            list.media[0]
+          }" this.onerror="src='/assets/images/image-default.jpg'" class="img-fluid" alt="${
+    list.title
+  }" />
         </div>
         <div class="col-md-6">
           <div class="card-body">
@@ -80,14 +82,16 @@ function detailsTemplet(list) {
             ${list.description}
             </p>  <hr/>
             <p class="card-text">EndDate: ${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")}</p>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")}</p>
           </div>
         </div>
         <div class="col-md-2"  >
-        ${profile ? (` <button class="btn btn-outline-warning btn-long cart" data-bs-toggle="modal" data-bs-target="#bidModal">Bids ${list._count.bids
-      } </button>`) : (` <div></div>`)
-    }
+        ${
+          profile
+            ? ` <button class="btn btn-outline-warning btn-long cart" data-bs-toggle="modal" data-bs-target="#bidModal">Bids ${list._count.bids} </button>`
+            : ` <div></div>`
+        }
                
         </div>
       </div>

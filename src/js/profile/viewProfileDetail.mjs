@@ -4,7 +4,6 @@ import { dateOptions as dateFormat } from "../component/dateConverter.mjs";
 const viewDetails = document.querySelector(".view-detail");
 const bidder = document.querySelector(".bidder");
 
-
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
@@ -25,7 +24,6 @@ export async function getListing() {
 
   bidderTemplate(data.bids);
   if (response.ok) {
-
     return data;
   }
 
@@ -45,7 +43,8 @@ function detailsTemplet(list) {
       class="img-thumbnail rounded-circle me-2 avatar-profile-image"
       alt="avatar"
     />
-    <h4 class="mt-3 text-capitalize text-primary  fw-bolder fs-3">${list.seller.name
+    <h4 class="mt-3 text-capitalize text-primary  fw-bolder fs-3">${
+      list.seller.name
     }</h4>
     <p class="mt-1 fs-5">${list.seller.email}</p>
     </div>
@@ -60,8 +59,8 @@ function detailsTemplet(list) {
             <th class"fs-3 fw-bolder" scope="col">Title: ${list.title}</th>
 
             <th scope="col">End Date:${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")} </th>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")} </th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -72,25 +71,35 @@ function detailsTemplet(list) {
         <div id="carouselExampleFade" class="carousel slide carousel-fade col-md-6" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-               <img src="${list.media[0]}" class="img-fluid d-block w-100" alt="${list.title}" />
+               <img src="${
+                 list.media[0]
+               }" class="img-fluid d-block w-100" alt="${list.title}" />
           </div>
          
           <div class="carousel-item">
-              <img src="${list.media[1]
-    }" onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 " alt="${list.title
-    }" /></div>
+              <img src="${
+                list.media[1]
+              }" onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 " alt="${
+    list.title
+  }" /></div>
     <div class="carousel-item">
-              <img src="${list.media[2]
-    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 " alt="${list.title
-    }" /></div>
+              <img src="${
+                list.media[2]
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 " alt="${
+    list.title
+  }" /></div>
     <div class="carousel-item">
-              <img src="${list.media[3]
-    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 l" alt="${list.title
-    }" /></div>
+              <img src="${
+                list.media[3]
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100 l" alt="${
+    list.title
+  }" /></div>
     <div class="carousel-item">
-              <img src="${list.media[4]
-    }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100  " alt="${list.title
-    }" />
+              <img src="${
+                list.media[4]
+              }"onerror="src='/assets/images/image-default.jpg'" class="col-3 m-1 d-block w-100  " alt="${
+    list.title
+  }" />
     </div>
        </div>  
        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -110,8 +119,8 @@ function detailsTemplet(list) {
             ${list.description}
             </p>
             <p class="card-text">EndDate: ${date
-      .toLocaleDateString("en-US", dateFormat)
-      .replace(/[/]/g, "-")}</p>
+              .toLocaleDateString("en-US", dateFormat)
+              .replace(/[/]/g, "-")}</p>
           </div>
         </div>
         <div class="col-md-2 d-flex flex-column gap-2">
@@ -132,7 +141,6 @@ function detailsTemplet(list) {
 function bidderTemplate(bids) {
   if (bids) {
     Array.from(bids).forEach((bid) => {
-
       bidder.innerHTML += `
     <tr class=" tex-dark fs-5">       
         <td>${bid.bidderName}</td>

@@ -1,7 +1,7 @@
-
-
-import { viewAllProfiles, getProfilesTemplet } from "../profile/getProfileListings.mjs"
-
+import {
+  viewAllProfiles,
+  getProfilesTemplet,
+} from "../profile/getProfileListings.mjs";
 
 let data = [];
 /**
@@ -11,28 +11,22 @@ let data = [];
 const searchInput = document.querySelector("[data-search]");
 
 searchInput?.addEventListener("keyup", (event) => {
-    const inputValue = event.target.value.toLowerCase();
+  const inputValue = event.target.value.toLowerCase();
 
-    const filteredData = data?.filter((user) => {
-        if (
-            user.title.toLowerCase().startsWith(inputValue)
+  const filteredData = data?.filter((user) => {
+    if (user.title.toLowerCase().startsWith(inputValue)) {
+      return true;
+    }
+  });
 
-        ) {
-            return true
-        }
-    })
-
-    getProfilesTemplet(filteredData)
-})
+  getProfilesTemplet(filteredData);
+});
 
 async function getListingNewData() {
-    let result = await viewAllProfiles();
-    data = result.map(user => {
-        return user
-    })
-    console.log(data)
+  let result = await viewAllProfiles();
+  data = result.map((user) => {
+    return user;
+  });
+  console.log(data);
 }
-getListingNewData()
-
-
-
+getListingNewData();
