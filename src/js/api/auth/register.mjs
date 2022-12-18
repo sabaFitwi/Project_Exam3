@@ -15,10 +15,10 @@ form.addEventListener("submit", (event) => {
   const profile = Object.fromEntries(formData.entries());
 
   /**
- * Register a new user
- * @param {Object} user {name, email, password, avatar}
- * @returns {Promise<Object>} response object
- */
+   * Register a new user
+   * @param {Object} user {name, email, password, avatar}
+   * @returns {Promise<Object>} response object
+   */
 
   async function register(user) {
     const options = {
@@ -37,4 +37,3 @@ form.addEventListener("submit", (event) => {
   }
   register(profile);
 });
-

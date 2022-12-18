@@ -3,7 +3,6 @@ import { headers } from "../api/headers.mjs";
 
 const deleteBtn = document.querySelector("#delete-btn");
 
-
 deleteBtn.addEventListener("click", deleteListener);
 
 async function deleteListener() {
@@ -17,7 +16,6 @@ async function deleteListener() {
     }
   } catch (error) {
     console.log(error);
-
   }
 }
 
