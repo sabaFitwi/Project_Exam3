@@ -113,7 +113,9 @@ Then open it on the live server by runing `npm run watch`
   <tbody>
     <tr>
       <th>Gantt Chart</th>
-      <td><img src="https://i.ibb.co/cb75Z3Z/gantt-chart.png" alt="gantt-chart">"Gantt Chart Images</a></td>
+
+      <td><a href= "https://ibb.co/XpfR70g">Gantt Chart Image</a></td>
+
     </tr>
     <tr>
       <th>Design Prototype</th>
