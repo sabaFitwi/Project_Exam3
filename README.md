@@ -41,12 +41,12 @@ The API which are using for this project can be found under Auction EndPoints in
 - Must use an approved CSS Framework
 
   - CSS processors
-   - [x] SASS/SCSS`used`
-   - [ ] PostCSS
+  - [x] SASS/SCSS`used`
+  - [ ] PostCSS
   - CSS frameworks
-   - [x] Bootstrap (>5)`used`
-   - [ ] Tailwind (>3)
-   - [ ] MUI (>5)
+  - [x] Bootstrap (>5)`used`
+  - [ ] Tailwind (>3)
+  - [ ] MUI (>5)
 
 - Must be hosted on an approved Static Host
 
